@@ -26,12 +26,39 @@
 
 ## 3　辛頓的求學過程
 
-辛頓的學術之路充滿轉折，反映出他對「智能本質」的執著追問：
+> 縮寫對照：**MRC** = 英國醫學研究委員會（Medical Research Council）；**PDP** = 平行分散式處理（Parallel Distributed Processing）；**DARPA** = 美國國防高等研究計畫署
 
-- **劍橋大學國王學院**：先後嘗試物理與化學、建築、再到物理與生理學，最終於 1970 年取得**實驗心理學**學士。他坦言一直想搞懂「大腦究竟如何運作」。
-- **愛丁堡大學**：1978 年取得**人工智慧博士**，師從 Christopher Longuet-Higgins。當時神經網路被主流學界視為死路，他在一片質疑中堅持以「類腦」途徑研究 AI。
-- **博士後與早期任職**：輾轉於加州大學聖地牙哥分校（與 Rumelhart、McClelland 等人合作，1986 年共同推廣反向傳播）、卡內基美隆大學。
-- **多倫多大學**：1987 年因不願接受美國軍方研究經費而移居加拿大，長期任教於此，並成為深度學習的全球重鎮。
+辛頓的求學史是一部「**屢試屢換、屢換屢退**」的反覆橫跳——但貫穿其中的，是一條始終不變的主線：**搞懂「大腦/心智究竟如何運作」**。出身第 2 節那個「智識王朝」，家族對成功的期待如影隨形（他日後自承「家庭因素逼我必須成功……其中有快樂，但更多是焦慮」），這份壓力與他真正的好奇心，構成他一路轉系的張力底色。
+
+### 3.1　中學：克利夫頓公學（Clifton College）
+辛頓於布里斯托的私立名校 **Clifton College** 完成中學教育。也正是在這裡，一位同學首次向他提到「大腦可能像**全像片（hologram）** 一樣儲存記憶」——分散式表徵的種子，早早埋下。
+
+### 3.2　劍橋大學國王學院（King's College, 1967–1970）：一部「連環輟學記」
+1967 年入學後，辛頓的主修像走馬燈一樣換個不停，堪稱「**慣性輟學者**（habitual dropout）」：
+
+1. 先讀**物理與化學**——**一個月**就退掉；
+2. 隔一年回來，到建築系上了**整整一天**課，又轉走；
+3. 改念**物理與生理學**——再退；
+4. 轉攻**哲學**——還是退；
+5. 最後落腳**實驗心理學**，於 **1970 年**總算拿到學士學位。
+
+諷刺的是，他發現連心理學也**回答不了「心智如何運作」**這個他最在意的問題——這份對既有學科的集體失望，正是他日後轉向「用神經網路逆向工程大腦」的最初動力。
+
+### 3.3　木工歲月（carpentry interlude）
+拿到學位後，辛頓並未直奔研究所，而是**當了約一年木工**。他終生熱愛木工，曾說：「我一直熱愛木工，也常想，如果當了建築師會不會更快樂。做科研時我總得逼自己……」——這段「逃離學術」的插曲，反襯出他最終回頭做研究，是出於難以擺脫的內在追問（與家族期待）。
+
+### 3.4　愛丁堡大學博士（1972–1978）：逆風中的孤獨堅持
+- 1972 年入學，師從 **Christopher Longuet-Higgins**，1978 年取得**人工智慧博士**，論文題為《**Relaxation and Its Role in Vision**》（鬆弛法在視覺中的角色，1977/78）。
+- **最大的反諷**：他選 Longuet-Higgins 正因對方曾是神經網路的支持者，沒想到入學時這位導師**剛剛「叛變」轉向符號主義 AI**。於是整個博士生涯，辛頓幾乎是**在自己導師與主流學界的雙重質疑下**，獨自死守「類腦／連結主義」路線——這份在寒冬中不改其志的執拗，正是日後第 5 節「神經網路密謀」的人格原型。
+
+### 3.5　學術流浪與早期任職
+博士畢業後，神經網路依舊冷門，辛頓四處輾轉、居無定所：
+- 英國 **Sussex 大學**、**MRC 應用心理學研究單位（Applied Psychology Unit）**；
+- 再赴美國 **加州大學聖地牙哥分校（UCSD）**，加入 Rumelhart、McClelland 的 **PDP（平行分散式處理）小組**——這是連結主義復興的大本營，1986 年三人合作的論文讓**反向傳播**廣為人知；
+- 之後任教 **卡內基美隆大學（CMU）**。
+
+### 3.6　落腳多倫多大學（1987 起）
+1987 年，辛頓因**不願接受美國軍方（DARPA 等）研究經費**而移居加拿大，長期任教於 **多倫多大學**，並把這裡經營成深度學習的全球重鎮（後與第 12 節 Zemel 共同奠基 Vector Institute）。一場橫跨二十年的「學術流浪」，至此終於定錨。
 
 ## 4　辛頓的學術血脈：門生即半部 AI 產業史
 
@@ -233,6 +260,9 @@
 - [Geoffrey Hinton Family Tree: From Mount Everest to AI — Larry Cao](https://www.larrycao.com/geoffrey-hinton-family-tree-from-mount-everest-to-ai)
 - [Boole family — Wikipedia](https://en.wikipedia.org/wiki/Boole_family)
 - [Geoffrey Hinton — Britannica](https://www.britannica.com/biography/Geoffrey-Hinton)
+- [AI Godfather Hinton: Born Into a Genius Family but a Habitual Dropout — HyperAI](https://hyper.ai/en/news/36312)
+- [Geoffrey E. Hinton — A.M. Turing Award Laureate, ACM](https://amturing.acm.org/award_winners/hinton_4791679.cfm)
+- [U of T professor Geoffrey Hinton hailed as guru of new era of computing — The Globe and Mail](https://www.theglobeandmail.com/news/toronto/u-of-t-professor-geoffrey-hinton-hailed-as-guru-of-new-era-of-computing/article34639148/)
 - [Long-time CIFAR Fellow Geoffrey Hinton awarded 2024 Nobel Prize — CIFAR](https://cifar.ca/cifarnews/2024/10/08/long-time-cifar-fellow-geoffrey-hinton-awarded-2024-nobel-prize-in-physics/)
 - [Two GTX 580s in SLI are responsible for the AI we have today — Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/two-gtx-580s-in-sli-are-responsible-for-the-ai-we-have-today-nvidias-huang-revealed-that-the-invention-of-deep-learning-began-with-two-flagship-fermi-gpus-in-2012)
 - [ImageNet Classification with Deep Convolutional Neural Networks (AlexNet paper) — NeurIPS 2012](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)
