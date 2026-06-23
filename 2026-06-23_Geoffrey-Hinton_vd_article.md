@@ -138,6 +138,16 @@
 
 > **投資視角**：辛頓 vs. 楊立昆 = 「監管收緊風險 vs. 加速開放（如 Meta 的開源 Llama 路線）」的縮影。對佈局 AI 板塊者，這條「安全派 vs. 開源加速派」的張力，直接牽動未來監管力度、開源/閉源商業模式與雲端算力需求結構——是中長線敘事的關鍵分水嶺。
 
+### 番外：楊立昆 vs 馬斯克 —— 推特上的「酸宴」
+
+如果說辛頓 vs 楊立昆是「安全 vs 加速」的**學理對決**，那麼楊立昆 vs 馬斯克就是同一條光譜上的**人身火拼**——兩人自 2024 年起在 X（前 Twitter）上公開交火，至 2025 年仍未停火。
+
+- **導火線（2024-05）**：馬斯克發文替 xAI 招募，楊立昆隨即開酸——批評馬斯克一邊聲稱要「極致嚴謹地追求真理」，一邊散布「瘋癲的陰謀論」；並嘲諷其「明顯造假」的預測（「AGI 明年就到」「2020 年百萬輛 robotaxi」始終跳票）。
+- **楊立昆的核心立場——科研需開放**：他主張前沿研究**必須公開發表**，保密只會拖慢進展、嚇跑人才。值得注意的是他並非全盤否定馬斯克——曾公開說「我喜歡他的車（自己就有兩台 Model S）、火箭、太陽能與衛星通訊，也認同他在開源與專利上的立場」，但在 AI 議題上「強烈不同意」。這種「對事不對人」的切割，反而讓批評更具殺傷力。
+- **2025 升級——「xAI 是個失敗」**：楊立昆近一步唱衰，稱 xAI「基本上算失敗」，理由是**除馬斯克外幾乎所有創始成員都已出走**，並譏其本質淪為「**租資料中心的二房東**」（rent-a-data-center，靠轉租算力回血）。
+
+> **投資視角**：這場口水戰看似八卦，實則是兩種 AI 商業模式的對撞——**Meta 開源路線（LeCun/Llama）vs xAI 閉源 + 重資本算力路線（Musk）**。楊立昆點名的「創始團隊出走、淪為算力二房東」若屬實，正是評估 xAI 估值（及其與 SpaceX/Tesla 資金、潛在 IPO 連動）時最該盯的**人才流失 + 商業模式空心化**雙風險；與第 8 節辛頓對 xAI 安全的質疑，構成「安全 + 體質」兩路夾擊。
+
 ## 11　辛頓 & Sam Altman（OpenAI）
 
 辛頓與 Sam Altman 之間**沒有師承、也無共事**，但 Altman 是本篇繞不開的人物——他的連結透過兩條線交會於辛頓：一是**門生 Sutskever**（辛頓首席弟子、OpenAI 共同創辦人），二是貫穿全篇的**「安全 vs 營利」路線之爭**。而辛頓本人，曾極不尋常地對 Altman 公開「補刀」。
@@ -147,6 +157,16 @@
 - **路線分歧的本質**：OpenAI 設立初衷以安全為核心（「開發 AGI 並**確保其安全**」）；辛頓的批評是它**逐漸從安全使命漂移向商業化**。這與第 8 節（馬斯克／xAI 弱化安全）、第 10 節（楊立昆唱反調）構成同一張「安全派 vs 加速派」光譜——只是這次辛頓的箭頭直指 OpenAI 的當家 CEO。
 
 > **投資視角**：Altman 是 AI「加速／商業化派」最具份量的代表，OpenAI 從非營利初衷轉向營利結構、加上 2023 董事會動盪，使其**治理風險**成為整個 AI 敘事的人物錨。對追蹤未上市 AI 純度標的者，這條線同時牽動兩端——OpenAI（估值最大的私有 AI 資產、潛在 IPO）與 Sutskever 出走後的 **SSI（$32B）**；兩者的此消彼長，本質上就是「Altman 路線 vs 辛頓路線」在資本市場上的對價。
+
+### 延伸：達里奧·阿莫代伊（Dario Amodei / Anthropic）vs Altman —— 另一個從 OpenAI 出走的安全派
+
+如果 Sutskever 是「**從內部**用董事會票罷免 Altman」的安全派，那麼 **達里奧·阿莫代伊** 就是更早「**直接出走另立門戶**」的那一個——兩條線同源（都來自 OpenAI、都打安全旗號），構成 Altman 身邊「安全派出走」的雙生案例。
+
+- **出走始末（2016–2021）**：阿莫代伊 2016–2020 年在 OpenAI 任**研究副總裁**（主攻安全），就在 Altman 麾下。他對 OpenAI **在擴大 ChatGPT 規模時的安全鬆動**愈發不安，2021 年與妹妹 Daniela 及十餘名前 OpenAI 員工出走，創辦 **Anthropic**，定位「安全優先」的對手。
+- **真正的裂痕——是「信任」不只是「政策」**：阿莫代伊近期澄清，安全分歧並非唯一原因；壓垮他的是**信任崩潰**——「當你覺得無法信任一個人、覺得他的價值觀與他口中說的不一致、覺得他不誠實時」。這把矛頭比單純的技術路線之爭更直指 Altman 個人。
+- **2026 的白熱化**：兩家的競爭已升級為公開敵意——2026 年 2 月印度 AI 峰會上，兩位 CEO **在台上拒絕牽手**（viral 畫面，阿莫代伊事後稱「峰會極度混亂」）；此前 Anthropic 更砸下四支 **Super Bowl 廣告**（主題 *A Time and a Place*）影射 OpenAI 在 ChatGPT 裡塞廣告的爭議。
+
+> **投資視角**：Sutskever（SSI）與 Amodei（Anthropic）是辛頓「安全派」敘事在資本市場的**兩個最大落地標的**，且都直接從 Altman 的 OpenAI 分裂而出。**Anthropic vs OpenAI** 已是當前最關鍵的閉源前沿雙雄對決——牽動雲端算力歸屬（Anthropic↔AMZN/GOOG、OpenAI↔MSFT）、企業 API 市占與監管站隊。追蹤 AI 私有資產對價時，這組「Altman vs Amodei」是比「Altman vs Musk」更具基本面含金量的一條線。
 
 ## 12　辛頓 & 直系博士生群像：可補充的故事
 
@@ -219,6 +239,11 @@
 - [AlexNet — Wikipedia](https://en.wikipedia.org/wiki/AlexNet)
 - [Hinton says he's proud Ilya Sutskever 'fired Sam Altman' — TechCrunch](https://techcrunch.com/2024/10/09/after-winning-nobel-for-foundational-ai-work-geoffrey-hinton-says-hes-proud-ilya-sutskever-fired-sam-altman/)
 - [New Nobel winner Hinton says he's proud his student fired Sam Altman — Fortune](https://fortune.com/2024/10/09/openai-sam-altman-geoffrey-hinton-nobel-prize-physics-ilya-sutskever-toronto/)
+- [Elon Musk and Yann LeCun's social media feud — VentureBeat](https://venturebeat.com/ai/elon-musk-and-yann-lecuns-social-media-feud-highlights-key-differences-in-approach-to-ai-research-and-hype)
+- [Yann LeCun calls xAI a 'failure,' reignites feud with Elon Musk — Gizmodo](https://gizmodo.com/yann-lecun-calls-xai-a-failure-reignites-feud-with-elon-musk-2000773710)
+- [Yann LeCun on X — "I like his cars... but I disagree with him"](https://x.com/ylecun/status/1797270661192155427)
+- [Sam Altman and Dario Amodei refused to hold hands at India AI summit — Fortune](https://fortune.com/2026/02/19/openai-anthropic-sam-altman-dario-amodei-refused-to-hold-hands-ai-super-bowl-ad-war-ceos-big-tech-conflict/)
+- [Why Anthropic CEO Dario Amodei left OpenAI — StackUmbrella](https://www.stackumbrella.com/technology/why-anthropic-ceo-dario-amodei-left-openai-the-real-story-behind-the-split-from-sam-altman-12005509)
 - [Deep learning pioneer Geoffrey Hinton quits Google — MIT Technology Review](https://www.technologyreview.com/2023/05/01/1072478/deep-learning-pioneer-geoffrey-hinton-quits-google/)
 - [Geoffrey Hinton Raises Red Flags on AI Industry — Value The Markets](https://www.valuethemarkets.com/cryptocurrency/news/geoffrey-hinton-raises-red-flags-on-ai-industry-and-its-impact-on-society)
 - [xAI fired an engineer who raised alarms about Grok safety — TechCrunch](https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/)
