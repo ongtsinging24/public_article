@@ -251,6 +251,48 @@
 
 > **投資視角**：博士後血脈把訊號指向幾個關鍵節點——**Ghahramani → Google DeepMind/Gemini（GOOGL 的 AI 核心戰力）**；**Welling → Qualcomm（QCOM 邊緣 AI）＋ CuspAI（AI×新材料/碳捕捉，一條被低估的 AI 應用賽道）**；**Graves → 記憶增強網路（agentic AI 的思想源頭）**；**Dayan → 神經科學橋樑（長線決定下一代架構走向）**。其中 Ghahramani 在 Gemini 的位置，是評估 Alphabet 能否守住 AI 第一梯隊的人物級觀察點。
 
+## 14　反向傳播深剖（Backpropagation）：讓深網路「學得動」的那條鏈式法則
+
+> 縮寫對照：**BP** = 反向傳播（Backpropagation）；**GD / SGD** = （隨機）梯度下降（(Stochastic) Gradient Descent）；**MLP** = 多層感知器（Multi-Layer Perceptron）；**autodiff** = 自動微分；**FLOPs** = 浮點運算次數（算力的計量單位）
+
+§1 開頭就把「反向傳播」列為辛頓奠定的理論骨幹之一，全篇也反覆提及（§3 的 1986 年合作、§6 AlexNet 的訓練）。但 BP 到底是什麼、辛頓在其中的真實角色為何、為什麼它既是地基又是辛頓晚年想親手推翻的對象——值得像 §6 講透 AlexNet 那樣，單獨深剖一節作為全篇技術收尾。
+
+### 14.1　一句話：它解決了什麼
+一個多層神經網路有成千上萬（今日是上兆）個權重。訓練的本質是問：「**這次預測錯了，每一個權重各該負多少責任、往哪個方向調？**」這就是**信用分配問題（credit assignment）**。反向傳播給出的答案，是用微積分的**鏈式法則（chain rule）**，從輸出端的誤差「**逐層往回推**」，一次算出**所有**權重的梯度（gradient，即誤差對該權重的偏導數），再用梯度下降微調。沒有它，多層網路就是一堆調不動的旋鈕。
+
+### 14.2　直覺機制：三步一循環
+1. **前向傳播（forward pass）**：資料從輸入層逐層算到輸出，得到預測；
+2. **算損失（loss）**：比對預測與正解，得到一個誤差數字；
+3. **反向傳播（backward pass）**：把誤差沿著「來時路」逐層回送，**重複利用前一層已算好的中間結果**（本質是動態規劃），於是算出全部梯度的成本，**和一次前向傳播同一個數量級**——這正是 BP 的精髓：不是「能算梯度」，而是**算得夠便宜，便宜到能擴展到上兆參數**。
+4. **更新權重**：每個權重往「降低誤差」的方向挪一小步（步長＝學習率），回到第 1 步，億萬次循環。
+
+### 14.3　辛頓的真實角色：不是發明者，而是「教父」
+這是全篇最該講清的一個史實——**辛頓並非反向傳播的發明者**，他自己也多次公開強調這點。BP 的數學被**獨立重新發明過好幾次**：
+
+| 年份 | 人物 | 貢獻 | 定位 |
+|--------|--------------------------------|----------------------------------------|----------------------|
+| 1970 | Seppo Linnainmaa | 反向模式自動微分（碩論，芬蘭文未廣傳） | 有 priority、無 paternity |
+| 1974 | Paul Werbos | 首次將其用於神經網路（哈佛博論） | 有 priority、有 paternity |
+| ~1985 | David Parker、楊立昆等 | 各自再次獨立推導 | 平行重發明 |
+| **1986** | **Rumelhart、Hinton、Williams** | **Nature 論文，引爆流行＋證明能學表徵** | **無 priority、有 paternity** |
+
+科學史的常態是：「**拿到署名的，往往不是第一個發明者，而是最後一個讓它紅起來的再發明者。**」辛頓三人 1986 年那篇《**Learning representations by back-propagating errors**》（Nature 323）的真正歷史貢獻，不在算法本身，而在**示範了隱藏層能自動學出有用的「分散式內部表徵」**——一舉跨過 1969 年 Minsky–Papert《Perceptrons》對單層感知器「連 XOR 都學不會」的著名詛咒，讓神經網路從學界棄兒重新翻案。**priority（誰先）屬於別人，paternity（誰讓它活過來、被全世界沿用）屬於辛頓。**
+
+### 14.4　為什麼是地基：今天每一次「訓練」都是它
+從 §6 的 AlexNet 到今天的 GPT，**沒有任何例外**：所有深度模型的訓練，內核都是反向傳播 + 梯度下降。§6.3 講的 ReLU、Dropout、雙 GPU，全都是**為了讓 BP 在更深、更大的網路上跑得動**而生的工程配件。可以說，BP 是引擎，AlexNet 那一役是它第一次在真實世界尺度上轟鳴。
+
+### 14.5　它的阿基里斯腱：梯度消失
+BP 把誤差逐層回乘，當層數一多、又用會「兩端飽和」的 sigmoid 激活函數時，梯度會在回傳途中**一路縮水到趨近於零**——這就是**梯度消失（vanishing gradient）**，也是「深度學習」明明 1986 年就有理論、卻卡了二十年才真正『深』得起來的核心技術障礙（反方向則是梯度爆炸）。三道解藥恰好串起本篇時間線：
+
+- **2006 預訓練**：辛頓的**深度信念網路**用逐層非監督預訓練，先把權重擺到好位置，繞過消失問題（深度學習復興的第一槍）；
+- **2012 ReLU**：§6.3 那個 `max(0,x)`，不飽和、梯度不消失，讓深網路「終於訓得動」；
+- **後續**：殘差連接（ResNet）、批次正規化等，把可訓練深度推到上百層。
+
+### 14.6　辛頓的反骨：他想親手推翻自己最有名的發明
+最大的反諷在這裡——**讓 BP 紅遍天下的辛頓，並不相信大腦是用反向傳播學習的**。他反覆指出：大腦沒有把誤差精確逐層回傳的生物機制。於是他花了數十年尋找「**生物上更合理**」的替代演算法，2022 年（NeurIPS）更提出 **Forward-Forward 演算法**——用「兩次前向傳播（一正一負）」取代「一前向一反向」，並連結到他晚年的「**有死計算（mortal computation）**」構想（運算與物理硬體不可分離，更像生物腦）。**他把這把火點起來，又花後半生想證明：真正的智能也許燒的是另一種柴。**
+
+> **投資視角**：反向傳播是 AI 產業看不見、卻無所不在的**數學引擎**——每一次模型訓練，本質都是 BP 在億萬參數上的反覆求導，而「便宜到能擴展」的特性，直接把模型規模換算成 **FLOPs → GPU 算力 → 電力**的線性需求。理解這點，就理解了為何 §6–§7 的「需求證明鏈」是**結構性**的：只要產業仍用 BP 訓練（短中期內無可替代），算力需求就與模型規模同步膨脹。值得長線留一隻眼的尾部風險是 §14.6——若辛頓這類「非 BP / 生物式」學習範式哪天成熟，可能改寫「訓練＝海量 GPU」的成本結構（目前仍屬研究早期，非可交易事件，但屬於會顛覆 NVDA 敘事根部的少數技術變數之一）。
+
 ---
 
 ## Sources
@@ -263,6 +305,11 @@
 - [AI Godfather Hinton: Born Into a Genius Family but a Habitual Dropout — HyperAI](https://hyper.ai/en/news/36312)
 - [Geoffrey E. Hinton — A.M. Turing Award Laureate, ACM](https://amturing.acm.org/award_winners/hinton_4791679.cfm)
 - [U of T professor Geoffrey Hinton hailed as guru of new era of computing — The Globe and Mail](https://www.theglobeandmail.com/news/toronto/u-of-t-professor-geoffrey-hinton-hailed-as-guru-of-new-era-of-computing/article34639148/)
+- [Rumelhart, Hinton & Williams (1986) "Learning representations by back-propagating errors" — Nature 323, 533–536](https://www.nature.com/articles/323533a0)
+- [The Backstory of Backpropagation (priority vs paternity; Linnainmaa, Werbos) — Yuxi Liu](https://yuxi-liu-wired.github.io/essays/posts/backstory-of-backpropagation/)
+- [Backpropagation is older than you think — Harry Law, Learning From Examples](https://www.learningfromexamples.com/p/backpropagation-is-older-than-you)
+- [Backpropagation — Wikipedia](https://en.wikipedia.org/wiki/Backpropagation)
+- [Hinton, "The Forward-Forward Algorithm: Some Preliminary Investigations" (NeurIPS 2022)](https://arxiv.org/abs/2212.13345)
 - [Long-time CIFAR Fellow Geoffrey Hinton awarded 2024 Nobel Prize — CIFAR](https://cifar.ca/cifarnews/2024/10/08/long-time-cifar-fellow-geoffrey-hinton-awarded-2024-nobel-prize-in-physics/)
 - [Two GTX 580s in SLI are responsible for the AI we have today — Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/two-gtx-580s-in-sli-are-responsible-for-the-ai-we-have-today-nvidias-huang-revealed-that-the-invention-of-deep-learning-began-with-two-flagship-fermi-gpus-in-2012)
 - [ImageNet Classification with Deep Convolutional Neural Networks (AlexNet paper) — NeurIPS 2012](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)
