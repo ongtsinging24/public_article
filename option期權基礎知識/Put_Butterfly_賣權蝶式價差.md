@@ -1,3 +1,9 @@
+date:15-07-2026
+case:
+"SpotGamma 這 7 個交易日的核心敘事高度一致且未變：市場被 positive gamma（正 Gamma）「逢跌必買、逢漲必賣」的均值回歸牢牢罩住，同時 COR1M 跌到兩年低點擺出一個「一觸即發的痙攣/修正」火藥桶——但缺一個觸發器（Iran / 通膨數據 / 財報爆雷）。他們的操作因此是分裂的兩層：帳面維持做多（SPX > Risk Pivot），但持續加碼便宜的下檔保護，並隨時間把保護從「當沖彩票 put fly」升級為 8/9月 put spread。關鍵轉折點鎖定 7/17 OPEX（正 Gamma 消失）＋ ASML(7/15)/TSM(7/16)/Mag7 財報。"
+
+
+
 **Put fly = Put Butterfly（賣權蝶式價差），三腿結構，非你公約裡的雙腿 spread。**
 
 標準 long put butterfly 組成（同一到期日）：
