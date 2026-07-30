@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>急流泳渡與救援｜核心技術教學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EAEEEF;
+  --card:#FFFFFF;
+  --ink:#10303A;
+  --ink-2:#456169;
+  --ink-3:#93A8AE;
+  --line:#C9D5D8;
+  --river:#2C7A8C;
+  --rescue:#DB5326;
+  --signal:#EFC33F;
+  --t:#93A8AE;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --disp:"Barlow Condensed","Noto Sans TC","PingFang TC",sans-serif;
+  --mono:"IBM Plex Mono","Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.85;font-weight:400;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 28px 96px}
+
+/* ---- masthead ---- */
+.mast{padding:64px 0 0}
+.tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--river);margin:0 0 18px
+}
+h1{
+  font-family:var(--disp);font-weight:700;font-size:clamp(38px,7vw,62px);
+  line-height:1.06;letter-spacing:.01em;margin:0
+}
+h1 .en{display:block;font-size:.42em;letter-spacing:.14em;color:var(--ink-3);
+  text-transform:uppercase;margin-top:12px;font-weight:600}
+.deck{font-size:17px;color:var(--ink-2);margin:24px 0 0;max-width:60ch}
+.meta{
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+  letter-spacing:.06em;margin:28px 0 0;padding-top:14px;border-top:1px solid var(--line)
+}
+.meta span{margin-right:20px;white-space:nowrap}
+
+/* ---- flow rule (signature motif: current runs left to right) ---- */
+.flow{
+  height:12px;margin:44px 0;opacity:.55;
+  background:
+    repeating-linear-gradient(38deg,  var(--river) 0 1.5px, transparent 1.5px 9px) top   /100% 6px repeat-x,
+    repeating-linear-gradient(-38deg, var(--river) 0 1.5px, transparent 1.5px 9px) bottom/100% 6px repeat-x;
+}
+
+/* ---- opening axiom: the principle everything else rests on ---- */
+.axiom{
+  background:var(--card);border:1px solid var(--line);
+  border-top:4px solid var(--river);padding:34px 32px 26px;margin:0
+}
+.axiom h2{font-size:clamp(30px,5.4vw,46px);margin:0;line-height:1.1}
+.axiom .lead{font-size:17px;color:var(--ink-2);margin:18px 0 26px;max-width:60ch}
+.axiom .reasons{display:grid;grid-template-columns:1fr 1fr;gap:24px 36px}
+.axiom .reasons>div{border-top:1px solid var(--line);padding-top:15px}
+.axiom .reasons h4{
+  font-family:var(--disp);font-weight:600;font-size:18px;
+  margin:0 0 7px;letter-spacing:.01em;color:var(--ink)
+}
+.axiom .reasons p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.75}
+.axiom .corollary{
+  margin:28px 0 0;padding-top:16px;border-top:1px solid var(--line);
+  font-size:14.5px;color:var(--ink-2)
+}
+.axiom .corollary b{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--river);font-weight:400;display:block;margin-bottom:5px
+}
+@media (max-width:600px){
+  .axiom{padding:26px 20px 22px}
+  .axiom .reasons{grid-template-columns:1fr;gap:18px}
+}
+
+/* ---- hero diagram ---- */
+.plate{
+  background:var(--card);border:1px solid var(--line);
+  padding:26px 24px 20px;margin:0
+}
+.plate svg{display:block;width:100%;height:auto}
+.plate-cap{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink-3);
+  margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)
+}
+
+/* ---- sections ---- */
+section{margin:0;padding:56px 0 0;scroll-margin-top:24px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rescue);margin:0 0 10px;display:flex;align-items:center;gap:12px
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+h2{
+  font-family:var(--disp);font-weight:700;font-size:clamp(26px,4.2vw,36px);
+  line-height:1.2;margin:0 0 6px;letter-spacing:.01em
+}
+h2 .sub{font-family:var(--body);font-weight:400;font-size:15px;color:var(--ink-3);
+  display:block;margin-top:6px;letter-spacing:0}
+h3{font-family:var(--disp);font-weight:600;font-size:20px;margin:32px 0 8px;letter-spacing:.01em}
+p{margin:14px 0}
+.lede{font-weight:500;color:var(--ink)}
+ul{margin:14px 0;padding-left:0;list-style:none}
+li{position:relative;padding-left:22px;margin:9px 0}
+li::before{
+  content:"";position:absolute;left:2px;top:.72em;
+  width:7px;height:7px;border:1.5px solid var(--river);transform:rotate(45deg)
+}
+strong{font-weight:700}
+code,.k{font-family:var(--mono);font-size:.9em;background:#DFE7E9;padding:1px 5px}
+
+.note{
+  border-left:3px solid var(--river);background:var(--card);
+  padding:16px 20px;margin:24px 0
+}
+.note p{margin:6px 0}
+.note .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--river);display:block;margin-bottom:4px}
+
+/* ---- hazard section: the one loud element ---- */
+.hazard{position:relative;background:var(--card);margin-top:56px;border:1px solid var(--line)}
+.hazard .band{
+  height:14px;
+  background:repeating-linear-gradient(45deg,var(--signal) 0 14px,var(--ink) 14px 28px)
+}
+.hazard .inner{padding:30px 26px 34px}
+.hazard .eyebrow{color:var(--ink)}
+table{width:100%;border-collapse:collapse;margin:20px 0 0;font-size:15px}
+th,td{text-align:left;padding:14px 14px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;padding-bottom:8px}
+td:first-child{width:34%;font-weight:500;padding-right:20px}
+
+/* ---- progression ladder ---- */
+ol.ladder{counter-reset:s;list-style:none;padding:0;margin:20px 0 0}
+ol.ladder li{padding-left:52px;margin:0;border-bottom:1px solid var(--line);padding-top:15px;padding-bottom:15px}
+ol.ladder li::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  font-family:var(--mono);font-size:12px;color:var(--rescue);
+  position:absolute;left:0;top:1.15em;width:auto;height:auto;border:0;transform:none;letter-spacing:.05em
+}
+ol.ladder li:last-child{border-bottom:0}
+
+footer{
+  margin-top:64px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:13.5px;color:var(--ink-3);line-height:1.7
+}
+footer strong{color:var(--ink-2)}
+.sig{margin:28px 0 0;display:flex;align-items:baseline;gap:14px;
+  font-family:var(--disp);font-size:24px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+.sig .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400}
+.sig .rule{flex:1;height:1px;background:var(--line);align-self:center}
+
+/* ---- svg diagram classes ---- */
+svg .t{font:14px var(--body);fill:var(--ink)}
+svg .ts{font:12px var(--body);fill:var(--ink-2)}
+svg .th{font:500 14px var(--body);fill:var(--ink)}
+svg .arr{stroke:var(--ink-2);stroke-width:1.5;fill:none}
+svg .leader{stroke:var(--ink-3);stroke-width:.6;stroke-dasharray:3 3;fill:none}
+svg .c-gray  rect,svg .c-gray  circle,svg .c-gray  ellipse{fill:#DCE3E5;stroke:#8FA3A8}
+svg .c-blue  rect,svg .c-blue  circle,svg .c-blue  ellipse{fill:#E1EDF2;stroke:#83AFBC}
+svg .c-teal  rect,svg .c-teal  circle,svg .c-teal  ellipse{fill:#D9EDE5;stroke:#3E9C82}
+svg .c-coral rect,svg .c-coral circle,svg .c-coral ellipse{fill:#FAE3D9;stroke:#D9694A}
+
+@media (max-width:600px){
+  .wrap{padding:0 18px 72px}
+  .mast{padding-top:40px}
+  td:first-child{width:auto;display:block;padding-bottom:4px;border:0}
+  td:last-child{display:block;padding-top:0}
+}
+@media print{
+  body{background:#fff}
+  .wrap{max-width:none;padding:0 12mm 12mm}
+  section,.plate,.hazard{break-inside:avoid}
+  .hazard .band{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="tag">教學講義 · 生命安全操作</p>
+  <h1>急流泳渡與救援
+    <span class="en">Swiftwater swimming &amp; rescue</span>
+  </h1>
+  <p class="deck">在急流中進行泳渡與救援時，主要採用<strong>防衛式泳渡</strong>與<strong>攻擊式泳渡</strong>兩種核心方式，搭配安全的入水與上岸技巧。</p>
+  <p class="meta">
+    <span>俯視 + 側視圖解</span>
+    <span>繁體中文</span>
+    <span>需搭配實作訓練</span>
+  </p>
+</header>
+
+<div class="flow" aria-hidden="true"></div>
+
+<section class="axiom">
+  <p class="eyebrow">渡河 · 第一原則</p>
+  <h2>頭朝上游，腳朝下游</h2>
+  <p class="lead">這是渡河與泳渡的第一原則，不是姿勢細節。先理解這一條，後面所有角度與判斷都跟著成立。</p>
+  <div class="reasons">
+    <div>
+      <h4>用腳去頂，不要用頭去撞</h4>
+      <p>腳在下游，遇到岩石時是腳先接觸，可以蹬開，膝蓋微彎當緩衝。頭在上游端，是撞擊風險最低的位置。</p>
+    </div>
+    <div>
+      <h4>眼睛才看得到下游前方</h4>
+      <p>防衛式仰躺、頭抬起時，視線越過腳尖看向下游，才能提前判讀水路、選擇路線與落點。頭朝下游則兩件事同時失去。</p>
+    </div>
+  </div>
+  <p class="corollary"><b>推論</b>後面所有內容都是這一條的延伸——防衛式的偏角、上岸點的選擇、主繩輔助時扣哪一隻手，判準都是「有沒有破壞頭朝上游、腳朝下游」。任何做法只要會把人帶成頭朝下游，就是錯的，不必再看細節。</p>
+</section>
+
+<figure class="plate" style="margin:34px 0 0">
+<svg viewBox="0 0 680 646" role="img" xmlns="http://www.w3.org/2000/svg"><title>急流泳渡俯視與側視圖</title><desc>俯視圖顯示防衛式與攻擊式的頭部都朝目標岸的上游側偏約四十五度，兩者身體軸線角度相同，差別在仰躺腳先或俯泳頭先；並顯示從下游側切入岩石後方回流區的路線。側視圖顯示防衛式仰躺姿勢的頭、臀、腳位置。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text class="th" x="40" y="30">俯視</text>
+<text class="ts" x="86" y="30">水流由左至右｜出發岸在下</text>
+
+<g class="c-gray"><rect x="40" y="45" width="600" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="63">目標岸</text></g>
+<g class="c-blue"><rect x="40" y="71" width="600" height="270" stroke-width="0.5"/></g>
+<g class="c-gray"><rect x="40" y="341" width="600" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="359">出發岸</text></g>
+
+<line x1="60" y1="86" x2="122" y2="86" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="136" y="90">水流</text>
+<line x1="60" y1="330" x2="122" y2="330" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="136" y="334">水流</text>
+
+<g class="c-gray"><circle cx="450" cy="130" r="22" stroke-width="0.5"/></g>
+<text class="ts" x="450" y="96" text-anchor="middle">岩石</text>
+<g class="c-teal"><ellipse cx="530" cy="128" rx="42" ry="24" stroke-width="1" stroke-dasharray="5 4"/></g>
+<text class="ts" x="545" y="190" text-anchor="middle">回流區 eddy</text>
+
+<line x1="96" y1="195" x2="204" y2="195" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.45"/>
+<text class="ts" x="208" y="202">45°</text>
+<g transform="translate(150,195) rotate(45)">
+<rect x="-24" y="-7" width="48" height="14" rx="7" fill="#3D8CB8"/>
+<circle cx="-26" cy="0" r="8" fill="#1E5C7E"/>
+<line x1="26" y1="-10" x2="26" y2="10" stroke="#1E5C7E" stroke-width="4" stroke-linecap="round"/>
+</g>
+<path d="M124 168 C 140 130, 165 100, 205 78" fill="none" stroke="#3D8CB8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<text class="ts" x="222" y="120">實際路徑</text>
+<text class="th" x="150" y="278" text-anchor="middle">防衛式</text>
+<text class="ts" x="150" y="296" text-anchor="middle">仰躺 · 腳朝下游</text>
+
+<line x1="276" y1="195" x2="384" y2="195" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.45"/>
+<text class="ts" x="388" y="202">45°</text>
+<g transform="translate(330,195) rotate(45)">
+<rect x="-24" y="-7" width="48" height="14" rx="7" fill="#DB5326"/>
+<circle cx="-26" cy="0" r="8" fill="#993C1D"/>
+<line x1="26" y1="-9" x2="26" y2="9" stroke="#993C1D" stroke-width="4" stroke-linecap="round"/>
+</g>
+<path d="M316 180 C 366 158, 420 162, 470 164 C 530 168, 580 140, 548 118" fill="none" stroke="#DB5326" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<text class="ts" x="300" y="112">從下游側進 eddy</text>
+<text class="th" x="330" y="278" text-anchor="middle">攻擊式</text>
+<text class="ts" x="330" y="296" text-anchor="middle">俯泳 · 頭朝目標岸</text>
+
+<text class="th" x="40" y="412">側視</text>
+<text class="ts" x="86" y="412">防衛式姿勢</text>
+
+<g class="c-blue"><rect x="60" y="460" width="560" height="100" stroke-width="0.5"/></g>
+<line x1="60" y1="460" x2="620" y2="460" stroke="#3D8CB8" stroke-width="1.5"/>
+<text class="ts" x="614" y="454" text-anchor="end">水面</text>
+<g class="c-gray"><rect x="60" y="560" width="560" height="16" rx="3" stroke-width="0.5"/></g>
+<text class="ts" x="614" y="554" text-anchor="end">河床｜勿站立</text>
+
+<circle cx="195" cy="446" r="13" fill="#1E5C7E"/>
+<path d="M208 452 C 240 462, 270 470, 302 472" fill="none" stroke="#3D8CB8" stroke-width="17" stroke-linecap="round"/>
+<path d="M302 472 C 335 474, 365 466, 394 458" fill="none" stroke="#3D8CB8" stroke-width="11" stroke-linecap="round"/>
+<line x1="394" y1="458" x2="414" y2="446" stroke="#1E5C7E" stroke-width="8" stroke-linecap="round"/>
+
+<line class="leader" x1="140" y1="430" x2="182" y2="440"/>
+<text class="ts" x="60" y="426">頭抬起看下游</text>
+<line class="leader" x1="300" y1="440" x2="290" y2="464"/>
+<text class="ts" x="300" y="434" text-anchor="middle">腹部核心持續用力</text>
+<line class="leader" x1="428" y1="436" x2="412" y2="446"/>
+<text class="ts" x="434" y="430">腳朝下游 · 腳尖露出</text>
+<line class="leader" x1="312" y1="494" x2="304" y2="478"/>
+<text class="ts" x="312" y="506" text-anchor="middle">臀部必然最低 · 勿折成 L 形</text>
+<line x1="548" y1="500" x2="604" y2="500" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="540" y="504" text-anchor="end">下游</text>
+
+<g class="c-blue"><rect x="40" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="60" y="601">防衛式</text>
+<g class="c-coral"><rect x="115" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="135" y="601">攻擊式</text>
+<g class="c-teal"><rect x="190" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="210" y="601">回流區</text>
+<line x1="265" y1="597" x2="295" y2="597" stroke="var(--t)" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text class="ts" x="302" y="601">實際路徑</text>
+<circle cx="46" cy="617" r="5" fill="var(--t)"/>
+<text class="ts" x="58" y="621">頭</text>
+<line x1="88" y1="612" x2="88" y2="622" stroke="var(--t)" stroke-width="4" stroke-linecap="round"/>
+<text class="ts" x="98" y="621">腳</text>
+<text class="ts" x="122" y="621">兩者頭都在上游側，防衛式腳始終朝下游</text>
+</svg>
+<figcaption class="plate-cap">圖一　水流由左至右　｜　防衛式與攻擊式的偏角方向（俯視，出發岸在下）、回流區進入路線，＋防衛式姿勢（側視）</figcaption>
+</figure>
+
+<figure class="plate" style="margin:28px 0 0">
+<svg viewBox="0 0 680 646" role="img" xmlns="http://www.w3.org/2000/svg"><title>急流泳渡俯視與側視圖（水流由右至左）</title><desc>與圖一左右鏡射。水流由右往左，上游在右側，出發岸在下方、目標岸在上方。防衛式與攻擊式的頭部都朝目標岸的上游側偏約四十五度，也就是朝右上；並顯示從下游側切入岩石後方回流區的路線。側視圖同樣改為下游朝左。</desc>
+<defs><marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text class="th" x="40" y="30">俯視</text>
+<text class="ts" x="86" y="30">水流由右至左｜出發岸在下</text>
+
+<g class="c-gray"><rect x="40" y="45" width="600" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="63">目標岸</text></g>
+<g class="c-blue"><rect x="40" y="71" width="600" height="270" stroke-width="0.5"/></g>
+<g class="c-gray"><rect x="40" y="341" width="600" height="26" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="359">出發岸</text></g>
+
+<line x1="620" y1="86" x2="558" y2="86" class="arr" marker-end="url(#arrow2)"/>
+<text class="ts" x="544" y="90" text-anchor="end">水流</text>
+<line x1="620" y1="330" x2="558" y2="330" class="arr" marker-end="url(#arrow2)"/>
+<text class="ts" x="544" y="334" text-anchor="end">水流</text>
+
+<g class="c-gray"><circle cx="230" cy="130" r="22" stroke-width="0.5"/></g>
+<text class="ts" x="230" y="96" text-anchor="middle">岩石</text>
+<g class="c-teal"><ellipse cx="150" cy="128" rx="42" ry="24" stroke-width="1" stroke-dasharray="5 4"/></g>
+<text class="ts" x="135" y="190" text-anchor="middle">回流區 eddy</text>
+
+<line x1="476" y1="195" x2="584" y2="195" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.45"/>
+<text class="ts" x="472" y="202" text-anchor="end">45°</text>
+<g transform="translate(530,195) rotate(135)">
+<rect x="-24" y="-7" width="48" height="14" rx="7" fill="#3D8CB8"/>
+<circle cx="-26" cy="0" r="8" fill="#1E5C7E"/>
+<line x1="26" y1="-10" x2="26" y2="10" stroke="#1E5C7E" stroke-width="4" stroke-linecap="round"/>
+</g>
+<path d="M556 168 C 540 130, 515 100, 475 78" fill="none" stroke="#3D8CB8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow2)"/>
+<text class="ts" x="458" y="120" text-anchor="end">實際路徑</text>
+<text class="th" x="530" y="278" text-anchor="middle">防衛式</text>
+<text class="ts" x="530" y="296" text-anchor="middle">仰躺 · 腳朝下游</text>
+
+<line x1="296" y1="195" x2="404" y2="195" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.45"/>
+<text class="ts" x="292" y="202" text-anchor="end">45°</text>
+<g transform="translate(350,195) rotate(135)">
+<rect x="-24" y="-7" width="48" height="14" rx="7" fill="#DB5326"/>
+<circle cx="-26" cy="0" r="8" fill="#993C1D"/>
+<line x1="26" y1="-9" x2="26" y2="9" stroke="#993C1D" stroke-width="4" stroke-linecap="round"/>
+</g>
+<path d="M364 180 C 314 158, 260 162, 210 164 C 150 168, 100 140, 132 118" fill="none" stroke="#DB5326" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow2)"/>
+<text class="ts" x="380" y="112" text-anchor="end">從下游側進 eddy</text>
+<text class="th" x="350" y="278" text-anchor="middle">攻擊式</text>
+<text class="ts" x="350" y="296" text-anchor="middle">俯泳 · 頭朝目標岸</text>
+
+<text class="th" x="40" y="412">側視</text>
+<text class="ts" x="86" y="412">防衛式姿勢</text>
+
+<g class="c-blue"><rect x="60" y="460" width="560" height="100" stroke-width="0.5"/></g>
+<line x1="60" y1="460" x2="620" y2="460" stroke="#3D8CB8" stroke-width="1.5"/>
+<text class="ts" x="66" y="454">水面</text>
+<g class="c-gray"><rect x="60" y="560" width="560" height="16" rx="3" stroke-width="0.5"/></g>
+<text class="ts" x="66" y="554">河床｜勿站立</text>
+
+<circle cx="485" cy="446" r="13" fill="#1E5C7E"/>
+<path d="M472 452 C 440 462, 410 470, 378 472" fill="none" stroke="#3D8CB8" stroke-width="17" stroke-linecap="round"/>
+<path d="M378 472 C 345 474, 315 466, 286 458" fill="none" stroke="#3D8CB8" stroke-width="11" stroke-linecap="round"/>
+<line x1="286" y1="458" x2="266" y2="446" stroke="#1E5C7E" stroke-width="8" stroke-linecap="round"/>
+
+<line class="leader" x1="540" y1="430" x2="498" y2="440"/>
+<text class="ts" x="620" y="426" text-anchor="end">頭抬起看下游</text>
+<line class="leader" x1="380" y1="440" x2="390" y2="464"/>
+<text class="ts" x="380" y="434" text-anchor="middle">腹部核心持續用力</text>
+<line class="leader" x1="252" y1="436" x2="268" y2="446"/>
+<text class="ts" x="246" y="430" text-anchor="end">腳朝下游 · 腳尖露出</text>
+<line class="leader" x1="368" y1="494" x2="376" y2="478"/>
+<text class="ts" x="368" y="506" text-anchor="middle">臀部必然最低 · 勿折成 L 形</text>
+<line x1="132" y1="500" x2="76" y2="500" class="arr" marker-end="url(#arrow2)"/>
+<text class="ts" x="146" y="504">下游</text>
+
+<g class="c-blue"><rect x="40" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="60" y="601">防衛式</text>
+<g class="c-coral"><rect x="115" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="135" y="601">攻擊式</text>
+<g class="c-teal"><rect x="190" y="592" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="210" y="601">回流區</text>
+<line x1="265" y1="597" x2="295" y2="597" stroke="var(--t)" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text class="ts" x="302" y="601">實際路徑</text>
+<circle cx="46" cy="617" r="5" fill="var(--t)"/>
+<text class="ts" x="58" y="621">頭</text>
+<line x1="88" y1="612" x2="88" y2="622" stroke="var(--t)" stroke-width="4" stroke-linecap="round"/>
+<text class="ts" x="98" y="621">腳</text>
+<text class="ts" x="122" y="621">兩者頭都在上游側，防衛式腳始終朝下游</text>
+</svg>
+<figcaption class="plate-cap">圖二　水流由右至左　｜　與圖一左右鏡射，上游改在右側</figcaption>
+</figure>
+
+<section>
+  <p class="eyebrow">怎麼看這兩張圖</p>
+  <h2>四個判讀重點<span class="sub">兩張圖只差在水流方向，判讀邏輯完全相同</span></h2>
+
+  <h3>兩個 45° 的方向是一樣的</h3>
+  <p>這是最容易畫錯、也最容易記錯的地方：<strong>防衛式和攻擊式的頭都在上游側，都朝著目標岸偏</strong>，身體軸線與水流的夾角相同。差別只在於面朝上還是面朝下、哪一端先走。</p>
+  <ul>
+    <li><strong>防衛式</strong>：仰躺，腳朝下游先走；頭朝目標岸的上游側，反划把自己推過去</li>
+    <li><strong>攻擊式</strong>：俯泳，頭朝目標岸的上游側先走；往頭的方向划</li>
+  </ul>
+  <p>兩者都不是在對抗水流，而是把水流的推力分解出橫向分力。角度抓錯，兩個方向各有一種失敗：</p>
+  <ul>
+    <li><strong>角度抓太小</strong>（身體與河岸變得太垂直）：橫向分力不足、迎流面積最大，會被沖過頭。</li>
+    <li><strong>角度抓太大</strong>（身體與河流流向變得太平行）：等於直接在跟急流對抗，非但不能前進，而且快速耗盡體力。</li>
+  </ul>
+  <div class="note">
+    <span class="lbl">量測基準</span>
+    <p>這裡的角度以「正對對岸」為零點——身體越接近垂直於河岸，角度就越小。圖一、圖二標示的「與水流 45°」是以水流方向為零點的另一種量法；45° 時兩種量法數值恰好相同，但一旦講「太大、太小」，務必先講清楚基準，否則會理解成相反的方向。</p>
+  </div>
+
+  <h3>虛線是「實際路徑」，不是「身體指向」</h3>
+  <p>圖中攻擊式泳者頭朝左上，實際路徑卻往右上——這不是矛盾，那個差距就是水流。身體指的方向和實際走的方向永遠不一樣，你要瞄準的是目標的上游側，不是目標本身。</p>
+
+  <h3>進 eddy 的路線刻意畫成從下游側切入</h3>
+  <p>從岩石正後方（上游側）直接靠近會被主流帶著擦過去；正確做法是先隨流通過岩石，再從 eddy 的下游側朝上游斜切，用攻擊式加速穿過回流線，進去後身體才穩得住。出 eddy 則同樣朝上游側加速切出，直接往下游沖會被回流線翻掉。</p>
+
+  <h3>臀部是最低點，這不是缺陷</h3>
+  <p>仰躺時同時抬頭又抬腳，身體必然形成一個淺 V，<strong>臀部就是全身最低點</strong>——頭、腳、臀三者不可能同時抬高。常見口訣「屁股抬高」照字面理解是錯的，它真正要糾正的是另一個姿勢：把自己坐成 L 形（膝蓋抬高、屁股深陷）。那才是撞底與卡腳的來源。</p>
+  <p>所以目標不是抬高臀部，而是<strong>身體拉長、不折彎，讓臀部只低一點點</strong>。維持這個形狀靠的是<strong>腹部核心持續用力</strong>：核心一鬆，兩件事會同時發生——腳沉下去（卡腳風險），頭往後仰（看不到下游，水灌進口鼻）。</p>
+  <div class="note">
+    <span class="lbl">觀念修正</span>
+    <p>防衛式不是「躺著休息」。它比攻擊式省力，但仍然是一個持續出力的姿勢。教學時要明講這點，否則學員會在長距離漂流中鬆掉核心而不自知。</p>
+  </div>
+  <h3>兩張圖是鏡射的，不要背圖</h3>
+  <p>圖一上游在左、圖二上游在右，其餘完全相同。到了現場，你唯一要先確認的是<strong>水往哪流</strong>；確認之後，「頭朝目標岸的上游側」這條規則自動決定了偏角方向，不需要記左或右。訓練時刻意兩個方向都練，避免只在單一方向形成肌肉記憶。</p>
+</section>
+
+<div class="flow" aria-hidden="true"></div>
+
+<section>
+  <p class="eyebrow">水中 · 預設狀態</p>
+  <h2>防衛式泳渡<span class="sub">Defensive swimming — 落水後第一時間就該進入這個狀態</span></h2>
+  <ul>
+    <li><strong>腳朝下游</strong>，膝蓋微彎，腳尖露出水面，隨時準備蹬開岩石</li>
+    <li><strong>腹部核心持續用力</strong>，把頭與腳撐在水面高度</li>
+    <li>身體拉長、盡量呈水平，<strong>不要折成坐姿 L 形</strong>——臀部深陷才是撞底與卡腳的來源</li>
+    <li>頭抬起看下游，判讀水路（只抬到看得見即可）</li>
+    <li>雙手在體側划水（反划／sculling）控制方向</li>
+    <li>用途：偵察水路、相對省力、水下狀況不明、流速過強</li>
+  </ul>
+  <div class="note">
+    <span class="lbl">倒划渡河 · back ferry</span>
+    <p>維持腳朝下游，身體與水流約 45° 夾角，用反划把自己往目標岸「推」過去。水流會替你做大部分的工作。</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">水中 · 主動狀態</p>
+  <h2>攻擊式泳渡<span class="sub">Aggressive swimming — 用在「必須到達某個點」的時候</span></h2>
+  <ul>
+    <li>強力自由式（抬頭捷泳），每 3–5 划抬頭確認目標</li>
+    <li><strong>順渡角（ferry angle）</strong>：身體朝上游偏約 45° 對準目標岸，利用水流分力橫渡，而不是硬幹逆流</li>
+    <li>用途：橫渡、接近溺者、抓拋繩、穿越回流線、脫離危險區、上岸</li>
+  </ul>
+  <div class="note">
+    <span class="lbl">切換原則</span>
+    <p>預設防衛式 → 看到明確目標或需要動作時轉攻擊式 → 動作完成立即回防衛式休息。攻擊式非常耗氧，不能長時間維持。</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">進入水域</p>
+  <h2>入水技巧<span class="sub">Entry</span></h2>
+  <p class="lede">入水前檢查（不可省略）</p>
+  <ul>
+    <li>頭盔扣帶、PFD 束緊（含胯帶、提把）</li>
+    <li>割繩刀可單手取用</li>
+    <li>身上無鬆繩、無死結</li>
+    <li>下游安全（拋繩手／攔截點）已就位</li>
+    <li>哨音與手勢確認</li>
+  </ul>
+  <h3>入水方式</h3>
+  <ul>
+    <li><strong>狀況不明或淺水</strong>：坐姿或蹲姿，腳先滑入，絕不頭先入水</li>
+    <li><strong>已知深水且無障礙</strong>：跨步式入水（stride jump）——雙腳前後張開、雙臂張開壓水、身體直立、下巴內收、頭不入水；落水後<strong>立刻轉防衛式</strong></li>
+    <li>高處或岸邊落差：先目視確認水深與水下障礙（倒木、掏空岩）</li>
+  </ul>
+</section>
+
+<section>
+  <p class="eyebrow">脫離水域</p>
+  <h2>上岸技巧<span class="sub">Exit</span></h2>
+  <ul>
+    <li><strong>選點</strong>：優先選岩石或彎道下游的回流區（eddy）、緩坡、有踏點的岸邊</li>
+    <li><strong>穿越回流線</strong>：用攻擊式加速、身體壓低，快速切過交界流；猶豫就會被推回主流</li>
+    <li><strong>絕不提早站立</strong>——水深過膝或有流速時站立＝卡腳（foot entrapment）風險</li>
+    <li>貼近岸邊後改用趴姿爬行（beach crawl），身體平貼滑上岸</li>
+    <li>上岸後回報位置、注意失溫、盡快回到隊伍下游位置支援</li>
+  </ul>
+</section>
+
+<div class="hazard">
+  <div class="band" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="eyebrow">絕對禁忌</p>
+    <h2>四個會致命的判斷<span class="sub">記錯一個就沒有第二次</span></h2>
+    <table>
+      <thead><tr><th>情境</th><th>正確處置</th></tr></thead>
+      <tbody>
+        <tr><td>流動水中站立</td><td>過膝＋有流速就不站，維持防衛式</td></tr>
+        <tr><td>撞上濾網／倒木（strainer）</td><td><strong>絕不防衛式</strong>（會被吸到底下）。全力攻擊式衝向它，接觸瞬間上半身高抬、雙手撐上、翻爬過去</td></tr>
+        <tr><td>被回流（hydraulic）捲住</td><td>縮身下潛找底層外流，或側向游向翻滾波的兩端弱點</td></tr>
+        <tr><td>繩索</td><td>任何繩索都不繫死在身上，必須可瞬間脫離</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<section>
+  <p class="eyebrow">進階 · 主繩輔助</p>
+  <h2>主繩輔助橫渡<span class="sub">斜張繩（tensioned diagonal）｜須先完成徒手泳渡訓練</span></h2>
+  <div class="note">
+    <span class="lbl">先決條件</span>
+    <p>本節技術建立在徒手防衛式之上。姿勢要求一條都沒有放寬——核心一樣要用力、臀部一樣不能下沉、腳尖一樣要露出、一樣絕不站立。繩只接管了「橫向移動」，其餘全部照舊。</p>
+  </div>
+
+  <h3>系統怎麼運作</h3>
+  <p>主繩由<strong>出發岸的上游端</strong>斜拉到<strong>目標岸的下游端</strong>。水流對繩的分量中，沿繩分量把人推向下游端，跨繩分量把人推向出發岸那一側——所以人是在繩的下游側扶著繩滑過去，不會被壓到繩下方。這也是為什麼絕不能跑到繩的上游側。</p>
+  <p>入水點和上岸點就是那兩個固定點。人從上游端入水，被推到下游端上岸，全程不需要判讀水路選落點，這是它比徒手橫渡可靠的主要原因。</p>
+</section>
+
+<figure class="plate" style="margin:28px 0 0">
+<svg viewBox="0 0 680 474" role="img" xmlns="http://www.w3.org/2000/svg"><title>主繩輔助橫渡大局圖</title><desc>整體水域俯視圖。水流由右至左，面向下游時左手邊為左岸，因此下方的出發岸為左岸、上方的目標岸為右岸。主繩由出發岸上游端斜拉到目標岸下游端，兼作入水點與上岸點。泳者維持防衛式、身體呈四十五度、頭朝目標岸上游，牛尾接在左手腕。下游兩岸各配置拋繩手。</desc>
+<defs><marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text class="th" x="40" y="30">大局圖</text>
+<text class="ts" x="106" y="30">主繩輔助橫渡｜水流由右至左</text>
+
+<g class="c-gray"><rect x="40" y="45" width="600" height="30" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="67">目標岸（右岸）</text></g>
+<g class="c-blue"><rect x="40" y="75" width="600" height="280" stroke-width="0.5"/></g>
+<g class="c-gray"><rect x="40" y="355" width="600" height="30" rx="4" stroke-width="0.5"/><text class="ts" x="58" y="377">出發岸（左岸）</text></g>
+
+<line x1="620" y1="92" x2="560" y2="92" class="arr" marker-end="url(#arrow3)"/>
+<text class="ts" x="546" y="96" text-anchor="end">水流</text>
+
+<line x1="610" y1="355" x2="280" y2="75" stroke="#BA7517" stroke-width="4" stroke-linecap="round"/>
+<line class="leader" x1="500" y1="221" x2="488" y2="244"/>
+<text class="ts" x="500" y="215" text-anchor="middle">主繩</text>
+<line x1="284" y1="80" x2="390" y2="80" stroke="var(--t)" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.5"/>
+<text class="ts" x="340" y="98" text-anchor="middle">繩與水流約 30–45°</text>
+
+<g class="c-gray"><rect x="602" y="347" width="16" height="16" rx="3" stroke-width="1"/></g>
+<text class="ts" x="636" y="378" text-anchor="end">上游端固定 · 入水點</text>
+<g class="c-gray"><rect x="272" y="67" width="16" height="16" rx="3" stroke-width="1"/></g>
+<text class="ts" x="300" y="68">下游端固定 · 上岸點</text>
+
+<line x1="496" y1="291" x2="514" y2="273" stroke="#534AB7" stroke-width="4" stroke-linecap="round"/>
+<circle cx="514" cy="273" r="4" fill="none" stroke="var(--t)" stroke-width="1.5"/>
+<g transform="translate(485,302) rotate(135)">
+<rect x="-16" y="-5" width="32" height="10" rx="5" fill="#3D8CB8"/>
+<circle cx="-18" cy="0" r="6" fill="#1E5C7E"/>
+<line x1="18" y1="-7" x2="18" y2="7" stroke="#1E5C7E" stroke-width="3" stroke-linecap="round"/>
+</g>
+
+<line x1="356" y1="174" x2="375" y2="155" stroke="#534AB7" stroke-width="4" stroke-linecap="round"/>
+<circle cx="375" cy="155" r="4" fill="none" stroke="var(--t)" stroke-width="1.5"/>
+<g transform="translate(346,184) rotate(135)">
+<rect x="-16" y="-5" width="32" height="10" rx="5" fill="#3D8CB8"/>
+<circle cx="-18" cy="0" r="6" fill="#1E5C7E"/>
+<line x1="18" y1="-7" x2="18" y2="7" stroke="#1E5C7E" stroke-width="3" stroke-linecap="round"/>
+</g>
+<line class="leader" x1="338" y1="196" x2="280" y2="215"/>
+<text class="ts" x="272" y="219" text-anchor="end">牛尾接左手腕</text>
+
+<path d="M426 291 L 367 240" fill="none" stroke="#3D8CB8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow3)"/>
+<text class="ts" x="370" y="300" text-anchor="middle">水流沿繩推送</text>
+<text class="ts" x="370" y="342" text-anchor="middle">面向下游：左手邊為左岸</text>
+
+<circle cx="180" cy="60" r="6" fill="#DB5326"/>
+<line class="leader" x1="180" y1="68" x2="180" y2="92"/>
+<text class="ts" x="180" y="100" text-anchor="middle">拋繩手</text>
+<circle cx="180" cy="370" r="6" fill="#DB5326"/>
+<line class="leader" x1="180" y1="362" x2="180" y2="344"/>
+<text class="ts" x="180" y="336" text-anchor="middle">拋繩手</text>
+<text class="ts" x="110" y="260" text-anchor="middle">下游安全就位後才下水</text>
+
+<text class="th" x="40" y="410">左岸出發 → 扣左手</text>
+<text class="ts" x="190" y="410">右岸出發鏡射，改扣右手</text>
+
+<line x1="40" y1="445" x2="70" y2="445" stroke="#BA7517" stroke-width="4" stroke-linecap="round"/>
+<text class="ts" x="78" y="449">主繩</text>
+<line x1="130" y1="445" x2="160" y2="445" stroke="#534AB7" stroke-width="4" stroke-linecap="round"/>
+<text class="ts" x="168" y="449">牛尾</text>
+<g class="c-blue"><rect x="220" y="440" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="240" y="449">防衛式泳者</text>
+<circle cx="330" cy="445" r="6" fill="#DB5326"/>
+<text class="ts" x="343" y="449">拋繩手</text>
+<g class="c-gray"><rect x="410" y="440" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="430" y="449">固定點</text>
+<line x1="495" y1="445" x2="525" y2="445" stroke="var(--t)" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text class="ts" x="533" y="449">移動方向</text>
+</svg>
+<figcaption class="plate-cap">圖三　主繩輔助橫渡大局圖　｜　左岸出發，兩個小人是同一人的先後位置</figcaption>
+</figure>
+
+<section>
+  <h3>下游安全涵蓋的是「脫離之後」</h3>
+  <p>拋繩手不是站在橫渡段旁邊，而是站在整段的下游。只要人脫離了繩，他就是一個自由漂流的落水者，需要被接住的位置在更下游。有繩不會免除下游安全。</p>
+  <h3>圖上沒有畫的前置條件</h3>
+  <p>這條繩要架起來，得先有人到對岸。大局圖畫的是系統就位後的狀態，「第一個人怎麼過去」是另一個環節——徒手攻擊式泳渡、涉渡、或從其他渡點繞行。同時掛載多人也未涵蓋，那牽涉到繩張力與固定點承載。</p>
+</section>
+
+<figure class="plate" style="margin:28px 0 0">
+<svg viewBox="0 0 680 464" role="img" xmlns="http://www.w3.org/2000/svg"><title>短牛尾接左手腕局部詳圖</title><desc>俯視放大圖。水流由右至左，出發岸為左岸在下、目標岸為右岸在上。泳者仰躺位於主繩下游側，身體從吊點往下游拖開，頭端朝目標岸的上游側約四十五度。短牛尾與腕環接在左手腕，快扣掛在主繩上不上鎖，右手保持自由負責解脫。口訣為左岸出發扣左手，右岸出發鏡射改扣右手。</desc>
+<defs><marker id="arrow5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text class="th" x="40" y="30">局部詳圖</text>
+<text class="ts" x="118" y="30">牛尾接左手腕｜身體呈 45°｜俯視放大</text>
+
+<g class="c-blue"><rect x="40" y="48" width="600" height="310" stroke-width="0.5"/></g>
+<text class="ts" x="70" y="70">目標岸側（右岸）</text>
+<text class="ts" x="70" y="348">出發岸側（左岸）</text>
+<line x1="620" y1="70" x2="560" y2="70" class="arr" marker-end="url(#arrow5)"/>
+<text class="ts" x="546" y="74" text-anchor="end">水流</text>
+
+<line x1="630" y1="231" x2="170" y2="58" stroke="#BA7517" stroke-width="4" stroke-linecap="round"/>
+<line class="leader" x1="302" y1="98" x2="308" y2="106"/>
+<text class="ts" x="300" y="92" text-anchor="middle">主繩</text>
+
+<g transform="translate(405,255) rotate(-45)">
+<path d="M-30 -11 C -60 -14, -82 -12, -104 -9" fill="none" stroke="#3D8CB8" stroke-width="13" stroke-linecap="round"/>
+<path d="M-30 11 C -60 14, -82 14, -104 11" fill="none" stroke="#3D8CB8" stroke-width="13" stroke-linecap="round"/>
+<line x1="-104" y1="-9" x2="-120" y2="-13" stroke="#1E5C7E" stroke-width="8" stroke-linecap="round"/>
+<line x1="-104" y1="11" x2="-120" y2="15" stroke="#1E5C7E" stroke-width="8" stroke-linecap="round"/>
+<path d="M22 -16 C 8 -30, -8 -36, -22 -38" fill="none" stroke="#3D8CB8" stroke-width="10" stroke-linecap="round"/>
+<path d="M22 16 C 46 26, 64 20, 74 9" fill="none" stroke="#3D8CB8" stroke-width="10" stroke-linecap="round"/>
+<rect x="-26" y="-18" width="52" height="36" rx="12" fill="#3D8CB8"/>
+<circle cx="40" cy="0" r="14" fill="#1E5C7E"/>
+</g>
+
+<circle cx="464" cy="209" r="9" fill="none" stroke="#534AB7" stroke-width="4"/>
+<line x1="470" y1="203" x2="487" y2="186" stroke="#534AB7" stroke-width="6" stroke-linecap="round"/>
+<g transform="translate(493,180) rotate(-45)"><rect x="-13" y="-7" width="26" height="14" rx="7" fill="none" stroke="var(--t)" stroke-width="2"/></g>
+
+<line class="leader" x1="505" y1="170" x2="560" y2="145"/>
+<text class="ts" x="568" y="141">快扣</text>
+<text class="ts" x="568" y="157">不上鎖</text>
+<line class="leader" x1="486" y1="196" x2="532" y2="203"/>
+<text class="ts" x="540" y="205">短牛尾</text>
+<line class="leader" x1="472" y1="214" x2="532" y2="246"/>
+<text class="th" x="540" y="250">左手腕</text>
+<text class="ts" x="540" y="268">接繩側</text>
+<line class="leader" x1="355" y1="238" x2="300" y2="218"/>
+<text class="ts" x="292" y="214" text-anchor="end">右手 · 自由手</text>
+<text class="ts" x="292" y="230" text-anchor="end">負責操作解脫</text>
+<line class="leader" x1="436" y1="208" x2="400" y2="172"/>
+<text class="ts" x="392" y="175" text-anchor="end">頭朝目標岸上游 45°</text>
+<text class="ts" x="230" y="300" text-anchor="middle">腳朝下游</text>
+
+<text class="th" x="40" y="398">左岸出發 → 扣左手</text>
+<text class="ts" x="190" y="398">右岸出發鏡射，改扣右手</text>
+
+<line x1="40" y1="435" x2="70" y2="435" stroke="#BA7517" stroke-width="4" stroke-linecap="round"/>
+<text class="ts" x="78" y="439">主繩</text>
+<line x1="130" y1="435" x2="160" y2="435" stroke="#534AB7" stroke-width="6" stroke-linecap="round"/>
+<text class="ts" x="168" y="439">短牛尾＋腕環</text>
+<g class="c-blue"><rect x="290" y="430" width="14" height="10" rx="2" stroke-width="0.5"/></g>
+<text class="ts" x="310" y="439">防衛式泳者</text>
+<text class="ts" x="400" y="439">面向下游：左手邊為左岸</text>
+</svg>
+<figcaption class="plate-cap">圖四　牛尾接左手腕　｜　身體角度不是刻意設定，是被吊點拖出來的</figcaption>
+</figure>
+
+<section>
+  <h3>掛點在手腕</h3>
+  <p>牛尾接在<strong>遠離主繩那一側的手腕</strong>，另一端的快扣掛在主繩上<strong>且不上鎖</strong>——解脫路徑就是自由手把快扣撥開。</p>
+  <p>不上鎖跟整套邏輯是吻合的：急流的失效方向要偏向「脫離」。意外脫離主繩的後果是變成自由漂流的落水者，回到防衛式、由下游安全接應；無法脫離的後果是被固定在流水裡。兩個代價不對等，所以系統刻意往前者偏。攀登的直覺在這裡要反過來——那邊怕的是意外脫開，這邊怕的是脫不開。</p>
+
+  <h3>口訣：左岸出發，扣左手</h3>
+  <p>河流的左右岸以水流方向為準：<strong>面向下游時，左側為左岸、右側為右岸</strong>。而防衛式的姿勢下（仰躺、腳朝下游、頭朝上游、臉朝天），泳者自己的左右恰好跟河流的左右一致——右手指向右岸、左手指向左岸，不需要任何心算。</p>
+  <div class="note">
+    <span class="lbl">口訣</span>
+    <p><strong>左岸出發扣左手，右岸出發扣右手。</strong>鏡射水流方向照樣成立，因為左右岸的定義本身就是跟著水流走的。這條口訣的好處是<strong>在岸上就能判定並互相確認</strong>，不必等下水後看姿勢成形。</p>
+  </div>
+
+  <h3>扣錯邊的後果</h3>
+  <p>接遠側手時，牛尾拉力偏離身體中線，平衡角把頭端偏向目標岸——這個 45° 是水流自己維持的，不需要出力。接近側手則相反，身體會被帶成頭朝下游。</p>
+  <p>所以扣錯手不是效率問題，是<strong>把整套防衛式的保護機制反過來</strong>：頭朝下游在急流裡是最糟的姿勢——看不到前方水路、失去腳先撞擊的保護、也蹬不開岩石。</p>
+  <div class="note">
+    <span class="lbl">現場自我檢查</span>
+    <p>如果發現自己得一直用力對抗、角度老是不對，很可能是扣錯邊了。正確那一邊應該鬆手也維持得住。</p>
+  </div>
+
+  <h3>未解決的疑點</h3>
+  <ul>
+    <li><strong>腕環在負載下會不會收緊到抽不出手。</strong>clean principle 明訂繩圈只做到剛好容納一個快扣，理由之一就是防止有人把手穿進繩圈——腕環收緊正是這條原則預先要防的失效模式。若課程使用的不是閉合繩圈（例如握持式把手，或本身可撕開的設計），這個顧慮就不存在。此點須以實際器材確認</li>
+    <li><strong>負載走單邊肩關節。</strong>急流的拖曳力全部灌進一個肩關節，長時間或突然受力都有脫臼風險。是否需要限制流速或單次掛載時間，本文無判準</li>
+    <li><strong>頭朝下游的翻轉機制未經證明。</strong>平面力矩平衡只能推出「頭仍朝上游、偏角倒向出發岸」；從頭朝上游翻成頭朝下游是姿態失穩問題，推測與牛尾橫過胸前造成的扭轉有關，但無法從紙上證明。此處以實際下水觀察為準</li>
+  </ul>
+</section>
+
+<section>
+  <h3>操作規則</h3>
+  <ul>
+    <li><strong>在岸上扣、在岸上解。</strong>上游端固定點就在出發岸，不要在水裡摸索</li>
+    <li><strong>解脫演練分三階段</strong>：陸上負載 → 靜水負載 → 流水。跳過任何一階段，實際遇到時手會找不到機構</li>
+    <li><strong>下游安全不因有繩而免除。</strong>人脫離之後就是自由漂流的落水者，拋繩手與攔截點照樣要就位</li>
+    <li><strong>姿勢要求一條都沒有放寬。</strong>核心用力、臀部不下沉、腳尖露出、絕不站立</li>
+  </ul>
+  <div class="note">
+    <span class="lbl">用詞</span>
+    <p>建議避免「加確保版防衛式」這個說法。確保暗示多一層保護，但接上繩實際上是用一個舊風險換一個新風險——省掉橫渡失敗被沖走的風險，換來一個可能無法脫離的失效點。稱「繩輔助防衛式」較誠實。</p>
+  </div>
+  <div class="note">
+    <span class="lbl">資料依據</span>
+    <p>本節的掛點方式、快扣不上鎖與手腕側別，來自本文使用者的受訓內容，尚未取得對應教材出處；標示為疑點的三項未經驗證。腕環的顧慮參考 clean principle 對繩圈尺寸的原則——繩圈只做到剛好容納一個快扣，以防肢體穿入。</p>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">教學進程</p>
+  <h2>七個階段<span class="sub">每階段都要有下游安全與哨音制度</span></h2>
+  <ol class="ladder">
+    <li>平靜水域練姿勢</li>
+    <li>緩流練防衛式</li>
+    <li>緩流練倒划角度</li>
+    <li>中流練攻擊式順渡角</li>
+    <li>加入 eddy 進出</li>
+    <li>加入入水與上岸點判讀</li>
+    <li>最後才加繩索與救援情境</li>
+  </ol>
+  <div class="note">
+    <span class="lbl">哨音</span>
+    <p><span class="k">一長聲</span>＝注意　　<span class="k">三短聲</span>＝緊急</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>本文件為教學輔助，不能取代合格急流救援課程的實作訓練。</strong>急流環境變化快速，所有技術都必須在有教練、有下游安全、有適當裝備的條件下實地練習後才具備實用性。單靠文字與圖解入水是危險的。</p>
+  <p class="sig"><span class="lbl">編寫</span>OngTsinging<span class="rule"></span></p>
+</footer>
+
+</div>
+</body>
+</html>
