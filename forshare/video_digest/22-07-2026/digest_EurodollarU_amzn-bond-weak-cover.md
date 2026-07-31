@@ -31,11 +31,11 @@
 | **hyperscaler** | 超大規模雲廠 | AMZN / GOOGL / META / MSFT / ORCL；本集 AI 發債主力 |
 | **duration mismatch** | 存續期錯配 | 資本支出「今天就花」vs 收入「多年後（若有）才來」；Snider 對 AI 融資的核心質疑 |
 
-> **來源性質**：Eurodollar University（Jeff Snider）＝**貨幣體系／宏觀敘事**頻道，持有**通縮／信貸崩／「終點永遠是降息」**的**極強且穩定的先驗**。21-07 那支油價片我方已標其確認偏誤（同一指標兩個相反方向、五天內各證實他一次，見 [[digest_EurodollarU_oil-up-yields-down-correlation-break-2y-428-to-410s-30y-51-lid-warsh-one-and-done-hike-inverts-curve-sloos-tightening-hyperscaler-credit]]）。
+> **來源性質**：Eurodollar University（Jeff Snider）＝**貨幣體系／宏觀敘事**頻道，持有**通縮／信貸崩／「終點永遠是降息」**的**極強且穩定的先驗**。21-07 那支油價片我方已標其確認偏誤（同一指標兩個相反方向、五天內各證實他一次，見 [[digest_EurodollarU_oil-yields-decoupling]]）。
 >
 > **本集偏誤形式不同、而且明顯更可信——因為前 2/3 是第三方硬數字，不是 Snider 自造的框架。** 該片的真正價值在於它把**四個各自獨立、公開可查的訊號**擺在一起：(a) Bloomberg 報導的 Amazon 訂單簿（$62B→$41B）；(b) Reuters 引 PitchBook 的直接貸款發行量季減；(c) PIMCO 公開的「credit loss cycle」措辭；(d) 兩家壽險的聯邦大陪審團傳票報導。**這四者若屬實，彼此無需 Snider 的敘事就已互相印證**——這是本集與 21-07 純推演片的關鍵分野。
 >
-> **該信什麼**：(1) **所有帶第三方出處的水位數字**（Amazon 1.6x cover vs 4x 均值、+18~21bp 讓利、直接貸款 $44.76B 季減 ~40%、AI 發債 YTD ~$270B）——公開可驗證，且與 21-07 MonetaryMatters 的保險槓桿線索**獨立收斂到同一風險點**（[[digest_MonetaryMatters_insurance-not-banks-10t-balance-sheet-90-100x-levered-athene-lvl3-50pct-surrender-7pct-pc-default-6p3pct-bbb-clo-1929-not-2008]]）；(2) **方法論**：「信貸週期先透過**價格**（讓利）、再透過**可得性**（再融資斷）、最後才透過**違約/流動性**傳導」——這個順序本身正確且可移植；(3) **私募資產『平滑估值 ≠ 低風險』**（月/季用模型 mark，經濟損失早已存在）——真實且重要。
+> **該信什麼**：(1) **所有帶第三方出處的水位數字**（Amazon 1.6x cover vs 4x 均值、+18~21bp 讓利、直接貸款 $44.76B 季減 ~40%、AI 發債 YTD ~$270B）——公開可驗證，且與 21-07 MonetaryMatters 的保險槓桿線索**獨立收斂到同一風險點**（[[digest_MonetaryMatters_insurance-not-banks]]）；(2) **方法論**：「信貸週期先透過**價格**（讓利）、再透過**可得性**（再融資斷）、最後才透過**違約/流動性**傳導」——這個順序本身正確且可移植；(3) **私募資產『平滑估值 ≠ 低風險』**（月/季用模型 mark，經濟損失早已存在）——真實且重要。
 > **該折扣什麼**：(1) **AI 發債 $270B「issuance」被暗示成 distress**——這正是我方 capex 口徑陷阱高發區：**發債 ≠ 淨槓桿惡化、≠ 花光、≠ 無法償付**，$107B/年的 Amazon 發債同時也對應巨額現金流與再投資（[[feedback_capex_commitment_vs_annual_spend]]）。1.6x cover 的**單一樣本**能否代表「市場吸納上限」，Snider 自己都說「orderbook 依快照與方法而異」；(2) **後 1/3 的 swap spread 收束是純 Snider 框架**——「negative swap spread ＝市場已為嚴重信貸事件定價」不可證偽（§四(4)），且他自承 spread「off the lows but not meaningfully different」＝**其實沒怎麼動**，卻定性為「準備好嚴重麻煩」；(3) **「credit stress reached Amazon」的標題是升格**——一次認購偏弱 + 加碼讓利，距離「Amazon 有信用問題」極遠，Snider 全片其實也反覆聲明「Amazon 不是震央、是燈塔」，**標題比內文激進**。依數據源優先級公約，數字段可用作背景，敘事收束段折扣（[[feedback_data_source_priority]]）。⚠️ 業配 **Augusta Precious Metals（黃金 IRA）** ＋自家 webinar「四個經濟 regime（成長/通膨/衰退/通縮）」導流——**黃金/衰退/通縮課程與本片信貸崩敘事在誘因上完全同向**，與 21-07 的 Monetary Metals 業配同一模式。
 
 ---
@@ -69,7 +69,7 @@
 - **Delaware Life Insurance** 與 **Clear Spring Life and Annuity** 收到**聯邦大陪審團傳票**，調查**數十億私募信貸持倉是否充分揭露為關聯企業的擔保**；**SEC 平行調查**。
 - **免責**：無刑事起訴、調查不等於違法。**但重點是當局在查的方向**——私募資產是否帶了外人看不見的 commitments / 關聯 / 抵押（encumbrances）。
 - **核心問題＝「槓桿在哪」**：可能在借方層（PE owned 公司）、基金層（subscription line / NAV facility）、warehouse / JV / offshore 抵押載體 / 關聯實體；**擔保（guarantees）＝或有槓桿**，平時無害、多筆求償同時到齊就是 contagion。
-- **與 21-07 MonetaryMatters 收斂**：MM 那支主張「下一次危機在保險（10T 資產表、90–100x 槓桿、Athene Level 3、7% 私募信貸違約率）不在銀行」——**本集用聯邦傳票給了 MM 敘事一個獨立的、來自監管端的實證錨點**（[[digest_MonetaryMatters_insurance-not-banks-10t-balance-sheet-90-100x-levered-athene-lvl3-50pct-surrender-7pct-pc-default-6p3pct-bbb-clo-1929-not-2008]]）。
+- **與 21-07 MonetaryMatters 收斂**：MM 那支主張「下一次危機在保險（10T 資產表、90–100x 槓桿、Athene Level 3、7% 私募信貸違約率）不在銀行」——**本集用聯邦傳票給了 MM 敘事一個獨立的、來自監管端的實證錨點**（[[digest_MonetaryMatters_insurance-not-banks]]）。
 
 ### 支柱 ⑤ 收束：長端負 swap spread ＝「路徑可變、終點不變」
 
@@ -172,7 +172,7 @@ Snider 自己說：swap spread「off their record lows from last year… **not m
 
 ## 關聯
 
-- 前一日同頻道（油價↔殖利率相關性斷裂，純敘事、框架吸收案例）：[[digest_EurodollarU_oil-up-yields-down-correlation-break-2y-428-to-410s-30y-51-lid-warsh-one-and-done-hike-inverts-curve-sloos-tightening-hyperscaler-credit]]
-- 前一日 MonetaryMatters（保險非銀行＝下次危機源；本集聯邦傳票為其獨立錨點）：[[digest_MonetaryMatters_insurance-not-banks-10t-balance-sheet-90-100x-levered-athene-lvl3-50pct-surrender-7pct-pc-default-6p3pct-bbb-clo-1929-not-2008]]
-- 16-07 同頻道（CPI 衝擊→需求破壞升格，確認偏誤模式）：[[digest_EurodollarU_cpi-shock-june-negative-core-first-since-2020-breakevens-plunge-demand-destruction-trichet-2008-fed-hike-error]]
+- 前一日同頻道（油價↔殖利率相關性斷裂，純敘事、框架吸收案例）：[[digest_EurodollarU_oil-yields-decoupling]]
+- 前一日 MonetaryMatters（保險非銀行＝下次危機源；本集聯邦傳票為其獨立錨點）：[[digest_MonetaryMatters_insurance-not-banks]]
+- 16-07 同頻道（CPI 衝擊→需求破壞升格，確認偏誤模式）：[[digest_EurodollarU_cpi-shock-negative-core]]
 - 方法論：[[feedback_capex_commitment_vs_annual_spend]]（發債≠淨壓力）、[[feedback_data_source_priority]]（敘事頻道折扣）、[[feedback_derisk_to_cash_not_defensive_equity]]、[[project_rr4_index_put_only]]、[[project_nvda_hyperscaler_coupling_frame]]、[[feedback_conservative_base_pe_no_rerating]]

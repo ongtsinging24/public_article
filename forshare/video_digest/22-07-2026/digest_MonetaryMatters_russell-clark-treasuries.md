@@ -30,7 +30,7 @@
 
 > **來源性質（雙面，權重需精細拆分）**：
 > **① 該重折扣的部分——極端 permabear + 極端非共識目標**：Clark 出身 Horseman（多年淨空的代表），**10% 10 年期公債**是市場最極端一端，遠離任何共識。其「黃金取代外國準備」「austerity 已死、通膨永遠強」屬**強烈結構先驗**，需當**尾部情境**而非基準。他自己承認是「政治論證、非實證」——這是誠實，**但也意味沒有數據能證偽它**（§六1，不可證偽）。
-> **② 該採信的部分——框架連貫、且與本批其他一手數據交叉印證**：(a) **「AI capex 不會停、不是為 ROI 而是為護城河/擋 Musk、第一個減的人輸」**——這是**極有價值的反共識解釋**，直接支撐我方「別在 capex 二階導轉負時恐慌平倉」（[[feedback_capex_commitment_vs_annual_spend]]、[[project_nvda_hyperscaler_coupling_frame]]）；(b) **「記憶體股很弱但記憶體『定價』本月很強＝過度貪婪/擁擠多單被斷頭，非基本面崩」**——與**同批 Steve Hou 的一手 GPU/記憶體數據**、與 **21-07 的 momentum-unwind/單股槓桿 ETF 斷頭**主題三方收斂（[[digest_ForwardGuidance_steve-hou-silicon-data-token-index-is-pce-not-demand-expenditure-weighted-price-substitution-token-max-to-efficiency-gpu-rental-forward-curve-firming-a100-refutes-burry-depreciation-memory-supercycle]]、[[digest_PatrickBoyle_kospi-right-trend-wrong-bet-size-2x-single-stock-etf-daily-reset-1p2m-margin-calls-samsung-skhynix-60pct-weight-haghani-coin-28pct-bankrupt]]）；(c) **私募信貸/PE 是斷層線**——與**同批 EDU 的聯邦傳票、Amazon 認購轉弱**、與 **21-07 MonetaryMatters 的保險槓桿**四方收斂（[[digest_EurodollarU_amazon-25b-bond-1p6x-cover-vs-4x-avg-18-21bp-concession-pimco-credit-loss-cycle-direct-lending-issuance-40pct-drop-insurer-grand-jury-subpoenas-negative-swap-spreads]]、[[digest_MonetaryMatters_insurance-not-banks-10t-balance-sheet-90-100x-levered-athene-lvl3-50pct-surrender-7pct-pc-default-6p3pct-bbb-clo-1929-not-2008]]）。
+> **② 該採信的部分——框架連貫、且與本批其他一手數據交叉印證**：(a) **「AI capex 不會停、不是為 ROI 而是為護城河/擋 Musk、第一個減的人輸」**——這是**極有價值的反共識解釋**，直接支撐我方「別在 capex 二階導轉負時恐慌平倉」（[[feedback_capex_commitment_vs_annual_spend]]、[[project_nvda_hyperscaler_coupling_frame]]）；(b) **「記憶體股很弱但記憶體『定價』本月很強＝過度貪婪/擁擠多單被斷頭，非基本面崩」**——與**同批 Steve Hou 的一手 GPU/記憶體數據**、與 **21-07 的 momentum-unwind/單股槓桿 ETF 斷頭**主題三方收斂（[[digest_ForwardGuidance_token-price-index]]、[[digest_PatrickBoyle_kospi-2x-etf-blowup]]）；(c) **私募信貸/PE 是斷層線**——與**同批 EDU 的聯邦傳票、Amazon 認購轉弱**、與 **21-07 MonetaryMatters 的保險槓桿**四方收斂（[[digest_EurodollarU_amzn-bond-weak-cover]]、[[digest_MonetaryMatters_insurance-not-banks]]）。
 >
 > **最關鍵的判讀（見 §三 利率分岔）**：**本批出現一個真實、雙方都論證嚴謹的利率終點分岔**——Snider（EDU）：信貸崩 → 通縮 → **利率往下**；Clark（MM）：親勞工 regime → 結構通膨 → **利率往上（10%）**。**兩人對『脆弱性在私募信貸』『AI capex 不會因 ROI 而停』完全同意，卻對終點利率方向完全相反。** 我方部位不該押這個分岔的任一端，只該押**雙方共識的脆弱性**（私募信貸/擁擠槓桿），並對兩個利率情境都保留對沖。依數據源優先級，Clark 作**情境框架的高權重來源、水位目標（10%）的零權重來源**（[[feedback_data_source_priority]]）。⚠️ 業配 Teucrium 大豆 ETF（與宏觀論點無誘因衝突，但仍是廣告）。
 
@@ -64,7 +64,7 @@
 ### 支柱 ⑥ 半導體＝新石油；「若抽掉半導體，市場早就像 1970s 了」
 - 1970s 該持有的是**油+金**（油＝成長關鍵、供給受 OPEC+Texas Railroad Commission 限制）。**今日成長靠 compute，供給同樣受限**（不讓中國買高端製造設備，而中國過去 20~30 年是所有生產設備的邊際供給者）。
 - NVDA 晶片貴了 5~6 年沒下來；如今**連 generic 的 DRAM/NAND 都被定價得像 NVDA 晶片**。
-- **「若把半導體從市場抽掉，我們是不是早就長得像 1970s 了？」**——其他領域（利率驅動）已現「profound weakness」，靠半導體撐著；但半導體已開始**侵蝕 MSFT/Meta 的 margin**。→ 呼應 Steve Hou「記憶體超級循環、P×Q」（[[digest_ForwardGuidance_steve-hou-silicon-data-token-index-is-pce-not-demand-expenditure-weighted-price-substitution-token-max-to-efficiency-gpu-rental-forward-curve-firming-a100-refutes-burry-depreciation-memory-supercycle]]）。
+- **「若把半導體從市場抽掉，我們是不是早就長得像 1970s 了？」**——其他領域（利率驅動）已現「profound weakness」，靠半導體撐著；但半導體已開始**侵蝕 MSFT/Meta 的 margin**。→ 呼應 Steve Hou「記憶體超級循環、P×Q」（[[digest_ForwardGuidance_token-price-index]]）。
 
 ---
 
@@ -169,9 +169,9 @@ Clark 自承「一堆自封金融科學家說不可能，但 Musk 已經做過�
 
 ## 關聯
 
-- 同批 EDU 私募信貸（利率分岔的另一端：信貸崩→通縮→降息）：[[digest_EurodollarU_amazon-25b-bond-1p6x-cover-vs-4x-avg-18-21bp-concession-pimco-credit-loss-cycle-direct-lending-issuance-40pct-drop-insurer-grand-jury-subpoenas-negative-swap-spreads]]
-- 同批 Steve Hou（記憶體超級循環、GPU 需求一手數據、記憶體 pricing 強＝Clark「股弱價強」的數據面）：[[digest_ForwardGuidance_steve-hou-silicon-data-token-index-is-pce-not-demand-expenditure-weighted-price-substitution-token-max-to-efficiency-gpu-rental-forward-curve-firming-a100-refutes-burry-depreciation-memory-supercycle]]
-- 前一日同網 MonetaryMatters（保險非銀行＝下次危機、私募信貸違約率）：[[digest_MonetaryMatters_insurance-not-banks-10t-balance-sheet-90-100x-levered-athene-lvl3-50pct-surrender-7pct-pc-default-6p3pct-bbb-clo-1929-not-2008]]
-- 前一日 PatrickBoyle（單股槓桿 ETF 斷頭＝Clark 3x ETF 警告的完成式）：[[digest_PatrickBoyle_kospi-right-trend-wrong-bet-size-2x-single-stock-etf-daily-reset-1p2m-margin-calls-samsung-skhynix-60pct-weight-haghani-coin-28pct-bankrupt]]
-- 前一日 FG 圓桌（momentum unwind、部位結構下殺）：[[digest_ForwardGuidance_momentum-unwind-worst-27y-3sd-3days-60b-levered-etf-reverse-gamma-single-stock-vol-ripping-hyperscaler-spreads-widen-1y-breakeven-1pct-value-at-1999-lows]]
+- 同批 EDU 私募信貸（利率分岔的另一端：信貸崩→通縮→降息）：[[digest_EurodollarU_amzn-bond-weak-cover]]
+- 同批 Steve Hou（記憶體超級循環、GPU 需求一手數據、記憶體 pricing 強＝Clark「股弱價強」的數據面）：[[digest_ForwardGuidance_token-price-index]]
+- 前一日同網 MonetaryMatters（保險非銀行＝下次危機、私募信貸違約率）：[[digest_MonetaryMatters_insurance-not-banks]]
+- 前一日 PatrickBoyle（單股槓桿 ETF 斷頭＝Clark 3x ETF 警告的完成式）：[[digest_PatrickBoyle_kospi-2x-etf-blowup]]
+- 前一日 FG 圓桌（momentum unwind、部位結構下殺）：[[digest_ForwardGuidance_momentum-unwind-27y]]
 - 框架/方法：[[feedback_capex_commitment_vs_annual_spend]]、[[project_nvda_hyperscaler_coupling_frame]]、[[project_rr4_index_put_only]]、[[feedback_derisk_to_cash_not_defensive_equity]]、[[feedback_profit_protect_skew_near_high]]、[[feedback_conservative_base_pe_no_rerating]]、[[feedback_data_source_priority]]

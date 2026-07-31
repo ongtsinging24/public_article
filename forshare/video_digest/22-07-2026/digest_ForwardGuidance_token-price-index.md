@@ -48,7 +48,7 @@
 - **正名**：Terminal 上叫「Token Expenditure Index」是 **misnomer**。它**既非價格指數、亦非成交量指數**，而是 **expenditure-weighted price index**——「**你可以想成 AI 的 PCE**」。
 - **PCE vs CPI 的關鍵**：CPI 固定籃子；PCE **允許替代**。使用者理性、做 quality/price 取捨，AI 尤其如此（路由平台讓你在模型間選）。→ **指數多數變動來自使用/替代行為，不是單一模型調價**（模型上市時 token 價會動，但幅度不大）。
 - **6 月的下彎＝替代、不是需求崩**：Steve 6 月初就在公司 X 貼文說「這東西在 plateau、可能休息一下或均值回歸，因為人們對成本變理性、開始在 quality/cost 間替代」。結果正是如此，**且不巧與股市轉折同時**。
-- **為何巧合會咬到股市**：當前 AI capex 交易的**融資範式**建立在「frontier 模型能享有 margin」上；一旦感知到 **frontier margin 被便宜開源模型挑戰**，就動搖「AI capex 如何被融資」的範式 → 估值（everything priced on 2nd/3rd derivatives）先賣。→ 對照 21-07 FG 圓桌「capex 二階導轉負 → NVDA 與 hyperscaler 分岔」（[[digest_ForwardGuidance_momentum-unwind-worst-27y-3sd-3days-60b-levered-etf-reverse-gamma-single-stock-vol-ripping-hyperscaler-spreads-widen-1y-breakeven-1pct-value-at-1999-lows]]）。
+- **為何巧合會咬到股市**：當前 AI capex 交易的**融資範式**建立在「frontier 模型能享有 margin」上；一旦感知到 **frontier margin 被便宜開源模型挑戰**，就動搖「AI capex 如何被融資」的範式 → 估值（everything priced on 2nd/3rd derivatives）先賣。→ 對照 21-07 FG 圓桌「capex 二階導轉負 → NVDA 與 hyperscaler 分岔」（[[digest_ForwardGuidance_momentum-unwind-27y]]）。
 - ⚠️ **樣本侷限（Steve 主動聲明，務必記住）**：token 指數**不是代表性樣本**，是「切下的一角」，**偏向價格敏感的獨立開發者/中小企業**（掛在公開路由平台者），**沒有** OpenAI/Anthropic/hyperscaler 內部用量。→ **它是領先指標，但只照亮全市場的一個角**；別外推成整體 token 需求。
 - **Uber 梗**：「一個月燒完整年 token 預算」的新聞引發恐慌——但那是**替代/效率**故事（token-max → efficiency），**不是需求下滑**。
 
@@ -56,7 +56,7 @@
 - **框架（Steve 是經濟學家）**：局部均衡＝只看 P 被競爭者挑戰、Q 不變 → 利潤縮 → 擔心 ROI。**但 Q 不是靜態的**（Jevons：有彈性）。
 - **現況**：企業採用「**abysmally 小**」，多數人只把 AI 當「加強版搜尋」，企業還在摸索且怕成本。
 - **結論**：**即使某些 frontier 模型 margin 被挑戰，Q 成長更大 → 整體仍成立。** 類比藥廠：學名藥會侵蝕、賺不到完全壟斷利潤，但不代表 frontier 不成長、領先者不賺錢。
-- **價值重分配（本集對投資最重要的一句）**：「至少在邊際上，原本被認為歸於 **frontier intelligence 雙頭壟斷**的價值，將**更多流向算力層或使用者層**（取決於算力層如何結算）。」→ 直接呼應 21-07 TheCompound 的 Jensen「AI 蛋糕五層、價值分層」（[[digest_TheCompound_american-century-jt-adopters-not-creators-nvda-18x-below-spx-sp493-trouncing-mag7-jensen-ai-cake-5-layers-avantis-150b-6yrs-active-etf-2t-11pct]]）。
+- **價值重分配（本集對投資最重要的一句）**：「至少在邊際上，原本被認為歸於 **frontier intelligence 雙頭壟斷**的價值，將**更多流向算力層或使用者層**（取決於算力層如何結算）。」→ 直接呼應 21-07 TheCompound 的 Jensen「AI 蛋糕五層、價值分層」（[[digest_TheCompound_adopters-not-creators]]）。
 - **Anthropic 數據點**：AR 曾在年初飆升；Gavin Baker 提過有一個月 Anthropic 首度轉盈。
 
 ### 支柱 ③ GPU 租賃現貨：A100「老將」租金不跌反升＝打臉 Burry 折舊論
@@ -148,7 +148,7 @@ Steve 反覆聲明對記憶體/晶片股價「nobody knows」「everything price
 
 ## 關聯
 
-- 前一日同頻道（FG 圓桌：momentum unwind、capex 二階導轉負→NVDA/hyperscaler 分岔）：[[digest_ForwardGuidance_momentum-unwind-worst-27y-3sd-3days-60b-levered-etf-reverse-gamma-single-stock-vol-ripping-hyperscaler-spreads-widen-1y-breakeven-1pct-value-at-1999-lows]]
-- 前一日 TheCompound（Jensen「AI 蛋糕五層」、價值分層、NVDA 18x < SPX）：[[digest_TheCompound_american-century-jt-adopters-not-creators-nvda-18x-below-spx-sp493-trouncing-mag7-jensen-ai-cake-5-layers-avantis-150b-6yrs-active-etf-2t-11pct]]
-- 同批 EDU 私募信貸（融資面壓力，與本片實體需求面互補、非矛盾）：[[digest_EurodollarU_amazon-25b-bond-1p6x-cover-vs-4x-avg-18-21bp-concession-pimco-credit-loss-cycle-direct-lending-issuance-40pct-drop-insurer-grand-jury-subpoenas-negative-swap-spreads]]
+- 前一日同頻道（FG 圓桌：momentum unwind、capex 二階導轉負→NVDA/hyperscaler 分岔）：[[digest_ForwardGuidance_momentum-unwind-27y]]
+- 前一日 TheCompound（Jensen「AI 蛋糕五層」、價值分層、NVDA 18x < SPX）：[[digest_TheCompound_adopters-not-creators]]
+- 同批 EDU 私募信貸（融資面壓力，與本片實體需求面互補、非矛盾）：[[digest_EurodollarU_amzn-bond-weak-cover]]
 - 框架/方法：[[project_nvda_hyperscaler_coupling_frame]]、[[feedback_capex_commitment_vs_annual_spend]]、[[feedback_data_source_priority]]、[[feedback_conservative_base_pe_no_rerating]]、[[feedback_profit_protect_skew_near_high]]

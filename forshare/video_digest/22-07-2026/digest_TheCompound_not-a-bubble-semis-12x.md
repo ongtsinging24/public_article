@@ -92,7 +92,7 @@
 2. **AI 的實體需求還在早期、有 runway**（Steve Hou 遠期曲線 + Compound「A16Z 家戶付費 AI 才 2%、massive runway」）。
 3. **半導體相對大盤估值不貴**（Compound forward-PE 差距 AI 時代最低 + 21-07 TheCompound「NVDA 18x < SPX」）。
 
-**四方分歧（不該押、只該對沖）**：利率終點方向（Snider 下 vs Clark 上）、以及「景氣循環是否已被馴服」（Compound 樂觀 vs Clark/Snider 悲觀）。→ 我方紀律：押共識脆弱性、對利率兩情境都不裸露（詳見同批 [[digest_MonetaryMatters_russell-clark-next-crisis-is-treasuries-not-ai-10pct-10yr-target-pro-labor-regime-inflation-semis-new-oil-ai-capex-to-keep-musk-out-private-credit-fault-line]] §三）。
+**四方分歧（不該押、只該對沖）**：利率終點方向（Snider 下 vs Clark 上）、以及「景氣循環是否已被馴服」（Compound 樂觀 vs Clark/Snider 悲觀）。→ 我方紀律：押共識脆弱性、對利率兩情境都不裸露（詳見同批 [[digest_MonetaryMatters_russell-clark-treasuries]] §三）。
 
 ---
 
@@ -149,10 +149,10 @@ Netflix「blood in the streets 首選」、Nike「toast」、SpaceX——**皆�
 
 ## 關聯
 
-- 同批 MonetaryMatters／Clark（本片的主要對手方：泡沫/結構通膨/10% 公債；利率分岔全表在該篇 §三）：[[digest_MonetaryMatters_russell-clark-next-crisis-is-treasuries-not-ai-10pct-10yr-target-pro-labor-regime-inflation-semis-new-oil-ai-capex-to-keep-musk-out-private-credit-fault-line]]
-- 同批 EDU／Snider（信貸崩→通縮；本片「無衰退」是其反面）：[[digest_EurodollarU_amazon-25b-bond-1p6x-cover-vs-4x-avg-18-21bp-concession-pimco-credit-loss-cycle-direct-lending-issuance-40pct-drop-insurer-grand-jury-subpoenas-negative-swap-spreads]]
-- 同批 FG／Steve Hou（AI runway、記憶體股弱價強的一手數據面）：[[digest_ForwardGuidance_steve-hou-silicon-data-token-index-is-pce-not-demand-expenditure-weighted-price-substitution-token-max-to-efficiency-gpu-rental-forward-curve-firming-a100-refutes-burry-depreciation-memory-supercycle]]
-- 前一日同節目家族 TheCompound（NVDA 18x < SPX、Jensen AI 蛋糕五層、價值離散）：[[digest_TheCompound_american-century-jt-adopters-not-creators-nvda-18x-below-spx-sp493-trouncing-mag7-jensen-ai-cake-5-layers-avantis-150b-6yrs-active-etf-2t-11pct]]
-- 前一日 PatrickBoyle（韓國單股槓桿 ETF 斷頭；本片同談 KOSPI vol 史上最高）：[[digest_PatrickBoyle_kospi-right-trend-wrong-bet-size-2x-single-stock-etf-daily-reset-1p2m-margin-calls-samsung-skhynix-60pct-weight-haghani-coin-28pct-bankrupt]]
-- 前一日 FG 圓桌（$60B 槓桿 ETF momentum unwind）：[[digest_ForwardGuidance_momentum-unwind-worst-27y-3sd-3days-60b-levered-etf-reverse-gamma-single-stock-vol-ripping-hyperscaler-spreads-widen-1y-breakeven-1pct-value-at-1999-lows]]
+- 同批 MonetaryMatters／Clark（本片的主要對手方：泡沫/結構通膨/10% 公債；利率分岔全表在該篇 §三）：[[digest_MonetaryMatters_russell-clark-treasuries]]
+- 同批 EDU／Snider（信貸崩→通縮；本片「無衰退」是其反面）：[[digest_EurodollarU_amzn-bond-weak-cover]]
+- 同批 FG／Steve Hou（AI runway、記憶體股弱價強的一手數據面）：[[digest_ForwardGuidance_token-price-index]]
+- 前一日同節目家族 TheCompound（NVDA 18x < SPX、Jensen AI 蛋糕五層、價值離散）：[[digest_TheCompound_adopters-not-creators]]
+- 前一日 PatrickBoyle（韓國單股槓桿 ETF 斷頭；本片同談 KOSPI vol 史上最高）：[[digest_PatrickBoyle_kospi-2x-etf-blowup]]
+- 前一日 FG 圓桌（$60B 槓桿 ETF momentum unwind）：[[digest_ForwardGuidance_momentum-unwind-27y]]
 - 框架/方法：[[feedback_conservative_base_pe_no_rerating]]、[[project_nvda_hyperscaler_coupling_frame]]、[[feedback_profit_protect_skew_near_high]]、[[feedback_capex_commitment_vs_annual_spend]]、[[feedback_data_source_priority]]
