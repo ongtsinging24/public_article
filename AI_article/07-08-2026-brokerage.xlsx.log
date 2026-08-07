@@ -1,0 +1,133 @@
+```text
+# brokerage parse log
+# file        : 07-08-2026-brokerage.xlsx
+# parsed_at   : 2026-08-07T15:13:38
+# roma_version: v3.78 (c8a8349)
+# roma_runtime: loaded 2026-08-07T15:13:36 | src ✅
+# sheetnames  : ['工作表1']
+# force_source: None
+
+# format      : B (sheet='工作表1')
+
+[hsbc       ] sym=QQQ    qty=116.00 last=714.65     mv=   82,899.40  src=ib_xlsx_inline
+[skip-zero  ] 13 rows（qty=0 且 mv=0）: TAIWAN SEMICONDUCTOR-SP ADR×6, INVESCO QQQ TRUST SERIES 1×2, BROADCOM INC, ISHARES SEMICONDUCTOR ETF, KRANESHARES PUBLIC-PRIVATE A, Micro E-Mini Nasdaq-100 Index, VANECK SEMICONDUCTOR ETF
+
+# === positions (stock → option → futures → cash) ===
+[stock      ] qty=      116  mv=     82,899.40  UPL=    +3,931.24    sym=QQQ    last=   714.65
+[stock      ] qty=     1600  mv=     70,624.00  UPL=      -465.00    sym=AGIX   last=    44.14
+[stock      ] qty=      400  mv=    167,640.00  UPL=   +18,930.00    sym=TSM    last=   419.10
+[option     ] qty=  2 mv=   18,118.98  UPL=    +4,690.00  DTE= 105  ITM +20.3%  desc="AVGO Nov20'26 350 Call"
+[option     ] qty=  2 mv=    9,580.80  UPL=      +935.00  DTE= 161  OTM  -0.6%  desc="QQQ Jan15'27 720 Call"
+[option     ] qty=  2 mv=    9,036.09  UPL=      +519.00  DTE= 161  OTM  -1.3%  desc="QQQ Jan15'27 725 Call"
+[option     ] qty=  2 mv=   13,920.74  UPL=   -10,930.00  DTE= 161  OTM  -1.0%  desc="SMH Jan15'27 580 Call"
+[option     ] qty=  3 mv=   14,857.60  UPL=   -17,920.00  DTE= 105  OTM  -6.1%  desc="SOXX Nov20'26 570 Call"
+[option     ] qty=  3 mv=    5,935.00  UPL=      +804.00  DTE=  70              desc='TSM Oct 420/480 Bull Call'
+[option     ] qty=  5 mv=   28,811.41  UPL=    -4,990.00  DTE= 133  ITM  +4.8%  desc="TSM Dec18'26 400 Call"
+[option     ] qty=  2 mv=   10,522.32  UPL=    -1,970.00  DTE= 133  ITM  +2.2%  desc="TSM Dec18'26 410 Call"
+[option     ] qty=  2 mv=   12,443.47  UPL=    -7,340.00  DTE= 161  ITM  +4.8%  desc="TSM Jan15'27 400 Call"
+[option     ] qty=  2 mv=   12,717.70  UPL=    -2,780.00  DTE= 105  ITM +10.3%  desc="TSM Nov20'26 380 Call"
+[option     ] qty=  2 mv=   10,398.46  UPL=    -4,790.00  DTE= 105  ITM  +4.8%  desc="TSM Nov20'26 400 Call"
+[futures    ] qty=   5.00 last=   29530.25 notional=    295,309.00  raw="MNQ Sep'26 @CME" UPL=   +11,090.00
+[cash       ] mv=    163,967.37  key=IBKR_CASH
+
+# === summary ===
+# positions   : 16
+#   cash      count=1    mv_sum=    163,967.37
+#   futures   count=1    mv_sum=          0.00  (notional=    295,309.00  UPL=  +11,090.00；margin 計，不計入 NAV→見 rr2/rr3)
+#   option    count=11   mv_sum=    146,342.57
+#   stock     count=3    mv_sum=    321,163.40
+# total NAV  :     631,473.34  (期貨 notional/UPL 不計入；曝險見 rr2/rr3/rr8c)
+
+# === ratios / risk ===
+# rr1 equity_ratio       (stock + |option|) / NAV         :  74.03%
+# rr2 futures_ratio      futures_notional / NAV           :  46.77%
+# rr3 gross_leverage     (stock + |opt| + fut_not) / NAV  :   1.21x   <輕度槓桿>
+#     scale: <0.7 保守 | 0.7-1.0 健康 | 1.0-1.3 輕度 | 1.3-1.6 中度 | 1.6-2.0 高 | >2.0 警示
+# rr4 index_hedge_pct    index_put_hedge / NAV            :   0.00%   (SPY/QQQ/IWM/DIA long put or bear put spread)
+# rr4b sector_hedge_pct  sector_put_hedge / NAV           :   0.00%   (SMH/SOXX/XL* long put or bear put spread)
+# rr4t total_hedge_pct   (rr4 + rr4b) / NAV               :   0.00%
+# rr5 cash_ratio         cash / NAV                       :  25.97%
+# rr6 β-weighted_pct     Σ(exposure × β) / NAV            : 273.37%   (NDX等效多頭)  ⚠️IV預設 TSM
+#     option exposure 用 delta×100×qty×spot 計（合計 $760,824；premium MV $146,343）
+#       AVGO_C350_NOV2026            Δ=+0.80 qty= +2 S=$ 421.21 σ=0.53 → exp=$     +67,141  [iv=broker]
+#       QQQ_C720_JAN1527             Δ=+0.56 qty= +2 S=$ 715.78 σ=0.23 → exp=$     +79,452  [iv=broker]
+#       QQQ_C725_JAN1527             Δ=+0.54 qty= +2 S=$ 715.78 σ=0.23 → exp=$     +76,875  [iv=broker]
+#       SMH_C580_JAN1527             Δ=+0.56 qty= +2 S=$ 573.99 σ=0.46 → exp=$     +64,631  [iv=broker]
+#       SOXX_C570_NOV2026            Δ=+0.48 qty= +3 S=$ 535.01 σ=0.54 → exp=$     +77,041  [iv=broker]
+#       TSM_BUCS_OCT26_420_480       Δnet=+0.36 qty= +3 S=$ 419.10 → exp=$     +45,526  [iv=default_30]
+#         ↳ long  C K= 420.00  Δ=+0.55  σ=0.30
+#         ↳ short C K= 480.00  Δ=+0.18  σ=0.30
+#                                    🔴 IV 查無掛牌到期日 → 用預設 30%；Δ/exposure 僅供參考，勿據以判方向
+#       TSM_C400_DEC1826             Δ=+0.64 qty= +5 S=$ 419.10 σ=0.46 → exp=$    +133,483  [iv=broker]
+#       TSM_C410_DEC1826             Δ=+0.60 qty= +2 S=$ 419.10 σ=0.46 → exp=$     +50,543  [iv=broker]
+#       TSM_C400_JAN1527             Δ=+0.64 qty= +2 S=$ 419.10 σ=0.46 → exp=$     +53,310  [iv=broker]
+#       TSM_C380_NOV2026             Δ=+0.71 qty= +2 S=$ 419.10 σ=0.46 → exp=$     +59,512  [iv=broker]
+#       TSM_C400_NOV2026             Δ=+0.64 qty= +2 S=$ 419.10 σ=0.46 → exp=$     +53,310  [iv=broker]
+
+# rr6-2 Δ-equivalent shares  (正股 + option Δ + 指數期貨 ＝ 等效持有幾股正股；option 等效股數 = exposure / spot，期貨 = notional / 代理 ETF spot):
+#       ※ equiv_mv = stock MV + Σopt exposure + Σfut notional（無期貨的 sym 與 rr8b 同值；期貨 β 不套用，見 _FUT_EQUITY_PROXY）
+#       sym      stock_sh  opt_lots     optΔ_sh  fut_lots     futΔ_sh    equiv_sh  ×stock       equiv_mv     %NAV
+#       TSM           400       +16        +944        +0          +0      +1,344   3.36x       +563,324  +89.21%  ⚠️IV預設
+#       QQQ           116        +4        +218        +5        +413        +748   6.45x       +534,535  +84.65%
+#       SOXX            0        +3        +144        +0          +0        +144     n/a        +77,041  +12.20%
+#       AGIX        1,600        +0          +0        +0          +0      +1,600   1.00x        +70,624  +11.18%
+#       AVGO            0        +2        +159        +0          +0        +159     n/a        +67,141  +10.63%
+#       SMH             0        +2        +113        +0          +0        +113     n/a        +64,631  +10.23%
+
+# rr8 top-15 single-name concentration:
+#       TSM        248,468.36  (39.35%)
+#       QQQ        101,516.29  (16.08%)
+#       AGIX        70,624.00  (11.18%)
+#       AVGO        18,118.98  ( 2.87%)
+#       SOXX        14,857.60  ( 2.35%)
+#       SMH         13,920.74  ( 2.20%)
+
+# rr8b top-15 directional exposure  (option Σ(exposure) + stock raw MV):
+#       TSM       +563,324.00  ( +89.21%)  ⚠️IV預設
+#       QQQ       +239,225.75  ( +37.88%)
+#       SOXX       +77,041.44  ( +12.20%)
+#       AGIX       +70,624.00  ( +11.18%)
+#       AVGO       +67,140.87  ( +10.63%)
+#       SMH        +64,631.27  ( +10.23%)
+
+# rr8c top-15 directional exposure  (rr8b + futures notional):
+#       TSM         +563,324.00  ( +89.21%)  ⚠️IV預設
+#       MNQ_FUT     +295,309.00  ( +46.77%)
+#       QQQ         +239,225.75  ( +37.88%)
+#       SOXX         +77,041.44  ( +12.20%)
+#       AGIX         +70,624.00  ( +11.18%)
+#       AVGO         +67,140.87  ( +10.63%)
+#       SMH          +64,631.27  ( +10.23%)
+
+# rr9 sector breakdown (top 5；futures 用 notional 計，總和可 >100%):
+#       semi           295,365.68  (46.77%)
+#       futures        295,309.00  (46.77%)
+#       cash           163,967.37  (25.97%)
+#       index          101,516.29  (16.08%)
+#       tech            70,624.00  (11.18%)
+
+# rr11 expiry ladder (option premium at risk by DTE bucket；到期即歸零的規模):
+#       ≤30d               0.00  ( 0.00% NAV)
+#       31-60d             0.00  ( 0.00% NAV)
+#       61-90d         5,935.00  ( 0.94% NAV)  TSM×1
+#       91-180d      140,407.57  (22.23% NAV)  TSM×5 QQQ×2 AVGO×1 SMH×1 SOXX×1
+#       >180d              0.00  ( 0.00% NAV)
+#     by expiry (roll / 平倉決策的實際單位):
+#       2026-10-16 (  70 DTE)      5,935.00  ( 0.94% NAV)  TSM×1
+#       2026-11-20 ( 105 DTE)     56,092.74  ( 8.88% NAV)  TSM×2 AVGO×1 SOXX×1
+#       2026-12-18 ( 133 DTE)     39,333.73  ( 6.23% NAV)  TSM×2
+#       2027-01-15 ( 161 DTE)     44,981.10  ( 7.12% NAV)  QQQ×2 SMH×1 TSM×1
+#     moneyness split: ITM $93,012 (63.6% of premium) | OTM $47,395 (32.4%) | 不明 $5,935 (4.1%)
+#     ↳ OTM 部位到期不轉正即全額歸零 —— 佔 NAV 7.51%
+
+# rr12 unrealized P&L (cost = mv − UPL 反推；期貨以 margin 計故不列成本):
+#       stock        +22,396.24  on cost     298,767.16  (  +7.50%)
+#       option       -43,772.00  on cost     190,114.57  ( -23.02%)
+#       futures      +11,090.00  (margin 計，不計入 NAV)
+#       total        -10,285.76  on cost     488,881.73  (  -2.10%)  ※含期貨 UPL，分母不含期貨
+
+# rr10 sharpe (年化；rf=3.73% via yfinance_^IRX):
+#     ex-ante  (前瞻/持倉加權) Sharpe= 1.52  [ann_ret +106.28% / ann_vol 64.62% | 7 syms × 250d yf；gross_w 2.18]
+#     realized (NAV序列/已實現) Sharpe=-0.65  [ann_ret -27.23% / ann_vol 47.55% | 59 pts 2026-04-28..2026-08-07]
+#              ⚠️ NAV 序列受出入金汙染且點數少，僅供交叉參考，非嚴格績效
+```
