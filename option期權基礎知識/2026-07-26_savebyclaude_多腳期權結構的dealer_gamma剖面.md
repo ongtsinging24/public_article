@@ -297,5 +297,5 @@ python3 -c "import yfinance as yf; print(yf.Ticker('SMH').history(period='5d')[[
 - [[kb_put-wall-break-is-oversold-not-collapse]] — PW 跌破的正確讀法。
 - [[kb_greek-sign-is-identity-not-independent-check]] — greek 符號是恆等式、不是獨立佐證；
   本篇 §5.3 的「機制成立 ≠ 盤面量得到」是同一個提醒的另一面。
-- [[21-04-2026_savebyclaude_Short_MNQ決策與GEX助漲跌環境]] — 指數層的 GEX 助漲跌實戰決策。
-- [[25-07-2026_savebyclaude_FP-p9極端greek的前瞻報酬]] — FP greek 極值的前瞻報酬實證。
+- [[21-04-2026_CC_Short_MNQ決策與GEX助漲跌環境]] — 指數層的 GEX 助漲跌實戰決策。
+- [[25-07-2026_CC_FP-p9極端greek的前瞻報酬]] — FP greek 極值的前瞻報酬實證。
