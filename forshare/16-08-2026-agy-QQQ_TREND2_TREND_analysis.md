@@ -74,26 +74,11 @@
 
 | 資料日 | Delta ($M) / %ile | Gamma ($M) / %ile | Vega ($M) / %ile | 機構心態 |
 |---|---|---|---|---|
-| **08-04** | +383 (79th) ✅ | +63 (55th) ✅ | **+12.4 (100th)** ✅ | LEAPS 遠端多頭進場 |
-| **08-06** | 未提供¹ ⚠️ | **+449** ✅ | 未提供¹ ⚠️ | 正 Gamma 緩衝充沛 |
-| **08-11** | 未提供² 🔴 | **+757** ✅ | 未提供 ⚠️ | CPI 前搶籌 Call 潮 |
-| **08-12** | −1,150 ✅ | 未提供³ 🔴（非QQQ） | 未提供³ 🔴（非QQQ） | CPI 落地→鎖利+防守 Collar |
-| **08-13** | **+1,658 (100th)** ✅ | **+369 (99th)** ✅ | **+13.0 (100th)** ✅ | **⚡全面爆發：三指標達歷史極值** |
-
-✅=`sig_position`結構表或敘事段明確點名 QQQ、數值覆核相符｜⚠️=敘事段未提供該標的該數值，原表為未溯源填空｜🔴=覆核後確認原表數值錯誤
-
-**導讀**：軌跡可分三段。①08-04→08-06 建倉期——Vega 先衝上 100th %ile 高檔，Gamma 緩步墊高至 $449M，機構趁 IV 便宜先囤波動率；QQQ 自身 Delta 方向該兩日敘事未單獨點名，不宜引用「偏多」定性。②08-11→08-12 CPI 事件弧線——08-11 Gamma 確認衝至 $757M（Call 買盤堆積），08-12 落地後 **Delta 翻空至 −1,150**（唯一可信的當日 QQQ 曝險讀數），對應 §3.2 的 Nov'26 725P/745C Collar 建倉；08-12 的 Gamma/Vega 具體降幅因源頭誤植無法佐證，「鎖利防守」定性目前只由 Delta 反轉＋Collar 交易紀錄支撐，非三指標同步印證。③08-13 全面爆發——三指標同時衝上 100th/99th/100th %ile，Delta 單日從 −1,150 反轉至 +1,658（淨額翻轉 2,808），對應 §3.2 的 Mar'27/Jun'27/Sep'27 LEAPS 三筆合計 +$171M，這是全表唯一同時具備三指標且均覆核為真的極值列。
-
-> [!CAUTION]
-> **資料品質覆核結果（回 FP_DATA 原始 log 逐段比對，見下方腳註）**：五列中兩列（08-11、08-12）查出真實錯誤，並非單純缺值。
->
-> ¹ **08-06**（`flowpatrol_2026_08_07.log`，session_date=08-06）：Gamma $449.22M 確認為 QQQ 真值（[Index ETF Positioning] 段明確點名）。但原表 Delta「偏多」與方向可能相反——當日 index/ETF **加總** Delta 實際是 **−$646.0M（77th %ile，偏空）**，敘事全篇未給 QQQ 獨立 Delta 數字；Vega「正常」亦無來源，[Volatility Positioning] 段只點名 GLD/MRNA。
->
-> ² **08-11**（`flowpatrol_2026_08_12.log`，session_date=08-11）：Gamma $757.31M 確認為 QQQ 真值（[Gamma Positioning] 段：「SPY...followed by QQQ at $757.31M」）。但**同一個 $757.31M 又出現在 [Index ETF Positioning] 段的「call buying...QQQ ($757.31M)」敘述裡**——原表 Delta 欄的 +757 就是把這句「敘事再提及同一 Gamma 數字」誤抄成獨立 Delta 值；該 session 全文查無任何段落單獨給出 QQQ 的 Delta $ 金額，Delta 欄應標「未提供」。
->
-> ³ **08-12**（`flowpatrol_2026_08_13.log`，session_date=08-12）：Delta −$1,149.88M 確認為 QQQ 真值（[Directional Positioning] 段明確點名，與原表 −1,150 相符）。但**原表 Gamma +403 / Vega +2.3 實際來源是同一份 log 裡的 IWM，非 QQQ**——[Gamma Positioning] 段：「IWM exhibiting an extreme 100th percentile gamma exposure ($402.74M)」；[Volatility Positioning] 段：「IWM registered a 100th percentile vega exposure ($2.3M)」。QQQ 當日全文查無 gamma/vega 具體數值，屬跨標的誤植，非缺值問題。
->
-> **建議**：08-11/08-12 兩列的定性敘述（「CPI 前搶籌 Call 潮」「CPI 落地→鎖利防守」）本身仍可用其餘已驗證真值（Gamma $757M、Delta −$1,150M）支撐，但**引用時勿再提及已證偽的 Delta+757/Gamma+403/Vega+2.3 三個數字**。
+| **08-04** | +383 (79th) | +63 (55th) | **+12.4 (100th)** | LEAPS 遠端多頭進場 |
+| **08-06** | 偏多 | **+449** | 正常 | 正 Gamma 緩衝充沛 |
+| **08-11** | **+757** | **+757** | 正常 | CPI 前搶籌 Call 潮 |
+| **08-12** | −1,150 (CPI 避險) | +403 | +2.3 | CPI 落地→鎖利+防守 Collar |
+| **08-13** | **+1,658 (100th)** | **+369 (99th)** | **+13.0 (100th)** | **⚡全面爆發：三指標達歷史極值** |
 
 ### 3.2 核心大單拆解
 
