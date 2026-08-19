@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US10Y 水位地圖與「同日 beta 的水位換檔」</title>
+<style>
+body { background:#fafafa; color:#222; font-family:'Noto Sans CJK TC','Segoe UI',sans-serif;
+         max-width:920px; margin:0 auto; padding:32px 24px; line-height:1.7; }
+  h1 { font-size:24px; border-bottom:3px solid #2c7; padding-bottom:10px; display:flex;
+       align-items:center; gap:10px; }
+  h1 .v2-badge { font-size:12px; background:#2c7; color:#fff; padding:2px 8px;
+                 border-radius:10px; font-weight:600; letter-spacing:0.5px; }
+  h2 { font-size:19px; margin-top:32px; color:#1a6; border-left:5px solid #2c7; padding-left:10px; }
+  h3 { font-size:16px; color:#444; margin-top:24px; }
+  h4 { font-size:14px; color:#555; margin-top:18px; }
+  .meta { background:#eef6f0; border-radius:6px; padding:12px 16px; font-size:14px; color:#456;
+          margin-top:12px; }
+  .meta code { background:#dce8e0; padding:1px 5px; border-radius:3px; }
+  table { border-collapse:collapse; width:100%; margin:14px 0; font-size:14px; }
+  th, td { border:1px solid #ccc; padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:#2c7; color:#fff; }
+  tr:nth-child(even) { background:#f0f4f1; }
+
+  /* 4 種訊息框（pre 模式卡片） */
+  .section { border-radius:6px; padding:14px 18px; margin:18px 0; }
+  .px    { background:#eef6f0; }
+  .warn  { background:#fff4e0; border-left:5px solid #e8a000; }
+  .alert { background:#fde8e8; border-left:5px solid #c33; }
+  .v2    { background:#e6f0fc; border-left:5px solid #4a90e2; }
+
+  /* <pre>：深色 + 等寬 + 保留 ASCII 對齊；位於卡片內時去掉自身 margin */
+  pre { background:#1f2326; color:#d4d4d4; border-radius:6px; padding:14px 16px;
+        overflow-x:auto; font-size:13px; line-height:1.55; white-space:pre;
+        font-family:'Consolas','Menlo','Noto Sans Mono CJK TC',monospace; margin:14px 0; }
+  .section pre { margin:0; }
+
+  /* md 模式：原生 markdown 元素 */
+  p { margin:10px 0; }
+  strong { font-weight:700; color:#143; }
+  em { font-style:italic; }
+  a { color:#1a6; text-decoration:none; border-bottom:1px solid #9d8; }
+  a:hover { background:#eef6f0; }
+  code { background:#eef1f0; color:#b3306b; padding:1px 5px; border-radius:3px;
+         font-size:90%; font-family:'Consolas','Menlo',monospace; }
+  ul, ol { margin:8px 0; padding-left:26px; }
+  li { margin:3px 0; }
+  blockquote { border-left:4px solid #2c7; background:#eef6f0; margin:14px 0;
+               padding:10px 16px; color:#456; font-size:14px; }
+  blockquote code { background:#dce8e0; }
+  .wikilink { color:#4a90e2; background:#e6f0fc; padding:0 5px; border-radius:3px; font-size:92%; }
+  td code, th code { font-size:88%; }
+
+  /* 淺底配色（h1/h2/table 等卡片本體） */
+  .pos { color:#1a6; font-weight:bold; }
+  .neg { color:#c33; font-weight:bold; }
+  .neu { color:#d97e00; font-weight:bold; }
+
+  /* 深底（pre 內）覆寫為亮版本，確保可讀性 */
+  pre .pos { color:#4ec9b0; }
+  pre .neg { color:#f48771; }
+  pre .neu { color:#dcb074; }
+  pre .cmd { color:#dcdcaa; }
+  pre .sym { color:#569cd6; font-weight:bold; }
+  pre .tag { color:#c586c0; }
+  pre .hdr { color:#7a7a7a; }
+
+  hr { border:none; border-top:1px solid #ddd; margin:28px 0; }
+  .footer { color:#999; font-size:12px; margin-top:32px; text-align:center; }
+</style>
+</head>
+<body>
+<h1>US10Y 水位地圖與「同日 beta 的水位換檔」<span class="v2-badge">v2</span></h1>
+<div class="meta">來源：<code>19-08-2026_CC_US10Y水位地圖與同日beta的水位換檔.md</code>　·　模式：<code>md</code>　·　產生時間：2026-08-19 11:47:21</div>
+<p><strong>建檔</strong> 2026-08-19｜<strong>類型</strong> 長青（水位表有時效、方法論常青）｜<strong>作者</strong> CC</p>
+<blockquote><strong>一句話</strong>：殖利率水位表的正確用途是「<strong>今天這根 Δ 該給多少權重</strong>」，不是「破了就減碼」。<br>同日 beta 確實隨水位換檔（4.50–4.75 是唯一 CI 排除 0 的桶），但上穿門檻的前瞻檢定全數 null。</blockquote>
+<hr>
+<h2>縮寫對照</h2>
+<table><thead><tr><th>縮寫</th><th>全稱</th></tr></thead><tbody><tr><td>US10Y / DGS10</td><td>美國 10 年期公債殖利率（名目），FRED 序列</td></tr><tr><td>DFII10</td><td>10Y TIPS 實質殖利率 (Real Yield)</td></tr><tr><td>BE / T10YIE</td><td>10Y Breakeven，市場隱含通膨預期</td></tr><tr><td>2s10s / T10Y2Y</td><td>10Y − 2Y 利差（曲線斜率）</td></tr><tr><td>DGS2/5/30</td><td>2Y/5Y/30Y 公債殖利率，FRED 序列</td></tr><tr><td>^TNX / ^TYX / ^FVX / ^IRX</td><td>CBOE 10Y / 30Y / 5Y / 13W 殖利率指數（yfinance）</td></tr><tr><td>TP</td><td>Term Premium，期限溢價</td></tr><tr><td>MA20/50/100/200</td><td>對「殖利率本身」取的移動平均</td></tr><tr><td>bp</td><td>basis point，0.01%</td></tr><tr><td>CI</td><td>Confidence Interval（本文皆為 bootstrap 95%）</td></tr><tr><td>bear steepener</td><td>長端漲幅 &gt; 短端的殖利率上行</td></tr></tbody></table>
+<hr>
+<h2>一、理論框架</h2>
+<h3>1.1 為什麼「水位」值得單獨談</h3>
+<p>殖利率對股票的影響不是線性的。直覺上 <span class="pos">+10</span>bp 就是 <span class="pos">+10</span>bp，但實際上同一個 Δ 在不同水位<br>的傷害不同：低水位時利率上行常被讀成「成長變好」（beta 可正），高水位時同一根上行<br>被讀成「折現率／流動性擠壓」（beta 轉負且變陡）。<strong>若這個換檔是真的，水位表就有用</strong>——<br>用途是決定權重，不是決定進出。</p>
+<h3>1.2 三軸拆解：名目不是主角</h3>
+<pre>名目 10Y  =  實質殖利率 (DFII10)  +  通膨預期 (BE)
+                    ↑ 折現率/資金成本         ↑ 名目成長補償（部分被營收吸收）</pre>
+<p>同樣 <span class="pos">+17</span>bp，<strong>由實質帶動</strong>（折現率真的變貴）與<strong>由 BE 帶動</strong>（名目成長也一起上調）<br>對股票估值的意義完全相反。判「這波升息危不危險」，先做這個分解，不要只看名目。</p>
+<p>再加一軸：<strong>曲線形狀</strong>。2s10s / 30Y−10Y 同步陡峭化 ＝ TP／財政供給故事，<br>屬「聯準會降息也救不到」的類型；平坦化上行 ＝ 政策路徑重定價，Fed 轉向即可解。</p>
+<h3>1.3 與既有結論的關係（不衝突，是分層）</h3>
+<p>我方 <span class="wikilink">project_rate_beta_regime_no_forward_power</span> 已證：<strong>殖利率沒有前瞻解釋力</strong><br>（18 組 CI 全重疊、24M beta 反號）。本篇<strong>不推翻它，而是補上另一層</strong>：</p>
+<table><thead><tr><th>層</th><th>問題</th><th>結論</th></tr></thead><tbody><tr><td>前瞻層</td><td>破 X 之後 T+5/T+20 會怎樣？</td><td>❌ 無 edge（既有＋本篇 §E 複驗）</td></tr><tr><td><strong>同日層</strong></td><td>今天 Δ 一根 10bp，值多少 %？</td><td>✅ <strong>隨水位換檔，且目前在最陡的桶</strong></td></tr></tbody></table>
+<p>⇒ 兩層一起看才不會誤用。水位表是<strong>權重表</strong>不是<strong>觸發表</strong>。</p>
+<hr>
+<h2>二、實驗設計</h2>
+<ul><li><strong>樣本期</strong>：殖利率 1962-01-02 → 2026-08-17（n=16,141）；股債合併面板 2022-01-04 → 2026-08-17（n=1,151）</li><li><strong>資料源</strong>：殖利率一律 FRED <code>DGS*</code>/<code>DFII10</code>/<code>T10YIE</code>/<code>T10Y2Y</code>（SSOT）； <code>^TNX</code> 僅作 FRED 尚未發布時的當日補位（口徑同 <span class="wikilink">15-08-2026_CTA-bond-squeeze_tracking</span> §0.1）。 股票 yfinance 日線 <code>auto_adjust=True</code>。</li><li><strong>A 停留時間</strong>：0.05 為 bin 統計交易日數 → 密集帶（支撐/壓力）vs 真空帶。</li><li><strong>B 轉折水位</strong>：±15 交易日局部極值（swing pivot），同型別相鄰 ≤1 月者取極端值去重。</li><li><strong>C 分解</strong>：對 7 個時點取 10Y／DFII10／BE／2s10s／30Y 快照。</li><li><strong>D 同日 beta</strong>：以 10Y 水位切 5 桶，桶內 OLS <code>ret_QQQ ~ Δ10Y(bp)</code>， <strong>bootstrap 400 次取 95% CI</strong>；n&lt;30 的桶不報數（&gt;4.75 桶 n=17，故留白）。</li><li><strong>E 前瞻檢定</strong>：定義事件＝10Y 由下往上穿 X，量 T+5/T+20 QQQ 報酬與勝率， <strong>對照組＝同期全期無條件基準</strong>（T+5 <span class="pos">+0.34%</span>／T+20 <span class="pos">+1.38%</span>／T+20 勝率 62%）。 ⚠️ 依 <span class="wikilink">feedback_hitrate_needs_conditional_baseline</span>，<strong>不使用 50% 當隨機基準</strong>—— 本樣本期 QQQ 的 T+20 無條件勝率是 62%，用 50% 會把負 edge 誤讀成正 edge。</li></ul>
+<hr>
+<h2>三、結果</h2>
+<h3>3.1 當下讀數（as-of 2026-08-18 美股收盤，台北 08-19 11:25 抓，已過 04:00 GMT+8）</h3>
+<table><thead><tr><th>指標</th><th>現值</th><th>分位／參照</th></tr></thead><tbody><tr><td>US10Y (^TNX)</td><td><strong>4.706</strong></td><td>近 1 年 98.4%／近 2 年 98.6%；FRED DGS10 08-17 = 4.72</td></tr><tr><td>DGS30 (^TYX)</td><td><strong>5.285</strong></td><td>自 2022 分位 <strong>99.9%</strong>（＝週期最高點本身）</td></tr><tr><td>DFII10 實質</td><td><strong>2.44</strong></td><td>自 2022 分位 98.9%、近 2 年 99.4%</td></tr><tr><td>BE 通膨預期</td><td>2.28</td><td>2.2–2.5 區間中段，<strong>平淡</strong></td></tr><tr><td>2s10s</td><td><span class="pos">+0.53</span></td><td>30Y−10Y = 0.59，自 2022 分位 88%</td></tr></tbody></table>
+<p><strong>「上次看到是什麼時候」</strong>（本表是水位重要度的主要依據）：</p>
+<table><thead><tr><th>水位</th><th>上次觸及</th></tr></thead><tbody><tr><td>10Y ≥ 4.72</td><td>2025-01-14</td></tr><tr><td>10Y ≥ 4.79</td><td>2025-01-13（＝2 年高本身）</td></tr><tr><td>10Y ≥ 4.98</td><td>2023-10-19</td></tr><tr><td>10Y ≥ 5.00</td><td><strong>2007-07-19</strong></td></tr><tr><td>30Y ≥ 5.31</td><td><strong>2007-06-12</strong>（現值已在此）</td></tr><tr><td>30Y ≥ 5.50</td><td><strong>2004-06-14</strong></td></tr><tr><td>DFII10 ≥ 2.44</td><td>2023-10-31（現值已在此）</td></tr><tr><td>DFII10 ≥ 2.50</td><td>2023-10-25（自 2022 最高 2.52）</td></tr></tbody></table>
+<h3>3.2 §C 分解：這波是<strong>實質主導的 bear steepener</strong></h3>
+<table><thead><tr><th>時點</th><th>10Y</th><th>實質</th><th>BE</th><th>2s10s</th><th>30Y</th></tr></thead><tbody><tr><td>2026-08-17</td><td>4.72</td><td><strong>2.44</strong></td><td>2.28</td><td>0.53</td><td>5.31</td></tr><tr><td>1 月前 07-17</td><td>4.55</td><td>2.31</td><td>2.24</td><td>0.37</td><td>5.06</td></tr><tr><td>3 月前 05-18</td><td>4.61</td><td>2.13</td><td>2.48</td><td>0.54</td><td>5.14</td></tr><tr><td>6 月前 02-17</td><td>4.05</td><td>1.79</td><td>2.26</td><td>0.62</td><td>4.68</td></tr><tr><td>1 年前 25-08-18</td><td>4.34</td><td>1.96</td><td>2.38</td><td>0.57</td><td>4.94</td></tr></tbody></table>
+<p>近 1 個月 10Y <strong><span class="pos">+17</span>bp</strong> ＝ 實質 <strong><span class="pos">+13</span>bp</strong> ＋ BE <strong><span class="pos">+4</span>bp</strong>，同時 30Y <span class="pos">+25</span>bp、2s10s <span class="pos">+16</span>bp。<br>⇒ <strong>折現率變貴、通膨預期沒動、長端獨立走高</strong>。這是對長久期成長股殺傷力最高的組合。<br>（對照 3 個月前 05-18：當時 10Y 4.61 中 BE 高達 2.48、實質僅 2.13 —— 同樣的名目水位，<br>性質完全不同。這正是「不能只看名目」的實例。）</p>
+<h3>3.3 §D 核心結果：同日 beta <strong>確實</strong>隨水位換檔</h3>
+<p>QQQ 同日報酬對 Δ10Y 的迴歸，每 <span class="pos">+10</span>bp（2022-01 → 2026-08，n=1,151）：</p>
+<table><thead><tr><th>10Y 水位桶</th><th>n</th><th>beta</th><th>bootstrap 95% CI</th><th>corr</th><th>判定</th></tr></thead><tbody><tr><td>&lt;4.00</td><td>441</td><td>−0.22%</td><td>[−0.48, <span class="pos">+0.08</span>]</td><td>−0.10</td><td>含 0</td></tr><tr><td>4.00–4.25</td><td>275</td><td><strong><span class="pos">+0.18%</span></strong></td><td>[−0.11, <span class="pos">+0.48</span>]</td><td><span class="pos">+0.08</span></td><td>含 0（<strong>符號還是正的</strong>）</td></tr><tr><td>4.25–4.50</td><td>298</td><td>−0.29%</td><td>[−0.64, <span class="pos">+0.09</span>]</td><td>−0.11</td><td>含 0</td></tr><tr><td><strong>4.50–4.75（現在）</strong></td><td><strong>120</strong></td><td><strong>−0.59%</strong></td><td><strong>[−0.98, −0.22]</strong></td><td>−0.28</td><td>★ <strong>唯一 CI 排除 0</strong></td></tr><tr><td>&gt;4.75</td><td>17</td><td>—</td><td>—</td><td>—</td><td>樣本不足，<strong>不報</strong></td></tr></tbody></table>
+<p>近 1 年（n=249）更陡：QQQ <strong>−0.77%</strong>／10bp（corr −0.25）、SPY −0.60%（−0.30）、<br><strong>IWM −0.99%</strong>（−0.33）。小型股對利率最敏感，符合預期。</p>
+<h3>3.4 §E 對照結果：上穿門檻<strong>沒有</strong>前瞻力（複驗既有結論）</h3>
+<p>對照組基準：T+5 <strong><span class="pos">+0.34%</span></strong>／T+20 <strong><span class="pos">+1.38%</span></strong>／T+20 勝率 <strong>62%</strong></p>
+<table><thead><tr><th>事件</th><th>n</th><th>T+5</th><th>T+20</th><th>T+20 勝率</th></tr></thead><tbody><tr><td>上穿 4.25</td><td>30</td><td><span class="pos">+0.13%</span></td><td><strong><span class="pos">+0.17%</span></strong></td><td>47%</td></tr><tr><td>上穿 4.50</td><td>17</td><td><span class="pos">+0.44%</span></td><td><span class="pos">+1.02%</span></td><td>76%</td></tr><tr><td>上穿 4.60</td><td>15</td><td><span class="pos">+0.19%</span></td><td><span class="pos">+1.34%</span></td><td>73%</td></tr><tr><td>上穿 4.75</td><td>5</td><td>—</td><td>—</td><td>樣本不足，不報</td></tr><tr><td>上穿 5.00</td><td>0</td><td>—</td><td>—</td><td>樣本期內未發生</td></tr></tbody></table>
+<p><strong>判讀</strong>：方向<strong>不單調</strong>——門檻愈高本應愈壞，實際卻是 4.25 最差（47%＜基準 62%）、<br>4.50 最好（76%＞基準）。不單調 ＋ n 只有 15–30 ⇒ 這是<strong>雜訊不是訊號</strong>。<br>⚠️ 特別警告 4.75：n=5，任何拿它做結論的宣稱（含我自己第一版口頭分析裡的<br>「T+20 <span class="pos">+2.70%</span>、勝率 100%」）<strong>都不可用</strong>，本檔已改為 n&lt;10 直接不報。</p>
+<hr>
+<h2>四、結論與行動</h2>
+<h3>4.1 水位清單（依重要度）</h3>
+<p><strong>🔴 第一梯——真正的門檻</strong></p>
+<table><thead><tr><th>#</th><th>水位</th><th>標的</th><th>為什麼是門檻</th></tr></thead><tbody><tr><td>1</td><td><strong>4.79</strong></td><td>10Y</td><td>2025-01-13 高＝2 年高。破了往上到 4.98 是停留時間近乎零的<strong>真空帶</strong></td></tr><tr><td>2</td><td><strong>2.50–2.52</strong></td><td>DFII10</td><td>2023-10 週期高。破此＝2008 以來最高實質資金成本，<strong>估值層的真門檻</strong></td></tr><tr><td>3</td><td><strong>5.50</strong></td><td>30Y</td><td>2004 以來未見。5.31 已在 2007 高，5.50 是「長端失控」確認線</td></tr><tr><td>4</td><td><strong>4.75</strong></td><td>10Y</td><td>07-31 YTD 高＝近 4 週箱體上緣（08 月全月 4.63–4.72，振幅僅 9bp）</td></tr></tbody></table>
+<p><strong>🟡 第二梯——上檔延伸</strong>：<strong>4.98</strong>（2023-10-19 週期高）／<strong>5.00</strong>（整數關，2007-07 以來未見）</p>
+<p><strong>🟢 第三梯——下檔解除線</strong></p>
+<table><thead><tr><th>水位</th><th>依據</th></tr></thead><tbody><tr><td><strong>4.63</strong></td><td>近 4 週箱體下緣（08/04、08/05、08/13 三度守住）</td></tr><tr><td><strong>4.55–4.57</strong></td><td>MA50 = 4.572 ＋ 7 月中樞；跌破＝7 月起上升段結構破壞</td></tr><tr><td><strong>4.44–4.50</strong></td><td>MA100 = 4.487 ＋ 2026 上半年密集區上緣</td></tr><tr><td><strong>4.38</strong></td><td>2026-06-26 波段低</td></tr><tr><td><strong>4.30–4.32</strong></td><td><strong>MA200 = 4.322</strong> ＋ 2024 起最高停留密度帶（4.25–4.30 佔 21% 交易日）</td></tr><tr><td><strong>3.97</strong></td><td>YTD 低（2026-02-27，亦＝2025-10-22 低）</td></tr></tbody></table>
+<h3>4.2 怎麼用（三條規則）</h3>
+<ol><li><strong>水位＝權重表</strong>。目前在 4.50–4.75 桶，一根 <span class="pos">+10</span>bp 值 QQQ −0.6~−0.8%、IWM −1.0%。 當日盤後歸因時，先扣掉這部分再談「個股/板塊自己的事」。 ⚠️ 歸因用 QQQ／IWM，<strong>不要用半導體個股</strong>（板塊動能會蓋過利率訊號，見既有結論）。</li><li><strong>水位≠觸發器</strong>。破 4.75/4.79 <strong>不構成減碼理由</strong>；要動手必須配市場側證據 （GEX 牆位、FP 流量、HIRO）。單靠殖利率破位進出在本樣本期是負 edge。</li><li><strong>先分解再判性質</strong>。名目上行時第一件事是查 DFII10 vs BE： 實質主導 ⇒ 估值壓力真實；BE 主導 ⇒ 殺傷力小很多，多半可不動。 同理，30Y−10Y 走闊 ⇒ TP/財政故事，Fed 轉向救不到，不要押「降息就解決」。</li></ol>
+<h3>4.3 當下三個具體觀察條件</h3>
+<ol><li><strong>4.75 ↔ 4.63 箱體解方向</strong>，且看 DFII10 是否同步破 2.47。</li><li><strong>30Y 5.31 這個點本身</strong>（已在 2007 高）＋ 30Y−10Y 0.59 是否續闊。</li><li><strong>DFII10 2.52</strong> —— 破此則「高估值可容忍」的前提要重寫，比 10Y 名目破 4.79 更值得動手。</li></ol>
+<hr>
+<h2>五、待辦</h2>
+<ul><li>[ ] <strong>ROMA 目前沒有任何利率水位監控欄</strong>（現查：<code>romasys/src/</code> 全域只有 <code>risk/asia_dollar_stress.py</code> 碰 FRED，抓的是 WMTSECL1/SOFR/IORB，與殖利率無關； <code>portfolio/sharpe.py:44</code> 只用 <code>^IRX</code> 當無風險利率）。可複用 <code>asia_dollar_stress.py:131</code> 的 <code>_fred_series()</code> 建一個 rates 監控欄， 輸出「10Y 水位桶 + 實質/BE 分解 + 距最近門檻 bp」。→ 待評估是否值得開卡。</li><li>[ ] <code>&gt;4.75</code> 桶 n=17 無法檢定。若 10Y 站上 4.75 並累積到 n≥30，回頭補跑 §D 確認 beta 是否再陡一檔（這是本篇唯一的實質未知）。</li><li>[ ] 本篇只測 QQQ/SPY/IWM。若要用於個股層，需先確認個股 beta 不被板塊動能污染 （方法見 <span class="wikilink">04-08-2026_CC_四籃輪動的beta幻覺與殘差蹺蹺板</span> 的殘差化）。</li></ul>
+<hr>
+<h2>附錄：腳本</h2>
+<ul><li><code>py_dir/19-08-2026_us10y_key_levels.py</code> —— 本篇全部五段（A 分位/停留、B pivot/MA、 C 三軸分解、D 同日 beta + bootstrap CI、E 前瞻檢定）一次跑完，免 API key。</li><li>前作（前瞻層，2026-07-26）：<code>py_dir/2026-07-26_belly_yield_monitor.py</code>、 <code>2026-07-26_belly_yield_regime.py</code>、<code>2026-07-26_belly_yield_forward.py</code>、 <code>py_dir/belly_yield_daily_check.py</code> ⚠️ 該批當時<strong>未落 SAVEANA 筆記</strong>，結論只存在記憶條目裡。本篇補上論述層。</li></ul>
+<h2>關聯</h2>
+<p><span class="wikilink">project_rate_beta_regime_no_forward_power</span>（前瞻層母結論；本篇為其同日層補充）<br><span class="wikilink">feedback_hitrate_needs_conditional_baseline</span>（§E 對照組基準 62% 而非 50%）<br><span class="wikilink">feedback_verify_the_claimed_tenor_not_your_proxy</span>（利率一律用 FRED DGS*，勿拿 3M 代 2Y）<br><span class="wikilink">reference_fred_free_csv_series</span>（fredgraph.csv 免 key 抓法）<br><span class="wikilink">feedback_us_close_price_only_after_0400_tpe</span>（本篇 as-of 於台北 11:25 抓，已過 04:00）<br><span class="wikilink">15-08-2026_CTA-bond-squeeze_tracking</span>（債券多空論述；其 §4.2 用同一母結論壓測 SG 前瞻宣稱）<br><span class="wikilink">19-08-2026_QQQ_strategy</span>（同日產出，已引用 10Y 252d 分位 99.2%）<br><span class="wikilink">04-08-2026_CC_四籃輪動的beta幻覺與殘差蹺蹺板</span>（beta 歸因的污染與殘差化）</p>
+<div class="footer">generated by roma md2html v2 · mode=md · 2026-08-19 11:47:21</div>
+</body>
+</html>
