@@ -1,0 +1,23 @@
+study("Accumulation/Distribution - with markers")
+
+//AD  the Accumulation/Distribution cumulative running total line.
+
+ad  = cum(  (((close - low) - (high - close)) / (high - low)) * volume )
+
+ad1 = sma( ad , 9)
+ad2 = sma( ad , 15)
+adCross = cross(ad1, ad2) ? ad2 : na
+adSmaller = ad1 < ad2
+adLowHighColor = adSmaller? red : green
+adDiff = ad1 - ad2
+adMarker = adSmaller == true and adSmaller[1] == false ? adDiff : na
+
+//plot(ad , color = green)
+plot(adDiff, color=adLowHighColor, style=line, linewidth=2)
+plot(adDiff, color=silver, style=area, transp=70)
+plot(adMarker, color=maroon, linewidth=4, style=circles)
+
+//plot(ad1, color=red)
+//plot(ad2, color=blue)
+//plot(adCross, color=green, linewidth=4, style=circles)
+
