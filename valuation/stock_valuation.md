@@ -5,7 +5,7 @@
 > 支撐壓力帶 / UNDER-OVER / Forward PE」僅代表**當時**的第三方交叉檢核，保留供決策追溯（**不刪不改**）。
 > 現行口徑：合理區間改由自家 NTM blend 自證（`methodology_NTM_blend.md`）、zone 改用折價帶規則。
 
-> 資料基準：2026-03-20（原始）；最後更新：2026-09-15
+> 資料基準：2026-03-20（原始）；最後更新：2026-09-17
 > 更新觸發：財報後（實際 EPS 出爐）或重大預估修正
 >
 > **v0.1 三情境估值框架**（2026-05-07 起）：META 增 `bear_eps/bear_pe/bear_target` 等
@@ -15,6 +15,23 @@
 ## 更新記錄
 > 近期；更早記錄移至 → `valuation_log/_changelog_archive.md`（或 git log）。
 
+- 2026-09-17：**CDNS／NBIS 初始建檔（皆無持倉，同日納入 watchlist）——兩張都是「找一張既有卡的對照組」**
+  - **CDNS（`fair_high`，+2.2%）**：P/E × NTM blend（Dec FY，w 0.288/0.712）。NTM EPS **$9.14**、`base_pe` **30x** ⇒ fair **$274**、zone **192/233**、bear $193／bull $382、R:R **1.17**。現價 **$279.90**（09-16 收）＝ **30.62x NTM**。
+    - 🔴 **本卡最重要的一件事是分子不是倍數**：yfinance `earnings_estimate['0y']` 對 CDNS 回 **$4.80568（n=13，GAAP 口徑）**，而同表 `+1y` 是 non-GAAP $9.5454 ⇒ **機械 blend 會低估 10.5%**。正解 FY2026 ＝ **$8.14235**，三路互證：① `info['epsCurrentYear']` ≡ `+1y.yearAgoEps` 逐位相同 ② 季估 `0q`+`+1q`=4.0646 ⇒ 若 FY26=4.806 則 H1'26 只剩 0.741（去年同期兩季就有 3.92）③ `growth_estimates.stockTrend['0y']` +14.04% 反解 FY25=$7.140。
+    - ★ **可推廣的新判準（§12.8.3 三條都抓不到，是第四型）**：`earnings_estimate['0y'].avg` **應恆等於** `info['epsCurrentYear']`。本批同抓的 SNPS/KEYS/PTC/ADSK **四檔全部相等，只有 CDNS 不等** ⇒ 離群的是這一檔、不是 feed 全表。⚠️ 判準不是「n 少的那格壞」（這裡壞的剛好 n 少，但 PANW 型的 §15.2 才是靠 n 判，方向相反）。
+    - **`base_pe` 30x 的四個錨**：SNPS **市場** 21.95x（下界，但含 Ansys／Design IP 個股問題）／**我方 SNPS 卡 33x**（上界，2026-09-05 user 複核明確維持）／街口 28 位最保守目標 $300 ≡ **32.82x**／自身現價隱含 **30.62x**。取 30x **低於後兩個獨立上界** ⇒ 依 [[feedback_conservative_base_pe_no_rerating]] 不是 re-rating；PEG 30÷17.2 ＝ **1.74** 比我方 SNPS 卡的 2.10 更嚴。
+    - 🔴 **可證偽點寫在卡的前面**：整個結論押在「EDA 該比 ADSK/PTC/KEYS 貴 1.6 倍」。改用同儕 ex-self 中位 **19.07x** ⇒ fair **$174**，分級由 `fair_high` 直接翻 `overvalued`（錯 57%）。
+    - **zone 帶別不照 yf β 機械判**：yfinance β **1.137**（< 1.2 ⇒ 低β帶），但自算 1y β **1.617（corr 0.520 ＝ 有資訊）**、年化波動 **40.1%**、1y MDD **−34.2%**、板塊掛先進製程 capex ⇒ **四比一採高β帶 0.70/0.85**。★ 與 ADBE 卡拒用自算 β 的差別在 **corr**（那次只有 0.118/0.005 ＝ 無資訊），判準是 corr 不是順手；★ 硬理由：姊妹卡 SNPS（β 1.213）已是高β帶，CDNS 實測波動更高卻給淺帶＝內部不自洽。
+    - 明細 → `valuation_log/CDNS.md`
+  - **NBIS（`fair_high`，+24.6%）**：`anchor=EV/Rev`（街口 EPS 兩年皆負：FY26 −2.5183／FY27 −5.6486；TTM EBITDA 僅 $258M 對 EV $59B ⇒ EV/EBITDA 也不採）。ntm_rev **$9.556B**、EV/Rev **3.5/5/7x** ⇒ bear **$77**／fair **$168**／bull **$349**；zone **118/143**（自算 β 3.590、年化波動 109.1%）。現價 **$209.37**（09-16 收）＝ **6.18x EV/NTM Rev**、R:R 1.05。
+    - ★ **覆蓋率本身就是選框架的理由**：同一家公司同一個 feed，營收側 n=**18/19** 是 EPS 側 n=6/7 的 **3 倍** ⇒ 改錨營收不是將就。
+    - 🔴 **街口 EPS 階梯倒置**（FY27 比 FY26 更負；Δ90d `0y` 更負 55.1%、`+1y` 更負 **165.2%**）⇒ 營收三級跳的同時街口把虧損往後推得更深。⚠️ **這不是 §12.5.2 的一次性形狀**（那條是 `0y` 被墊高），別套錯規則；也因此三格 `*_eps` 刻意**全等 NTM −4.7481**（§14.1 允許，同 NOW/SOXX），照年別填會造出假階梯。
+    - 🔴 **三個放大器**：① 每 1x EV/Rev ＝ **$35.15/股（現價 16.8%）** ⇒ `px_vs_base +24.6%` 的全部成分是倍數假設差 1.18x，不是錯價（[[feedback_pct_to_fair_decompose]]）② **FY2027 營收分歧 82.5%**（$8.03–$17.99B）⇒ 同樣 5x 下 fair 帶寬 **$113–$247，現價就在帶內**（同 MRVL 的 FY2028 陷阱）③ 淨負債 trailing（06-30）× 營收 forward ⇒ FCF −$9.61B/TTM ⇒ `recheck_by=2026-11-11` 必換 09-30 bs。
+    - **納入 watchlist 的真正用意＝CRWV 的槓桿相反對照組**：NBIS 6.18x vs CRWV **4.09x**（+51%），FY27 營收 +261% vs +105%，淨負債/市值 **3.7% vs 100.2%**。🔴 **倍數階梯刻意與 CRWV 相同**：成長差與槓桿差已完整表達在分子與淨現金兩格，再給倍數溢價＝同一件事算兩遍（§12.8.4 第 2 條的精神）。反方（若把成長差再放進倍數 ⇒ 7.5x ⇒ fair $256、現價反成折價）已記在卡上供回標。
+    - ★ 順帶量到：**CRWV 自 09-08 建卡（$99.83／4.54x）到 09-16（$83.35／4.09x）跌 16.5%** ⇒ neocloud 的倍數本身正在被壓，NBIS 的 6.18x 是族群變數不是個股變數。
+    - §15.7 股數陷阱重現：`sharesOutstanding` 回 **238.4M**，implied／marketCap÷px／bs `Ordinary Shares Number` 三路皆 **271.855M** ⇒ 取最大。
+    - 明細 → `valuation_log/NBIS.md`
+  - **watchlist 側兩檔的處置不同，這點要記住**：★ **CDNS 其實一直都在 watchlist 第 1 層**（`sg_loaders/symbols.py` 硬編碼，與 SNPS 同行），v4／synth_oi 自 **2026-05-08** 起共 **120 個場次**、更新至 09-17 ⇒ **缺的從來不是監控而是估值卡**，`portfolio_watchlist_extra.txt` 只補一段**指標註解、不重複填 sym**（四層會去重，填了無害但會造出第二個 SSOT）。**NBIS 才是真的新納入**（填 sym），其 SG 結構資料**目前為零**，須 `roma_cli restart` 後 sgfetch 才開始收。⇒ 兩卡皆**未使用任何 SG 結構欄**（估值口徑與 levels 口徑不可混，§12.2），但原因不同：CDNS 是**選擇不用**（序列夠長，牆位分析可隨時另開策略卡）、NBIS 是**還沒有**。腳本 `py_dir/17-09-2026_CDNS_NBIS_initial_valuation.py`＋輸入凍結 `_raw.json`
 - 2026-09-15：**XLB 首次建卡（25 檔 bottom-up）**
   - **XLB（`in_waiting`，距 fair −8.2%）**：每股 NTM EPS **$3.08**、FY+1 **$3.16**；P/E 14/18/20x ⇒ bear **$39**／fair **$55**／bull **$63**，`etf_broad` zone **$44–51**。現價 **$50.49**（09-14 收）＝ **16.42x NTM**。
   - base 18x 由兩個獨立錨收斂：FactSet Materials fwd **18.0x**、自身 10y **17.8x**；本卡實測 12 年回檔分布（日 p25 −8.8%、p10 −14.2%、年度最深中位 −21.5%）支持掛 `etf_broad` 0.80/0.92，而非憑名稱套帶。
@@ -505,7 +522,7 @@ AMC = After Market Close(盤後/收盤後公布，通常指財報發布時點，
 ---
 
 ### AVGO（Broadcom）
-> META| last_updated=2026-09-05 | next_earnings=2026-12-10 | zone_lo=336 | zone_hi=408 | zone_fair=480 | zone_bull=586 | bear_eps=12.78 | bear_pe=18 | bear_target=230 | base_eps=17.15 | base_pe=28 | base_target=480 | bull_eps=18.31 | bull_pe=32 | bull_target=586 | base_eps_basis=NTM | eps_basis=reported | mkt_px=357.16 | mkt_px_date=2026-09-03 | pe_gap_reviewed=2026-09-05 | note=Q3 FY26 ER（09-02 AMC）後重估；FY27 共識沿用 7% 折不取消（取消＝隱性放寬，見明細）
+> META| last_updated=2026-09-05 | next_earnings=2026-12-10 | zone_lo=336 | zone_hi=408 | zone_fair=480 | zone_bull=586 | bear_eps=12.78 | bear_pe=18 | bear_target=230 | base_eps=17.15 | base_pe=28 | base_target=480 | bull_eps=18.31 | bull_pe=32 | bull_target=586 | base_eps_basis=NTM | eps_basis=reported | mkt_px=357.16 | mkt_px_date=2026-09-03 | pe_gap_reviewed=2026-09-05 | financing_note=role:backstop+provider_armed;asof:2026-09-18;src:10Q_2026-08-02_Note10 | note=Q3 FY26 ER（09-02 AMC）後重估；FY27 共識沿用 7% 折不取消（取消＝隱性放寬，見明細）
 > NTM_BLEND| date=2026-09-05 | fy_end=Oct | w_fy1=0.16 | w_fy2=0.84 | ntm_eps=17.15 | ntm_pe=28 | ntm_target=480 | note=FY26 $11.63（Q1-Q3 actual $7.81 ＋ Q4 guide）；FY27 $18.20（cons 19.573 打 7% 折）
 **板塊**：半導體/AI ASIC | **更新**：2026-09-05（**Q3 FY26 ER 後重估**；NTM 權重 0.30/0.70→0.16/0.84、FY27 cons 19.40→19.573；base_pe 維持 28x 不 re-rate）
 
@@ -1355,7 +1372,7 @@ non-GAAP EPS **$1.92（+30% YoY，vs 共識 $1.739 ⇒ beat +10.4%）**｜營業
 ---
 
 ### CRWV（CoreWeave — neocloud／債務融資 GPU 算力租賃）
-> META| last_updated=2026-09-09 | earnings_basis=2026-08-11_ER_actual | next_earnings=2026-11-11 | recheck_by=2026-11-12 | anchor=EV/Rev | net_cash=-46.074B | net_cash_basis=cash_sti | shares=551.5M | fy_anchor=NTM | base_eps_basis=NTM | zone_lo=83 | zone_hi=100 | zone_fair=118 | zone_bull=199 | bear_eps=-5.18 | bear_pe=-7.7 | bear_target=40 | base_eps=-4.53 | base_pe=-26.1 | base_target=118 | bull_eps=-4.24 | bull_pe=-47.0 | bull_target=199 | mkt_px=99.83 | mkt_px_date=2026-09-08 | px_vs_base=-15.4% | px_vs_bull=-49.8% | valuation_flag=in_waiting
+> META| last_updated=2026-09-09 | earnings_basis=2026-08-11_ER_actual | next_earnings=2026-11-11 | recheck_by=2026-11-12 | anchor=EV/Rev | net_cash=-46.074B | net_cash_basis=cash_sti | shares=551.5M | fy_anchor=NTM | base_eps_basis=NTM | zone_lo=83 | zone_hi=100 | zone_fair=118 | zone_bull=199 | bear_eps=-5.18 | bear_pe=-7.7 | bear_target=40 | base_eps=-4.53 | base_pe=-26.1 | base_target=118 | bull_eps=-4.24 | bull_pe=-47.0 | bull_target=199 | mkt_px=99.83 | mkt_px_date=2026-09-08 | px_vs_base=-15.4% | px_vs_bull=-49.8% | valuation_flag=in_waiting | financing_note=role:receiver;asof:2026-09-18;src:ER_2026-08-11_bs_2026-06-30
 > NTM_BLEND| date=2026-09-09 | fy_end=Dec | w_fy1=0.310 | w_fy2=0.690 | ntm_rev=22.272B | ev_rev_bear=3.5x | ev_rev_fair=5x | ev_rev_bull=7x | ntm_target=118 (5x) | ntm_eps=-4.53 | note=主錨 EV/Rev（GAAP 與街口 EPS 皆負：FY26 −5.18／FY27 −4.24；EPS 框架失效，§3）。NTM Rev = 0.310×FY2026 $12.899B + 0.690×FY2027 $26.475B（n=37/37；FY27 分歧 **32%**）。目標 = (EV/Rev × Rev **＋ 淨現金**) ÷ 股數；淨現金 **−$46.074B**（＝淨負債；cash+STI $5.539B − debt $51.613B，bs **2026-06-30**）／股數 **551.5M**（§15.7 四路互證：`sharesOutstanding` 458.9M 只回 Class A；implied／marketCap÷px／EV 反解三路皆 551.5M ⇒ 取最大）。🔴 **EV/市值 1.84x ⇒ 每 1x EV/Rev ＝ $40.4/股（現價 40%）**，倍數槓桿全表最大；街口 35 位目標反解 EV/NTM Rev low 3.03x／mean 5.65x／high 9.92x，我方 3.5/5/7x 全在其內、fair 低於街口均值。`*_pe` 為反解負值顯示、`PE_IMPLIED_GAP` 因 `base_pe ≤ 0` 自動跳過。⚠️ **淨負債是移動靶**：FCF run-rate −$5.7B/季 ⇒ 12-31 淨負債 ≈ $57.6B 時 fair 只剩 **$97**（≈ 現價）⇒ `recheck_by` Q3 ER 隔日必換 09-30 bs
 **板塊**：neocloud／GPU 算力租賃（客戶集中 MSFT／OpenAI 系）| **更新**：**2026-09-09**（**初始建檔，無持倉**；watchlist 納入理由＝觀測循環融資的領先指標）：ntm_rev **$22.272B**、EV/Rev fair **5x** ⇒ fair **$118**、zone **83/100**（自算 1y β 3.36 ⇒ 高β帶 0.70/0.85）、bear $40（3.5x × FY27 低標）／bull $199（7x）。現價 **$99.83**（09-08 收，單日 +11.7% 板塊帶動）＝ **4.54x EV/NTM Rev**，`in_waiting` 但**只差 $0.17 就是 `above_waiting`**，且 run-rate 淨負債口徑下現價已是 fair ⇒ 不是進場位置
 
@@ -1467,5 +1484,45 @@ non-GAAP EPS **$1.92（+30% YoY，vs 共識 $1.739 ⇒ beat +10.4%）**｜營業
 > 差距全在倍數假設（我方對同儕中位打 0.80 折，街口給到同儕中位）⇒ 判別看 §五 的三條折價依據能否被證偽。
 
 📄 **明細** → `valuation_log/CRDO.md`｜同儕錨出處 `ls_strategy/17-09-2026_光類股_survey.md` §二
+
+---
+
+### CDNS（Cadence Design Systems — EDA 雙寡占另一半）
+> META| last_updated=2026-09-17 | earnings_basis=2026-07-27_ER_actual | next_earnings=2026-10-27 | eps_source=+1y | feed_reject=0y | guard_until=2026-10-28 | fy_anchor=NTM | base_eps_basis=NTM | zone_lo=192 | zone_hi=233 | zone_fair=274 | zone_bull=382 | bear_eps=8.78 | bear_pe=22 | bear_target=193 | base_eps=9.1418 | base_pe=30 | base_target=274 | bull_eps=10.05 | bull_pe=38 | bull_target=382 | mkt_px=279.90 | mkt_px_date=2026-09-16 | px_vs_base=+2.2% | px_vs_bull=-26.7% | valuation_flag=fair_high
+> NTM_BLEND| date=2026-09-17 | fy_end=Dec | w_fy1=0.2877 | w_fy2=0.7123 | ntm_eps=9.1418 | ntm_pe=30 | ntm_target=274 | note=**初始建檔，無持倉**。NTM = 0.2877×FY2026 **$8.14235** + 0.7123×FY2027 $9.5454（n=26）＝ **$9.1418**。🔴 **FY2026 那一格不是 `earnings_estimate['0y']`** —— 該格 $4.80568（n=13）是 **GAAP 口徑**，與同表 non-GAAP 的 `+1y` 混在一起，機械 blend 會低估 **10.5%**。三路互證取 **$8.14235**：① `info['epsCurrentYear']` ≡ `+1y.yearAgoEps` 逐位相同（同批 SNPS/KEYS/PTC/ADSK **四檔的 `0y.avg` 都等於自己的 `epsCurrentYear`，只有 CDNS 不等** ⇒ 是本檔離群不是 feed 全表如此）② 季估 `0q`+`+1q` ＝ 4.0646，若 FY26=4.806 則 H1'26 只剩 0.741（去年同期兩季就有 3.92）⇒ 不可能 ③ `growth_estimates.stockTrend['0y']` +14.04% 反解 FY25 ＝ $7.140（`0y` 自己的 yearAgo 4.06 對應 GAAP，與 GAAP TTM `trailingEps` 5.04 同尺）。⇒ 掛 `feed_reject=0y`；`eps_source=+1y` 是**給工具的降級路徑**（避免它把 GAAP 格混進 blend），工具提案 $9.5454 為 **FY27 純格**，與本卡 NTM 差 **+4.4% ＝ 口徑差不是新資料，不得直接套用**（§12.8.2 換算回 NTM 口徑的等效倍數 28.7x ⇒ 同一個 fair $274）；`guard_until=2026-10-28` ＝ Q3 ER 隔日重驗 `0y` 是否痊癒。✅ §12.5.2 乾淨（Δ90d `0y` +6.96% vs `+1y` +1.71%，差 +5.25pp；30d 上修/下修 10/0 與 19/0，兩腳同步）｜✅ §15.2 不觸發（n(+1y)/n(0y)=2.00、`+1y` 90daysAgo=9.385；殘缺的是 `0y`，方向與 PANW 相反）｜✅ §12.5.4 建卡於 **ER+52**｜🟡 FY27 分歧 13.3%（8.78–10.0499）
+**板塊**：EDA／晶片設計軟體（與 SNPS 雙寡占；watchlist 第 1 層硬編碼、`[T3:license]`）| **更新**：**2026-09-17**（**初始建檔，無持倉**）：ntm_eps **$9.14**、`base_pe` **30x** ⇒ fair **$274**、zone **192/233**（**高β帶 0.70/0.85**，非 yf β 1.137 的機械判）、bear $193（22x × FY27 low 8.78）／bull $382（38x × FY27 high 10.05）。現價 **$279.90**（09-16 收）＝ **30.62x NTM** ⇒ **`fair_high`**，`px_vs_base` 僅 **+2.2%**、R:R **1.17**。★ 讀點：`base_pe` 30x 取自四個錨（SNPS 市場 21.95x ／ **我方 SNPS 卡 33x** ／ 街口最保守目標 $300 ≡ 32.82x ／ 自身現價隱含 30.62x），**低於後兩個獨立上界 ⇒ 不是 re-rating**；PEG 30÷17.2 ＝ **1.74**，比我方 SNPS 卡 33÷15.7 ＝ 2.10 更嚴。🔴 **整個結論押在「EDA 該比 ADSK/PTC/KEYS 貴 1.6 倍」**：若改用同儕 ex-self 中位 **19.07x**，fair ＝ **$174**，分級要由 `fair_high` 翻成 `overvalued`
+
+| 期別 | EPS（街口 2026-09-16） | YoY | 保守（22x） | 合理（30x） | 樂觀（38x） |
+|---|---|---|---|---|---|
+| FY2026（Dec，**取 `epsCurrentYear`**） | $8.14 | +14.0% | $179 | $244 | $309 |
+| FY2027（n=26，低標 8.78／高標 10.05） | $9.55 | +17.2% | $210（低標 **$193**） | $286 | $363（高標 **$382**） |
+| **NTM**（w 0.288/0.712） | **$9.14** | NA | $201 | **$274** | $347 |
+
+> 同儕 NTM 同口徑（§12.8 自算，皆 09-16 收）：**SNPS 21.95x**／KEYS 23.71x／ADSK 16.19x／PTC 14.76x，ex-self 中位 **19.07x**；CDNS **30.62x** ＝ 中位的 1.61x。
+> 街口 n=28：low $300（**32.82x**）／mean $402.12（43.99x）／high $470（51.41x）⇒ 我方 bull $382 **低於**街口 mean。
+> 52w $262.75–$416.69 ⇒ 市場過去一年**付過的最低是 28.74x NTM**（bear 22x 在其下）、最高 45.58x（bull 38x 在其下）。
+
+📄 **明細** → `valuation_log/CDNS.md`｜姊妹卡 `valuation_log/SNPS.md`｜腳本 `py_dir/17-09-2026_CDNS_NBIS_initial_valuation.py`
+
+---
+
+### NBIS（Nebius Group — neocloud／GPU 算力租賃）
+> META| last_updated=2026-09-17 | earnings_basis=2026-08-12_ER_actual | next_earnings=2026-11-10 | recheck_by=2026-11-11 | anchor=EV/Rev | net_cash=-2.1289B | net_cash_basis=cash_sti | shares=271.9M | fy_anchor=NTM | base_eps_basis=NTM | zone_lo=118 | zone_hi=143 | zone_fair=168 | zone_bull=349 | bear_eps=-4.7481 | bear_pe=-16.2 | bear_target=77 | base_eps=-4.7481 | base_pe=-35.4 | base_target=168 | bull_eps=-4.7481 | bull_pe=-73.5 | bull_target=349 | mkt_px=209.37 | mkt_px_date=2026-09-16 | px_vs_base=+24.6% | px_vs_bull=-40.0% | valuation_flag=fair_high | financing_note=role:receiver;asof:2026-09-18;src:ER_2026-08-12_bs
+> NTM_BLEND| date=2026-09-17 | fy_end=Dec | w_fy1=0.2877 | w_fy2=0.7123 | ntm_rev=9.5560B | ev_rev_bear=3.5x | ev_rev_fair=5x | ev_rev_bull=7x | ntm_target=168 (5x) | ntm_eps=-4.7481 | note=**初始建檔，無持倉**。主錨 **EV/Rev**（§3）：街口 EPS 兩年皆負（FY26 −2.5183 n=6／FY27 −5.6486 n=7）⇒ P/E 失效；TTM EBITDA 僅 **$258M** 對 EV $59B ＝ 229x、FCF TTM **−$9.61B** ⇒ EV/EBITDA 也不採。★ **覆蓋率本身就是選框架的理由**：營收側 n=**18/19** 是 EPS 側 n=6/7 的 3 倍。NTM Rev = 0.2877×FY2026 $3.3434B + 0.7123×FY2027 $12.0649B ＝ **$9.5560B**。目標 =（EV/Rev × Rev ＋ 淨現金 **−$2.1289B**）÷ **271.855M**；§15.5.1 口徑 `cash_sti`（cash+STI $8.0421B − debt $10.1710B，bs **2026-06-30**），`total_inv` 會另加 `Investments And Advances` $1.6205B ⇒ fair $174，**不採**（非上市權益不可還債）。§15.7 股數四路：`sharesOutstanding` **238.4M 是陷阱**，implied／marketCap÷px／bs `Ordinary Shares Number` 三路皆 **271.855M** ⇒ 取最大。🔴 **三格 `*_eps` 刻意全等 ＝ NTM −4.7481**（§14.1 允許相等，同 NOW/SOXX）：本檔街口 EPS 階梯**倒置**（Δ90d `0y` 更負 55.1%、`+1y` 更負 **165.2%**，FY27 比 FY26 更負），照年別填會造出假階梯；差異 100% 在 EV/Rev 軸。`*_pe` 為反解顯示值（§15.4），`PE_IMPLIED_GAP` 因 `base_pe ≤ 0` 自動跳過
+**板塊**：neocloud／GPU 算力租賃（＋ Toloka／Avride／TripleTen 等非上市持股）| **更新**：**2026-09-17**（**初始建檔，無持倉**；watchlist 納入理由＝**CRWV 的槓桿相反對照組**）：ntm_rev **$9.556B**、EV/Rev fair **5x** ⇒ fair **$168**、zone **118/143**（自算 β **3.590**、年化波動 **109.1%** ⇒ 高β帶 0.70/0.85）、bear $77（3.5x × FY27 low）／bull $349（7x × FY27 high）。現價 **$209.37**（09-16 收）＝ **6.18x EV/NTM Rev** ⇒ **`fair_high`**，`px_vs_base` **+24.6%**、R:R **1.05**。🔴 **三個放大器**：① 每 1x EV/Rev ＝ **$35.15/股（現價 16.8%）** ⇒ +24.6% 的全部成分是倍數假設差 1.18x，不是錯價 ② **FY2027 營收分歧 82.5%**（$8.03B–$17.99B）⇒ 同樣 5x 下 fair 的真實帶寬是 **$113–$247，現價就在帶內** ③ 淨負債是移動靶（FCF −$9.61B/TTM、capex ~$15B/年）⇒ `recheck_by` Q3 ER 隔日必換 09-30 bs
+
+| 期別 | 營收（街口 2026-09-16） | YoY | EV/Rev bear(3.5x) | fair(5x) | bull(7x) |
+|---|---|---|---|---|---|
+| FY2026（Dec，n=18） | $3.343B | **+531%** | $35 | $54 | $78 |
+| FY2027（n=19，low $8.030B／high $17.987B） | $12.065B | **+261%** | $147（low 案 **$77**） | $214 | $303（high 案 **$349**） |
+| **NTM**（w 0.288/0.712） | **$9.556B** | NA | $115 | **$168** | $238 |
+
+> **vs CRWV（同框架、同倍數階梯 3.5/5/7x，皆 09-16 收）**：NBIS **6.18x** vs CRWV **4.09x** ⇒ 溢價 **+51%**；
+> FY27 營收 YoY +261% vs +105%；淨負債/市值 **3.7% vs 100.2%**。
+> 🔴 **倍數刻意不給 NBIS 溢價**：成長差與槓桿差已完整表達在分子與淨現金那兩格，再加一次就是同一件事算兩遍。
+> （反方：若把成長差再放進倍數，7.5x ⇒ fair $256，現價反成折價 —— 本卡不採，記此供回標。）
+> 街口 n=17：low $144／mean $290.71／high $415 ⇒ 反解 EV/NTM Rev **4.32x／8.49x／12.03x**，我方 5x 在 low 與 mean 之間偏保守側。
+
+📄 **明細** → `valuation_log/NBIS.md`｜對照卡 `valuation_log/CRWV.md`｜腳本 `py_dir/17-09-2026_CDNS_NBIS_initial_valuation.py`
 
 ---
