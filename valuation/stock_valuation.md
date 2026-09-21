@@ -489,15 +489,19 @@ AMC = After Market Close(盤後/收盤後公布，通常指財報發布時點，
 ---
 
 ### AMZN（Amazon）
-> META| last_updated=2026-09-06 | earnings_basis=2026-07-31_ER_actual | next_earnings=2026-10-30 | zone_lo=244 | zone_hi=296 | zone_fair=348 | zone_bull=420 | bear_eps=7.5 | bear_pe=25 | bear_target=188 | base_eps=9.94 | eps_basis=clean | base_pe=35 | base_target=348 | bull_eps=11.5 | bull_pe=45 | bull_target=518 | mkt_px=258.51 | mkt_px_date=2026-09-04
-> NTM_BLEND| date=2026-09-06 | fy_end=Dec | w_fy1=0.318 | w_fy2=0.682 | ntm_eps=9.94 | ntm_pe=35 | ntm_target=348 | note=**共識複核重估（Bucket C freshness），無新財報、ER 仍是 07-31**。一次性污染口徑逐項覆核仍成立（§12.5.2：Δ90d `0y` +45.18% vs `+1y` +5.54%，差 **+39.64pp** ≥20pp 門檻 ⇒ ONEOFF_CONFIRMED，非新污染）：yfinance `0y` 續墊高 12.24→**12.57**、`+1y` 微升 10.43→**10.49**⇒ ex-item **12.57−3.80＝8.77**（固定 $3.80/股口徑不變）與乾淨 FY27 10.49 blend、w_fy1 roll-forward 0.39→0.318 ⇒ NTM **9.94**（+3.0% vs 08-09）、fair **$348**（+3.0% vs 08-09、+4.2% vs 08-05 原卡）。⚠️ **本次 drift 已超過 08-09 判定的 <2% roll-forward 噪音門檻，故套用（非上次「維持不動」）**。⚠️ Q3 共識 EPS YoY 仍僅 **+0.25%**（08-05 讀數 +0.1%、08-09 讀數 +0.08%）＝折舊吃掉營運槓桿的訊號**三次覆核皆未解除**
-**板塊**：非必需消費/雲端 | **更新**：**2026-09-06**（Bucket C 共識複核重估，無新財報：NTM EPS 9.65→**9.94**、fair 338→**348**。🔴 **一次性利益剔除口徑（$3.80/股 Anthropic 評價）逐項覆核仍成立**——機械套街口 FY26 現在會把 fair 灌到約 $390（`val_refresh` 實測 $390.31）。現價 $258.51（09-04 收）＝ 26.0x NTM，距合理目標 **+34.6%**）｜前次：2026-08-09（freshness check，drift<2%，卡不動）｜前次：2026-08-05（post-Q2 財報重估）
+> META| last_updated=2026-09-22 | earnings_basis=2026-07-31_ER_actual | next_earnings=2026-10-30 | zone_lo=236 | zone_hi=286 | zone_fair=337 | zone_bull=518 | bear_eps=7.5 | bear_pe=25 | bear_target=188 | base_eps=9.63 | eps_basis=clean | base_pe=35 | base_target=337 | bull_eps=11.5 | bull_pe=45 | bull_target=518 | mkt_px=253.71 | mkt_px_date=2026-09-18 | note=🔴 2026-09-22 修正**漏扣**：一次性 MTM 不只 Q2'26，**Q1'26 也有 ≈$0.98/股**（`Other Income Expense` $15.65B vs 常態 ~$1.2B）。同型於 GOOG 09-07 的修正
+> NTM_BLEND| date=2026-09-22 | fy_end=Dec | w_fy1=0.318 | w_fy2=0.682 | ntm_eps=9.63 | ntm_pe=35 | ntm_target=337 | note=🔴 **只補剔一次性，其餘輸入全部凍結在 09-06**（`0y` 12.57／`+1y` 10.49／w_fy1 0.318 皆不動）——刻意不與 roll-forward 混做，否則兩個效果無法分離（GOOG 09-07 那次就混了）。MTM 利益 Q1'26 與 Q2'26 **各出現一次**，舊卡只剔 Q2 的 $3.80 ⇒ clean FY26 被高估 $0.98。逐季重拆（`quarterly_income_stmt` 現查 2026-09-22）：Q1'26 `Other Income Expense` **$15.65B** vs run-rate ~$1.2B（2025-06 1.117／2025-12 1.177／2025-03 2.749），超額 $14.4B × (1−24.0% 實效稅率 9.56/39.83) ÷ 10.874B 稀釋股數 ≈ **$0.98~1.01/股** ⇒ clean FY26 8.77→**7.79**。與 FY27 10.49 blend ⇒ NTM 9.94→**9.63**、fair 348→**337**。★ **舊卡的成長敘事同步翻掉**：clean FY26→FY27 不是 +19.6% 而是 **+34.7%**（分母原本被 Q1 的一次性墊高）。⚠️ **卡片 `17-09-2026_ONEOFF...` 原估「fair 348→343（−1.4%）」不成立** —— 用該卡自己的 w_fy1=0.318 與 $0.98 重算是 **337（−3.1%）**；343 需要 w_fy1=0.146 或扣除額 $0.45 才湊得出來，兩者都不在卡上。⇒ 本次 drift **−3.1% 已超過 2% 噪音門檻**，依規本來就該套用（不是「可不動」）。🔴 **`val_refresh` 之後會對本卡報約 +14% 的假 Δ（機械吃 `0y`=12.57 會給 NTM 11.36／fair 398），不要修正回去**。⚠️ Q2'26 那筆 $3.80 是**反推值**：AMZN 2026-06-30 季在 `quarterly_income_stmt`／`quarterly_financials`／年度 `income_stmt` 三個端點都只有 4/46 列有值 ⇒ 無法從 feed 複核，沿用舊卡口徑。⚠️ `zone_bull` 420→**518** 對齊 `bull_target`（§12.10 `ZONE_BULL_DRIFT` 死規則，本卡在 09-07 那批 17 檔漂移名單內）—— `overvalued` 門檻因此由 420 上移到 518
+**板塊**：非必需消費/雲端 | **更新**：**2026-09-22**（🔻 **補剔 Q1'26 漏扣的一次性**（user 裁決）：clean FY26 8.77→**7.79**、NTM 9.94→**9.63**、fair 348→**337**、zone 244/296→**236/286**、zone_bull 420→**518**（對齊 bull_target）。base_pe 35x 不動（[[feedback_conservative_base_pe_no_rerating]]）；bear/bull 兩腳不動。★ 「FY27 只成長 +19.6%」被推翻，乾淨口徑是 **+34.7%**。現價 $253.71（2026-09-18 收，最後一個完整場次；09-21 美股當下仍在盤中）＝ **26.3x NTM**，落在 zone_lo~zone_hi 進場帶，距 fair **+32.8%**）｜前次：2026-09-06（Bucket C 共識複核，NTM 9.94／fair 348）｜前次：2026-08-09（freshness check，drift<2%，卡不動）｜前次：2026-08-05（post-Q2 財報重估）
 
 | 年份   | EPS    | YoY   | 保守（25x） | 合理（35x） | 樂觀（45x） |
 |--------|--------|-------|-------------|-------------|-------------|
-| FY2026（ex-item） | $8.77 | +22% | $219 | **$307** | $395 |
-| FY2027 | $10.49 | +19.6% | $262 | **$367** | $472 |
-| **NTM** | **$9.94** | NA | $249 | **$348** | $447 |
+| FY2026（ex-item，Q1+Q2 皆已剔） | $7.79 | — | $195 | **$273** | $351 |
+| FY2027 | $10.49 | **+34.7%** | $262 | **$367** | $472 |
+| **NTM** | **$9.63** | NA | $241 | **$337** | $433 |
+
+> ⚠️ FY2026 的 YoY 留空：FY25 報導值本身也含一次性（2025-09 `Other Income Expense` $10.19B），
+> 乾淨 FY26 對報導 FY25 是**跨口徑相比**。要補這格得先把 FY25 也重拆，本次不做。
+> （同 GOOG 09-07 卡的處理。）
 
 📄 **明細** → `valuation_log/AMZN.md`
 
