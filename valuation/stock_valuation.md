@@ -15,6 +15,22 @@
 ## 更新記錄
 > 近期；更早記錄移至 → `valuation_log/_changelog_archive.md`（或 git log）。
 
+- 2026-09-22：**ETN／RSP 移出本表 —— 退役標的不再吃估值維護成本**
+  - 裁決：user 2026-09-22「ETN：從估值表刪除」。同批順手處理 **RSP**（形狀完全相同，見下）。
+  - **病灶**：ETN 於 2026-08-19 批次退役（停抓 SG data），本表的 `### ETN` 區塊卻仍在
+    **2026-09-05 被 Bucket C freshness 重估**（AGE 31 天、無新財報）。
+    🔴 機制：`opportunities/valuation_ntm_refresh.py`（`val_refresh`）**只讀 `stock_valuation.md`**
+    並依 `last_updated` 的 AGE 排隊 ⇒ 只要區塊還在表上，每 45 天就會再被提案一次，
+    而該標的的 SG 結構資料早已停更。**沒有任何閘門會為這件事轉紅**（AGE 只量天數、不問還抓不抓）。
+    ⇒ 移出本表就是斷掉那條隊列，這是唯一有效的處置。
+  - **RSP 同批移除**：user 只點名 ETN，但 RSP 同為 2026-08-19 退役、且本表留著一個
+    `zone_lo/hi/fair/bull` 全為 0 的自動 placeholder（`last_updated=2026-07-01`，AGE 已 83 天）
+    ⇒ 零產出、卻天天佔 AGE 隊列。判定為同一裁決的同形案例。**不同意的話還原只要一個區塊。**
+  - ⚠️ **只刪「表」不刪「明細」**：`valuation_log/ETN.md` **保留**（加 🛑 停止維護標頭），
+    比照 EVC 段落「保留供決策追溯、不刪不改」的處置。`val_refresh` 不讀 `valuation_log/` ⇒ 無成本。
+  - 反向查核：其餘 18 檔退役標的在本表**皆無 `### SYM` 區塊**（逐檔掃過），無同類殘留。
+  - ⚠️ 恢復條件：若日後恢復抓取 ETN／RSP，需**同時**還原 watchlist 與本表區塊；
+    估值基準要重新校準（`last_updated` 停在 2026-09-05／2026-07-01，中間的共識變化未追）。
 - 2026-09-22：**QQQE／ES／NQ 退役 —— 本表同步標記「刻意不建卡」，`n/a` 不是覆蓋缺口**
   - 裁決：user「GOO => Tier A」（watchlist 刪除名單盤點）。落地：`romasys ca1f9a6`／`spotgamma_report 99228bfc`。
   - **對本表的實體影響為零** —— 三檔從未進過本檔（無 `### SYM` 區塊、無 META 行）。本條只釘死一件事：
@@ -735,21 +751,6 @@ AMC = After Market Close(盤後/收盤後公布，通常指財報發布時點，
 
 ---
 
-### ETN（Eaton Corp）
-> META| last_updated=2026-09-05 | earnings_basis=2026-08-04_ER_actual | next_earnings=2026-11-03 | zone_lo=391 | zone_hi=449 | zone_fair=488 | zone_bull=580 | bear_eps=11 | bear_pe=22 | bear_target=242 | base_eps=15.26 | base_pe=32 | base_target=488 | bull_eps=16.07 | bull_pe=38 | bull_target=611 | mkt_px=410.85 | mkt_px_date=2026-09-04 | valuation_flag=in_waiting
-> NTM_BLEND| date=2026-09-05 | fy_end=Dec | w_fy1=0.321 | w_fy2=0.679 | ntm_eps=15.26 | ntm_pe=32 | ntm_target=488 | note=Bucket C freshness 重估（無新財報，ER 仍是 08-04）。**+2.1% 有兩個來源、且以權重滾動為主**：共識 FY2026 13.48→**13.551**（+0.5%）／FY2027 15.95→**16.067**（+0.7%），而 w_fy1 由 0.41 滾到 0.321 ⇒ 把 NTM 往高的那一年多推了 8.9pp。bull_eps 15.95→**16.07** 修 §14 LITE 型過期（舊 bull 已低於 FY2027 街口共識）。🔧 同批修兩個歷史債：① 舊 `ntm_bull_target=606 (38x)` 其實是 `bull_eps×38`、不是 NTM×38（全表其餘卡如 INTU 689／DDOG 287 都是 NTM 口徑）⇒ 更正為 **580** ② `zone_bull` 舊值 **507** 來源不明（既非 NTM×38x 也非 bull_target 606，同 SNPS 08-30 修掉的 590 型），改對齊 `ntm_bull_target` **580**
-**板塊**：電力管理/電網/AI 數據中心電力 | **更新**：**2026-09-05**（Bucket C freshness 重估，AGE 31 天、**無新財報**）：NTM EPS 14.95→**15.26**（+2.1%）、fair 478→**488**、zone 382/440→**391/449**；bull_eps 15.95→**16.07**（§14 LITE 型過期）、bull_target 606→**611**；`zone_bull` 507→**580**、`ntm_bull_target` 606→**580**（口徑更正，見 NTM_BLEND note）。base_pe 32x **不動**（§9），bear 11.00 **不動**（無新的下行資訊）。現價 $410.85 ＝ **26.9x NTM**｜前次：2026-08-05（post-Q2 財報重估（ER 08-04）：NTM EPS 13.34→14.95（+12.0%，其中大部分為 FY26 單年→NTM blend 的**口徑改正**）、fair 427→478；zone 改依 §12 低β帶 382/440（舊 359/407 為 BAND_TIGHT））
-
-| 年份   | EPS    | YoY   | 保守（22x） | 合理（32x） | 樂觀（38x） |
-|--------|--------|-------|-------------|-------------|-------------|
-| FY2026 | **$13.55** | +12.3% | $298 | **$434** | $515 |
-| FY2027 | **$16.07** | +18.6% | $354 | **$514** | $611 |
-| **NTM** | **$15.26** | NA | $336 | **$488** | $580 |
-
-📄 **明細** → `valuation_log/ETN.md`
-
----
-
 ### TER（Teradyne）
 > META| last_updated=2026-09-07 | freshness_basis=2026-09-07_consensus_recheck | earnings_basis=2026-08-04_ER_actual | next_earnings=2026-10-22 | base_eps_basis=NTM | eps_basis=reported | zone_lo=228 | zone_hi=276 | zone_fair=325 | zone_bull=542 | bear_eps=7.5 | bear_pe=18 | bear_target=135 | base_eps=10.85 | base_pe=30 | base_target=325 | bull_eps=14.27 | bull_pe=38 | bull_target=542 | mkt_px=357.03 | mkt_px_date=2026-09-04 | valuation_flag=fair_high | note=🔴 `valuation_flag` 由 `overvalued` 訂正為 `fair_high` —— 08-05 當下就標錯（402.33 < zone_bull 516，怎麼算都不是 overvalued）；prod 走 classify_zone 現算未受影響，錯的是人讀面
 > NTM_BLEND| date=2026-09-07 | fy_end=Dec | w_fy1=0.315 | w_fy2=0.685 | ntm_eps=10.85 | ntm_pe=30 | ntm_target=325 | note=**共識複核重估（Bucket C freshness），無新財報、ER 仍是 08-04**。FY26 `0y` **9.09129 逐字不動**（Q1 $2.56 ＋ Q2 $2.47 已實績、Q3/Q4 共識 2.05/2.01 ⇒ 已封板）；FY27 `+1y` 11.55→**11.65247**（+0.86%）。★ `eps_trend` 的 `+1y` 軌跡 9.513(90d)→9.550(60d)→10.284(30d)→11.553(7d)→11.652(now) ⇒ **上修動能整段發生在 30 天前那一跳（＝08-04 財報），近 7 天只再加 0.86% ⇒ post-ER 上修已走完**，不能再指望「共識追上來把現價變合理」。w 由 0.41 roll 到 0.315（距 12/31 剩 115 天）⇒ NTM 10.55→**10.85**（+2.8%）、fair 316→**325**。🔴 **FY27 分歧一格沒動**：low $9.00 / high $16.53 / n=18 **與 08-05 逐字相同**（high/low = 1.84×）⇒ 08-05 卡自訂的加碼判準「盯 FY27 分歧收窄而非單月股價」**明確未達成**，本次不因股價 −11.3% 轉積極。bull_eps 13.59→**14.27** 是沿用本卡既有公式（共識高標同權重 blend = 0.315×9.35018 ＋ 0.685×16.53）隨 w roll 的必然結果，非放寬框架；bear 7.50×18x=$135 **逐元不動**（定義＝FY27 週期回落，非共識低標；33 天內無週期反轉新證據）。`base_pe` 30x 逐字不動（§9）
@@ -1320,13 +1321,6 @@ non-GAAP EPS **$1.92（+30% YoY，vs 共識 $1.739 ⇒ beat +10.4%）**｜營業
 | 🟢 Bull | FY+1 $28.16 | 23x | **$648** | **+24.6%** | 52w 高 $655.95 需 re-rating |
 
 📄 **明細** → `valuation_log/SOXX.md`（常設卡）
-
----
-### RSP（自動追蹤 — 持倉）
-> META| last_updated=2026-07-01 | next_earnings=TBD | zone_lo=0 | zone_hi=0 | zone_fair=0 | zone_bull=0
-**板塊**：持倉自動加入，待手動估值更新 | **更新**：2026-07-01
-
-> ⚠️ 尚未完成估值。請填入 zone_lo / zone_hi / zone_fair / zone_bull。
 
 ---
 ### MNDY（monday.com — Work OS / 專案協作 SaaS）
