@@ -15,6 +15,25 @@
 ## 更新記錄
 > 近期；更早記錄移至 → `valuation_log/_changelog_archive.md`（或 git log）。
 
+- 2026-09-22：**QQQE／ES／NQ 退役 —— 本表同步標記「刻意不建卡」，`n/a` 不是覆蓋缺口**
+  - 裁決：user「GOO => Tier A」（watchlist 刪除名單盤點）。落地：`romasys ca1f9a6`／`spotgamma_report 99228bfc`。
+  - **對本表的實體影響為零** —— 三檔從未進過本檔（無 `### SYM` 區塊、無 META 行）。本條只釘死一件事：
+    🔴 **它們在 rsas 印的 `n/a` 是刻意的，不是估值表漏收** ⇒ 不要有人為了「補齊 n/a」回頭建卡。
+  - **rsas 宇宙 67 檔 -> 64 檔**，三個 `n/a` 行消失。跨日比對總表時這是預期變化，非資料缺漏。
+  - 退役四判準（缺一不可）：(1) 無估值卡 (2) FP 依 session_date 去重後 0/171 (3) 零專屬決策卡
+    (4) 已累積的 `synth_oi`／`history_v4` 從未被任何卡片引用（QQQE 106 場次、ES／NQ 各 86）。
+  - ⚠️ **三檔的實際用途都不經過本表，也不經過 watchlist**（這正是可以退役的理由）：
+    QQQE 的 QQQ−QQQE 廣度價差只吃收盤價（同表裡的 RSP 早在 2026-08-19 退役卻照常運作）；
+    ES／NQ 的期貨點位走 `sg_scan.py` `_INDEX_FUTURES_MAP`（yfinance，SPX→ES=F／NDX→NQ=F）、
+    basis 走 keyLevels `futuresDiff`（`sg_loaders/levels.py`，僅 SPX/NDX/RUT）；
+    可交易的 MESZ6／MNQZ6 由 `active_quarterly_contract()` 動態解析、在 `DEFAULT_SYMBOLS` 獨立存在。
+    ⇒ 判「某檔能不能退役」要追它的用途走哪條資料路徑，不是看 watchlist 成員資格或 FP 覆蓋率。
+  - 🔴 **反例留底（本表的既有矛盾，待另案裁決）**：ETN 已於 2026-08-19 批次退役（停抓 SG data），
+    `valuation_log/ETN.md` 卻仍在 **2026-09-05** 做 Bucket C freshness 重估 ——
+    **不抓 SG data 的標的照常吃估值維護成本**。OKTA 同為退役，卡停在 2026-05-25 未再更新（無害）。
+    ⇒ 寫下本條就是要讓 QQQE／ES／NQ 不重演 ETN 那個形狀；ETN 該停維護還是該恢復抓取，user 尚未裁決。
+  - ⚠️ 停抓期間 OI/GEX **無法回補**（GLW 2026-08-04／VRT 2026-08-06 前例）。舊檔未刪，
+    在 `spotgamma_report/auto/{synth_oi,history_v4}/_retired/`，反向 `git mv` 即可恢復，但序列是斷點續接。
 - 2026-09-22：**ALAB／CIEN 初始建檔（皆無持倉）—— 補齊「光／AI 連結」族的估值帶上緣與中位**
   - 出處：`ls_strategy/watchlist/17-09-2026_光類股_survey.md` Sect_5 的增補建議（CIEN 建議建卡；**ALAB 原建議「先不建卡」，理由是 SG `history_v4` 序列太短**——本次 user 點名建卡，**改以「本卡不使用任何 SG 結構欄」的方式繞過**，該反對意見保留在明細卡）。
   - **ALAB（`fair_high`，+50.9%）**：P/E × NTM blend（Dec FY，w 0.274/0.726）。NTM EPS **$5.7466**、`base_pe` **35x** ⇒ fair **$201**、zone **141/171**、bear $96／bull $396、R:R **0.45**。現價 **$303.25**（09-18 收）＝ **52.77x NTM** ＝ 同儕 ex-self 中位 30.34x 的 **1.74 倍**，而成長只高同儕中位 4.7pp。
