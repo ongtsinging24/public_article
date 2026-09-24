@@ -1224,14 +1224,14 @@ R:R = +10.7% / −24.7% ≈ **0.43**（純倍數 bear 口徑 **0.65**）。IWM �
 ---
 
 ### MDB（MongoDB — NoSQL document DB / Atlas DBaaS）
-> META| last_updated=2026-09-06 | earnings_basis=2026-09-01_Q2FY27_actual | next_earnings=2026-12-01 | base_eps_basis=NTM | zone_lo=255 | zone_hi=309 | zone_fair=364 | zone_bull=388 | bear_eps=6.39 | bear_pe=35 | bear_target=224 | base_eps=7.28 | base_pe=50 | base_target=364 | bull_eps=7.77 | bull_pe=60 | bull_target=466 | mkt_px=368.74 | mkt_px_date=2026-09-04 | valuation_flag=fair_high
+> META| last_updated=2026-09-24 | earnings_basis=2026-09-01_Q2FY27_actual | next_earnings=2026-12-01 | base_eps_basis=NTM | zone_lo=255 | zone_hi=309 | zone_fair=364 | zone_bull=466 | bear_eps=6.39 | bear_pe=35 | bear_target=224 | base_eps=7.28 | base_pe=50 | base_target=364 | bull_eps=7.77 | bull_pe=60 | bull_target=466 | mkt_px=368.74 | mkt_px_date=2026-09-04 | valuation_flag=fair_high
 > NTM_BLEND| date=2026-09-06 | fy_end=Jan | w_fy1=0.403 | w_fy2=0.597 | ntm_eps=7.28 | ntm_pe=50 | ntm_target=364 | note=**post-Q2 FY27 重估**（2026-09-01 AMC）。FY27 剩 147/365 ⇒ w_fy1=**0.403**；街口 FY27 **$6.547**（7d +6.8%，34 位上修）／FY28 **$7.766**（7d +5.8%）⇒ NTM **7.28**（舊 7.73，**−5.8%**）。⚠️ **舊卡的 street 錨從未存在**：06-04 卡寫 FY27 $7.15／FY28 $8.90，但 yfinance `eps_trend` 90 天前就只有 6.13／7.34 ⇒ 舊 fair $387 是建在一個沒出現過的共識上，本次一併校正。bear 改取**公司 FY27 guide 下緣 $6.39**（舊 6.10 是 Q1 當時的 guide）；bull 沿用原法「FY28 街口 × 60x」（8.90→**7.77**）⇒ $534→**$466**。`base_pe` 50x **不動**（[[feedback_conservative_base_pe_no_rerating]]）。單調 255<309<364<388 ✅、LADDER 224<364<466 ✅
-**板塊**：consumption-based 資料庫 SaaS（NoSQL document DB；Atlas DBaaS + Vector Search）| **更新**：**2026-09-06**（**post-Q2 FY27 重估**：NTM EPS 7.73→**7.28**、fair $387→**$364**、zone 271/329→**255/309**、bull $534→**$466**；分級 `overvalued`→**`fair_high`**。P/E 框架 35/50/60x 全部不動，只動 EPS 軸）｜前次：2026-08-30（`base_eps` 口徑對齊 6.7→7.73，非重估）｜前次：2026-07-01（價格 refresh）｜建卡：2026-06-04（Q1 FY27 beat+raise）
+**板塊**：consumption-based 資料庫 SaaS（NoSQL document DB；Atlas DBaaS + Vector Search）| **更新**：**2026-09-24**（**§12.10 對齊，非基本面重估**：`zone_bull` 388→**466**（≡`bull_target`；舊值＝50x×FY28 是 base 倍數，屬 ZONE_BULL_DRIFT 存量債、餘裕僅 6.6%）；EPS／P/E 一格未動；依 §13.1 `zone_bull`∈BASIS_KEYS ⇒ 推 `last_updated`；user 2026-09-24 裁決破例提前對齊，不等 12-01 ER）｜前次：**2026-09-06**（**post-Q2 FY27 重估**：NTM EPS 7.73→**7.28**、fair $387→**$364**、zone 271/329→**255/309**、bull $534→**$466**；分級 `overvalued`→**`fair_high`**。P/E 框架 35/50/60x 全部不動，只動 EPS 軸）｜前次：2026-08-30（`base_eps` 口徑對齊 6.7→7.73，非重估）｜前次：2026-07-01（價格 refresh）｜建卡：2026-06-04（Q1 FY27 beat+raise）
 
 | 年份 | EPS（street，2026-09-06）| YoY | 保守（35x）| 合理（50x）| 樂觀（60x）|
 |------|---------------------------|-----|------------|------------|------------|
 | FY27 | $6.55（舊卡假設 $7.15）| +32% | $229 | $327 | $393 |
-| FY28 | $7.77（舊卡假設 $8.90）| +19% | $272 | **$388**（`zone_bull`）| **$466**（`bull_target`）|
+| FY28 | $7.77（舊卡假設 $8.90）| +19% | $272 | $388（09-24 前的 `zone_bull`，已退）| **$466**（`bull_target` ≡ `zone_bull`，§12.10）|
 | NTM  | **$7.28** | NA | $255 | **$364**（`zone_fair`）| $437 |
 
 📄 **明細** → `valuation_log/MDB.md`
