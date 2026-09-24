@@ -843,19 +843,19 @@ AMC = After Market Close(盤後/收盤後公布，通常指財報發布時點，
 ---
 
 ### QQQ（Nasdaq 100 ETF）
-> META| last_updated=2026-09-07 | earnings_basis=2026-09-07_bottom-up_102檔 | next_earnings=N/A | base_eps_basis=NTM | zone_lo=556 | zone_hi=639 | zone_fair=695 | zone_bull=899 | bear_eps=26.05 | bear_pe=21 | bear_target=547 | base_eps=28.94 | base_pe=24 | base_target=695 | bull_eps=33.29 | bull_pe=27 | bull_target=899 | mkt_px=718.96 | mkt_px_date=2026-09-04 | valuation_flag=fair_high
-> NTM_BLEND| date=2026-09-07 | fy_end=NA(ETF) | basket_ntm_pe=24.71 | basket_fy2_pe=21.48 | **fund_eff_ntm_pe=24.84** | fund_eff_fy2_pe=21.60 | ntm_eps=28.94 | fy2_eps=33.29 | cov=99.47% | method=盈餘加權(調和) Σw/Σ(w/PE)，102 檔逐檔 NTM blend；**隱含 EPS 依 §12.6⑤ 由 fund_eff 導出**（08-05 用的是該節判為錯誤的 ETF價/籃子P/E 寫法） | ext_check=LSEG NDX fwd 22.8x@07-24（同口徑回推我方當時 ~22.2x） | note=**roll-forward 重估，成分 102 檔與 08-05 完全相同**（無新增/剔除），權重重抓 slickcharts。★ **跨期比較必須同口徑**：08-05 公佈的 ntm_eps 28.85 是舊(錯)式，換算正確式約 **28.69** ⇒ 真實 EPS 變化是 **+0.9%** 而非表面的 +0.3%；FY+1 同理 31.83(舊式)≈31.66 → **33.29＝+5.1%**。🔴 **EPS 上修幾乎全在 FY+1，而 FY+1 有 12.30% 的籃子盈餘來自只佔 4.22% 權重的記憶體/HDD 四檔**（MU 單檔 9.06%／FY+1 P/E 6.6x／街口預期其 FY+1 EPS 由 75.69 翻到 155.03）⇒ R:R 由 0.76 改善到 1.05 有一半是「街口把 MU 的 FY+1 抬上去」，不是指數變便宜。house 覆寫跟上 SSOT：AMZN 9.55→**9.94**（09-06 卡）、GOOG/GOOGL 14.56→**13.96**（09-07 卡補剔 Q1'26 漏扣的 MTM）—— **GOOG 那筆是往下修，讓籃子貴了 0.11 個倍數點**（覆寫不是單向護盤）。腳本 `py_dir/07-09-2026_basket_ntm_pe.py`
-**板塊**：NASDAQ 100 指數 ETF | **更新**：**2026-09-07**（bottom-up **roll-forward 重估**：NTM EPS/股 28.85→**28.94**、FY+1 31.83→**33.29**、fair $692→**$695**、zone 554/637→**556/639**、zone_bull $859→**$899**；P/E 框架 21/24/27x 不動。現價 $718.96（09-04 收）＝ **24.84x NTM**，距合理目標 **−3.4%**，分級 **`fair_high`**）｜前次：2026-08-05（首次 bottom-up 重估）
+> META| last_updated=2026-09-24 | earnings_basis=2026-09-23_bottom-up_102檔 | next_earnings=N/A | base_eps_basis=NTM | zone_lo=639 | zone_hi=735 | zone_fair=799 | zone_bull=952 | bear_eps=29.95 | bear_pe=21 | bear_target=629 | base_eps=33.28 | base_pe=24 | base_target=799 | bull_eps=35.26 | bull_pe=27 | bull_target=952 | mkt_px=741.21 | mkt_px_date=2026-09-23 | valuation_flag=above_waiting
+> NTM_BLEND| date=2026-09-24 | fy_end=NA(ETF) | basket_ntm_pe=22.05 | basket_fy2_pe=20.81 | **fund_eff_ntm_pe=22.27** | fund_eff_fy2_pe=21.02 | ntm_eps=33.28 | fy2_eps=35.26 | cov=99.89% | method=盈餘加權(調和)，102 檔逐檔 NTM blend，**權重改吃 zacks 股數×同場收盤**（src `etf_basket`；stockanalysis 股數獨立核對一致），隱含 EPS 依 §12.6⑤ | ext_check=無同期外部 NDX fwd P/E | note=**v6.03 val_check 籃子漂移 +15.0% 觸發（P1）**。+15.0% 拆解：🔴 **MU FY 錨位修正 +9.8%**（09-07 錨在已結束的 FY2026 $75.69，今 NTM $159.12）｜權重 +2.1%（NDX 封頂：NVDA/AAPL/MSFT/AMZN/AVGO 持有流通股同為 0.77%，MU/AMD/INTC 約 2.1% ⇒ 前 14 檔權重 69.9%→56.9%；09-07 的 slickcharts 權重其實是市值推算，§12.6③ 市值比驗證對封頂指數失效）｜其餘 +2.6%（共識移動＋w1 roll＋AMZN 覆寫 9.94→9.63）。🔴 **MU 權重 5.14% 扛 17.0% 籃子盈餘（6.7x）**，SNDK 1.15%→3.16%；MU EPS −40% ⇒ fair $744、−60% ⇒ **$717**（≈ 現價）。腳本 `py_dir/24-09-2026_qqq_basket_revaluation.py`
+**板塊**：NASDAQ 100 指數 ETF | **更新**：**2026-09-24**（籃子漂移觸發重估：NTM EPS/股 28.94→**33.28**、FY+1 33.29→**35.26**、fair $695→**$799**、zone 556/639→**639/735**、zone_bull $899→**$952**；P/E 框架 21/24/27x 不動。現價 $741.21（09-23 收）＝ **22.27x NTM**，距合理目標 **+7.8%**，分級 **`above_waiting`**）｜前次：2026-09-07（roll-forward）
 
-#### 三情境估值（每 QQQ 股 EPS × 保守 P/E；NDX 點位 ＝ QQQ × 41.093）
-| 情境    | NDX 點位  | QQQ 目標 | EPS 基準（每 QQQ 股）| P/E  | vs $718.96 | 觸發條件                                       |
+#### 三情境估值（每 QQQ 股 EPS × 保守 P/E；NDX 點位 ＝ QQQ × 41.11）
+| 情境    | NDX 點位  | QQQ 目標 | EPS 基準（每 QQQ 股）| P/E  | vs $741.21 | 觸發條件                                       |
 |---------|-----------|----------|---------------------|------|-----------|----------------------------------------------|
-| 🔴 Bear | 22,478    | $547     | $26.05（−10% de-rate）| 21x  | **−23.9%** | AI Capex 減速 + 倍數壓縮 **且**盈餘同步下修   |
-| 🔴 Bear（純倍數）| 24,985 | $608 | $28.94（NTM）      | 21x  | −15.4%    | 只有風險偏好收縮、共識不動                     |
-| 🟡 Base | 28,560    | $695     | $28.94（NTM blend） | 24x  | −3.4%     | AI 增長 in-line + 七巨頭盈利持續               |
-| 🟢 Bull | 36,942    | $899     | $33.29（FY+1）      | 27x  | **+25.0%** | AI 上修延續 + **記憶體超級週期不反轉**        |
+| 🔴 Bear | 25,858    | $629     | $29.95（−10% de-rate）| 21x  | **−15.1%** | AI Capex 減速 + 倍數壓縮 **且**盈餘同步下修（≈ MU EPS −60% 的籃子效果）|
+| 🔴 Bear（純倍數）| 28,736 | $699 | $33.28（NTM）      | 21x  | −5.7%     | 只有風險偏好收縮、共識不動                     |
+| 🟡 Base | 32,847    | $799     | $33.28（NTM blend） | 24x  | +7.8%     | AI 增長 in-line + 記憶體共識不反轉              |
+| 🟢 Bull | 39,137    | $952     | $35.26（FY+1）      | 27x  | **+28.4%** | AI 上修延續 + **記憶體超級週期不反轉**        |
 
-📄 **明細** → `valuation_log/QQQ.md`（常設卡）｜**本次重估全文** → `valuation_log/2026-09-07-QQQ-revaluation.md`｜**指數層同源** → `index_valuation.md` NDX 段
+📄 **明細** → `valuation_log/QQQ.md`（常設卡）｜**本次重估全文** → `valuation_log/2026-09-24-QQQ-revaluation.md`｜**指數層同源** → `index_valuation.md` NDX 段
 
 ---
 
