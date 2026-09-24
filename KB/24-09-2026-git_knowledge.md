@@ -43,9 +43,9 @@ git commit -m "stop tracking flowpatrol logs"
 
 
 
-###
-解析這個命令  git log --oneline GHRemote/main..HEAD
-###
+
+## 解析這個命令  git log --oneline GHRemote/main..HEAD
+
 
 這個命令列出**在 HEAD 裡、但不在 GHRemote/main 裡**的 commit,也就是本地多出來、遠端還沒有的那幾個。
 
