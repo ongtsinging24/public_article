@@ -477,7 +477,7 @@ AMC = After Market Close(盤後/收盤後公布，通常指財報發布時點，
 ---
 
 ### NVDA（NVIDIA）
-> META| last_updated=2026-08-30 | earnings_basis=2026-08-26_ER_actual | next_earnings=2026-11-18 | base_eps_basis=FY27 | zone_lo=208 | zone_hi=252 | zone_fair=297 | zone_bull=432 | bear_eps=7.69 | bear_pe=22 | bear_target=169 | base_eps=9.29 | base_pe=32 | base_target=297 | bull_eps=10.79 | bull_pe=40 | bull_target=432 | mkt_px=217.55 | mkt_px_date=2026-08-28 | valuation_flag=in_waiting
+> META| last_updated=2026-08-30 | earnings_basis=2026-08-26_ER_actual | next_earnings=2026-11-18 | base_eps_basis=FY27 | zone_lo=208 | zone_hi=252 | zone_fair=297 | zone_bull=432 | bear_eps=7.69 | bear_pe=22 | bear_target=169 | base_eps=9.29 | base_pe=32 | base_target=297 | bull_eps=10.79 | bull_pe=40 | bull_target=432 | mkt_px=224.58 | mkt_px_date=2026-09-24 | valuation_flag=in_waiting
 > NTM_BLEND| date=2026-08-30 | fy_end=Jan | w_fy1=0.422 | w_fy2=0.578 | ntm_eps=12.77 | ntm_pe=32 | ntm_target=409 | note=post-Q2 FY27 重估（ER 2026-08-26 AMC）；FY27 8.996→**9.288**（+3.2%）＋ FY28 12.890→**15.306**（**+18.7%**）；⚠️ **zone 仍錨 FY27 base_target 297，不是 NTM 409**（`base_eps_basis=FY27`，07-15 立的刻意例外；2026-08-30 user 裁決**維持**）；P/E 不 re-rate
 **板塊**：AI 算力 | **更新**：**2026-08-30**（post-Q2 FY27 重估，ER **2026-08-26 AMC**）：FY27 EPS 8.98→**9.29** ⇒ base_target 287→**$297**、zone 201/244→**208/252**；bear/bull 依 FY27 同比例滾動（×1.0325）。base_pe 32x **不動**（§9）｜前次：2026-08-09（freshness 重估，無新 ER）
 
