@@ -44,6 +44,20 @@
 - 股 = SPX，**債 = AGG**（綜合債）。TLT 天期太長，只列參考，拿它當債腳會把漂移高估一倍以上。
 - 腳本：`py_dir/quarter_end_rebalance_gauge.py`（基準日自動取上季最後交易日）。
 
+#### S_3_1_1｜QTD 正負號怎麼讀（2026-09-29 補）
+
+**QTD ＝ 上季最後交易日收盤 → 現在的累積報酬。** 正＝本季漲、負＝本季跌（債價跌≡殖利率升）。
+
+**再平衡看的是股債 QTD 的「差」，不是單邊正負號**：
+
+| 情境 | 股 QTD | 債 QTD | 股票權重 | 季末動作 |
+|---|---|---|---|---|
+| 股漲債跌（2026Q3 實況） | +2.46% | -3.39% | 60% → 61.4% | **賣股買債** |
+| 股債都跌、股跌更多 | -8% | -2% | 跌破 60% | 買股賣債 |
+| 股債同幅漲 | +3% | +3% | 維持 60% | 不動 |
+
+⇒ 常見誤讀：「股票本季是正的 ⇒ 季末會被賣」—— 錯；股 +3%、債 +6% 時反而是**買股**。一律代 S_3_1 公式算權重，不看單邊符號。
+
 ### S_3_2｜2026Q3 讀數（as-of 2026-09-28 美東收盤）
 
 | 資產 | 06-30 | 09-28 | QTD |
@@ -107,6 +121,20 @@
 2. **事件溢價通常已被定價**：SG 09-25 Forward IV 14.9% vs 期限結構 11.3%（差 3.6 vol pt）；09-28 SPX 本週到期 IV 再 +2~3 pt。⇒ 季末前買保護是在買被墊高的 vol；要不要買取決於**要保的那個基本面事件**，不是季末本身。
 3. **ZG 附近的季末收盤**：MOC 大單可能把 SPX 機械性推過 ZG（2026-09-28：7,684 vs ZG 7,640，+0.6%）。這類穿越屬機械性，**不單獨觸發加保護**；配合 [[feedback_risk_pivot_is_vol_gate_not_direction]]：若真觸發，也是買凸性不是做空。
 
+### S_5_1｜把再平衡映射到我方持倉的四步（2026-09-29 補）
+
+以 SSOT `brokerage_log/*.xlsx.log` 逐項過（[[feedback_holdings_ssot_brokerage_log]]）：
+
+| 步 | 問題 | 怎麼查 | 2026Q3 實例（`29-09-2026-brokerage.xlsx.log`，09-28 收後快照） |
+|---|---|---|---|
+| 1 | 我的部位在不在被再平衡的籃子裡？ | 逐 sym 查是否 SPX 成分；**ADR 不在 SPX** | QQQ／AVGO／AMZN 在（按市值比例順帶被賣）；**TSM 是 ADR 不在**（TSM 相關等效曝險 102% NAV 碰不到） |
+| 2 | 板塊層會不會被針對？ | 60/40 只在資產類別層調整 | SOXX QTD -12.4%：60/40 不加賣；按板塊權重再平衡的產品反而是**買回方** |
+| 3 | 若指數被推低，我吃多少？ | rr6（β 加權 SPX 等效）× 假設跌幅 | rr6 261% ⇒ SPX 每 -1% ≈ NAV -2.6%（≈ -$16K）。**這是敏感度，不是預測**：再平衡的價格衝擊量級不可估（容忍帶／提前分批／已被預期） |
+| 4 | 債腳對我有沒有直接影響？ | 持倉有無債券 | 無債券 ⇒ 無直接影響；間接（殖利率→成長股）被 S_3_3 第 3 條擋掉 |
+
+⇒ **結論模板**：四步走完若都是「間接／不可估」，再平衡就只是收盤噪音，決策回到同日的**基本面催化**（2026Q3＝MU ER，對 semis 52.2% NAV、rr4u 0% 的部位才是尾部）。
+⚠️ 口徑提醒：rr9 的 semi 52.2% 是 |MV| 口徑且含 TSM；[[28-09-2026_SOXX_strategy]] S_4 的「semis 33%」只算 SOXX/SMH call 的 Δexp，兩者不可直接比。
+
 ---
 
 ## S_6｜待辦
@@ -130,4 +158,4 @@
 
 ## 關聯
 
-[[28-09-2026_SOXX_strategy]]、[[28-09-2026_TRENDFN]]、[[23-06-2026_seasonal-rebalance_strategy]]、[[21-04-2026_CC_對沖覆蓋率診斷與Collar方案]]、[[kb_wall-tenor-flow-vs-standing-oi]]、[[kb_fp-spread-label-vs-greek-sign]]、[[feedback_wall_levels_ssot_sg_data_table]]、[[feedback_hitrate_needs_conditional_baseline]]、[[feedback_event_study_needs_pre_window]]、[[project_rate_beta_regime_no_forward_power]]、[[project_semi_rate_hedge_is_beta_double_buy]]、[[feedback_risk_pivot_is_vol_gate_not_direction]]、[[reference_sg_official_docs_in_support_center]]
+[[28-09-2026_SOXX_strategy]]、[[28-09-2026_TRENDFN]]、[[feedback_holdings_ssot_brokerage_log]]、[[23-06-2026_seasonal-rebalance_strategy]]、[[21-04-2026_CC_對沖覆蓋率診斷與Collar方案]]、[[kb_wall-tenor-flow-vs-standing-oi]]、[[kb_fp-spread-label-vs-greek-sign]]、[[feedback_wall_levels_ssot_sg_data_table]]、[[feedback_hitrate_needs_conditional_baseline]]、[[feedback_event_study_needs_pre_window]]、[[project_rate_beta_regime_no_forward_power]]、[[project_semi_rate_hedge_is_beta_double_buy]]、[[feedback_risk_pivot_is_vol_gate_not_direction]]、[[reference_sg_official_docs_in_support_center]]
