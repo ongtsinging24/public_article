@@ -61,7 +61,6 @@
 |------|--------|
 | `543/` | 泛科學／都市傳說題材：把流傳版本裡的真物理與嫁接推論拆開，逐段標註證據等級 |
 | `AI_article/` | AI 產業分析與人物／教學長文 |
-| `background_knowledge_and_insights/` | 方法論、指標有效度、背景知識沉澱；分 7 個子目錄，索引見 `_INDEX.md`（`分類/dd-mm-yyyy_CC_主題.md`） |
 | `macro_narrative/` | 大行公開宏觀敘事原文歸檔 |
 | `option期權基礎知識/` | 期權基礎教學 |
 | `Root_Etymology_字根字源/` | 字根字源筆記 |
