@@ -4,7 +4,7 @@
 
 ## 1　簡介　傑夫里·辛頓
 
-傑夫里·埃弗里斯特·辛頓（Geoffrey Everest Hinton，生於 1947 年）是英裔加拿大籍的認知心理學家與電腦科學家，被尊稱為「**深度學習教父**」（Godfather of Deep Learning）。他半世紀的研究——**反向傳播**（backpropagation）、**波茲曼機**（Boltzmann machine）、**深度信念網路**（deep belief nets），以及 2012 年點燃整場 AI 革命的 **AlexNet**——構成了當代神經網路的理論骨幹。
+傑夫里·埃弗里斯特·辛頓（Geoffrey Everest Hinton，生於 1947 年）[^hinton]是英裔加拿大籍的認知心理學家與電腦科學家，被尊稱為「**深度學習教父**」（Godfather of Deep Learning）。他半世紀的研究——**反向傳播**（backpropagation）、**波茲曼機**（Boltzmann machine）、**深度信念網路**（deep belief nets），以及 2012 年點燃整場 AI 革命的 **AlexNet**——構成了當代神經網路的理論骨幹。
 
 榮譽包括 2018 年圖靈獎（與 Yann LeCun、Yoshua Bengio 共獲，三人合稱「深度學習三巨頭」），以及 **2024 年諾貝爾物理學獎**（表彰其以物理方法奠定機器學習基礎）。2023 年他離開 Google，公開警示 AI 的潛在風險，成為業界最受矚目的「吹哨者」之一。
 
@@ -366,3 +366,7 @@ BP 把誤差逐層回乘，當層數一多、又用會「兩端飽和」的 sigm
 - [Zoubin Ghahramani — Wikipedia](https://en.wikipedia.org/wiki/Zoubin_Ghahramani)
 - [Variational autoencoder — Wikipedia](https://en.wikipedia.org/wiki/Variational_autoencoder)
 - [Alex Graves (computer scientist) — Wikipedia](https://en.wikipedia.org/wiki/Alex_Graves_(computer_scientist))
+
+---
+
+[^hinton]: 傑夫里·辛頓（Geoffrey Hinton）：深度學習奠基者之一，2018 年圖靈獎、2024 年諾貝爾物理學獎得主，2023 年離開 Google 後轉為公開警示 AI 風險。
