@@ -439,3 +439,29 @@
 ### S_19_3 第 20 輪一句話
 
 PCE「符合預期但偏熱」後 ES −2%／NQ −3%，SG 正文改口為危機模式（VIX 40+、相關性 +40、CRWV 紅色警報），banner 仍掛 11-23 的反彈目標但已與正文矛盾；開盤 SPX 7,020 貼 PW／X 線 7,000，排序 1 失效，劇本改看今晚收盤歸類。
+
+## S_20 FN 11-25 PM 原文摘要＋11-25 真收盤（第 21 輪，2026-11-26 10:45 GMT+8）
+
+> **來源**：`log_gen_by_roma/founders_digest/25-11-2026_founders_PM.md`（標題 17:09 ET；5 張圖已剝除）。主檔對應 [[24-11-2026-Weekly_trading_plan]] S_11_14。
+
+### S_20_1 原文要點
+
+- 買跌的人進場，收復大部分跌幅；10Y 連 8 天下行收 4.87%（2024 年以來最長）。
+- SPX 盤中振幅 330bp，收 7,183（−0.3%）；**AM Note 標的 7,000 gamma 位成為盤中關鍵支撐**。
+- VIX 38 → 28、VVIX 131 → 115 ⇒「交易者在感恩節前賣掉波動」。
+- Dealer 在 7,000 **短約 $4bn gamma** ⇒ 兩個方向都可能大幅波動；7,000 有 **231K dealer long call、264K dealer short put**。
+- 10:00–12:00 ET HIRO **+$10bn** delta，與 330bp 反轉同時；其中 **$5bn 0DTE 賣 put**、**$3bn 較長天期買 call** ⇒ 賣波動者＋買跌者。
+- Fixed Strike Matrix：IV **普遍上升**，選擇權市場仍有壓力跡象；**12/3、12/4 到期 IV 漲約 2 點**。12/3 Jensen 作證是 NVDA 與大盤的關鍵事件；12/4 NFP 是 12/9 FOMC 前的關鍵事件。
+- 板塊：SOXX 盤中振幅 837bp ≈ QQQ（447bp）兩倍；SOXL 振幅 3,042bp；SOXL 1M RV 318% vs 1M IV 190%；LVP $26 貼近盤中低點，反彈 $6 到 $32。
+- 個股：**ANT** 在 $75 Put Wall 反彈，再測試並突破 $80 Key Gamma Strike。
+- Banner 沒有更新（仍是 11-23 版：7,500s 目標、Pivot 7,300、支撐 6,900；用反彈加 12 月底／1 月保護）。
+
+### S_20_2 讀法提醒
+
+- PM 的 HIRO 淨 delta 是**事後歸因**，不是隔夜訊號（[[feedback_hiro_eod_net_not_overnight_signal]]）；0DTE 賣 put 的部位當天就到期。
+- VIX 回落 vs fixed-strike IV 上升不矛盾：VIX 隨 ATM 移動；同一履約價的保護成本其實更高。
+- FN 表格（sg-prop-key-levels-table 等）在 digest 被略過；水位改用 data_table 11-26 檔（as-of 11-24 場次），見主檔 S_11_14_2。
+
+### S_20_3 第 21 輪一句話
+
+SPX 收 7,182.78 ⇒ 排序 1 存活；VIX 收 28.29 ⇒ 加速條件不成立；保護改成「趁反彈減半導體 delta＋Jan put spread（避開 12/3–12/4 到期）」。
