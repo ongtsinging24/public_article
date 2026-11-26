@@ -1,10 +1,10 @@
 # 11-23～11-27 週計畫（big picture／roadmap）：OPEX 後 7,000 樞紐 × SPX／QQQ 點位 × 事件日曆
 
-> **性質**：週計畫主檔，只放結論、點位總表、時間軸、現況。推導過程、博主原話、SG FN 增刪對照、逐輪盤前檢查在 [[24-11-2026-Weekly_trading_plan_detail]]。
+> **性質**：週計畫主檔，只放結論、點位總表、時間軸、現況。推導過程、博主原話、SG FN 增刪對照、逐輪盤前檢查在 [[Weekly_trading_plan_detail]]。
 > **狀態**：純討論，**未調倉、未開卡**。
 > **現行指標**：最新 **S_11_14**（11-25 收盤歸類＋FN 11-25 PM）；劇本 **S_11_14_3**（11-27 半日盤收盤表）；保護菜單 **S_11_14_5**；觸發清單 **S_11_14_4**；點位 **S_8_4**＋FN 表（S_11_12_2）＋個股水位 S_11_14_2；日曆 **S_9_2**。
 > **11-26 瘦身**：已被取代的章節（S_11_7～S_11_11、S_11_12_1／4／6／7）只留標題＋結論，盤中快照、FN 逐條對照、VD2A 交叉表、ES／NQ 對照表、上行劇本階梯、已過期日曆列都已刪除。全文見 commit `19fce36`（public_article/valuation 巢狀 repo）。更早的 11-23 清理見 `72638677`。
-> **ID 規則**：章節號不重編（append-only）；被移除的編號不再使用；S_11 各更新**由新到舊**排，所以章節號不等於閱讀順序。引用細節檔寫 `[[24-11-2026-Weekly_trading_plan_detail]] S_x`。
+> **ID 規則**：章節號不重編（append-only）；被移除的編號不再使用；S_11 各更新**由新到舊**排，所以章節號不等於閱讀順序。引用細節檔寫 `[[Weekly_trading_plan_detail]] S_x`。
 > **縮寫**：KGS＝Key Gamma Strike；KDS＝Key Delta Strike；PW／HW／CW＝Put／Hedge／Call Wall；ZG＝Zero Gamma；max_g＝gamma 最大履約價；Risk Pivot＝SG 的多空波動閘；FN＝SpotGamma Founder's Note；OPEX＝月選擇權結算日；COR1M＝Cboe 1 個月隱含相關指數；VVIX＝VIX 的波動率；HY OAS＝高收益債信用利差；RV/IV＝實現／隱含波動；W＝週線；ANT＝Anthropic（11-19 IPO）；X＝失效線；T＝開漲觸發；A1／A2、E1～E3＝舊上行劇本的壓力／停點（已封存）。
 
 ---
@@ -27,7 +27,7 @@
 
 ### S_11_14 11-25 真收盤歸類＋FN 11-25 PM：7,000 守住、V 形收回（2026-11-26 10:45 GMT+8）
 
-> **來源**：FN 11-25 PM（17:09 ET）；yfinance 日線（台北 10:41 取，已過 04:00 ⇒ 真收盤，[[feedback_us_close_price_only_after_0400_tpe]]）；data_table `SPX_data-table_2026-11-26.csv`（Previous Close＝11-24 收 ⇒ **as-of 11-24 場次**，與 FN AM 表同一場）；FRED BAMLH0A0HYM2。FN 原文摘要見 [[24-11-2026-Weekly_trading_plan_detail]] S_20。
+> **來源**：FN 11-25 PM（17:09 ET）；yfinance 日線（台北 10:41 取，已過 04:00 ⇒ 真收盤，[[feedback_us_close_price_only_after_0400_tpe]]）；data_table `SPX_data-table_2026-11-26.csv`（Previous Close＝11-24 收 ⇒ **as-of 11-24 場次**，與 FN AM 表同一場）；FRED BAMLH0A0HYM2。FN 原文摘要見 [[Weekly_trading_plan_detail]] S_20。
 
 #### S_11_14_1 11-25 真收盤判定：**排序 1 存活**（S_11_12_3 第一列）
 
@@ -209,7 +209,7 @@
 
 ### S_11_12 PCE 後開盤急跌＋FN 11-25 AM（SG 轉「危機模式」）＋VD2A 25-11（2026-11-25 22:35 GMT+8＝09:35 ET；⚠️ 盤中價，非收盤）
 
-> **來源**：FN 11-25 AM（07:00 ET 標題、09:16 ET 上架）；yfinance 1m；FRED BAMLH0A0HYM2；`video_digest/25-11-2026/` INDEX＋13 張卡。FN 原文摘要見 [[24-11-2026-Weekly_trading_plan_detail]] S_19。
+> **來源**：FN 11-25 AM（07:00 ET 標題、09:16 ET 上架）；yfinance 1m；FRED BAMLH0A0HYM2；`video_digest/25-11-2026/` INDEX＋13 張卡。FN 原文摘要見 [[Weekly_trading_plan_detail]] S_19。
 > **水位口徑**：FN key levels 表 `trade_date`＝**11-24 場次**，比 data_table（as-of 11-23，S_11_11_4）新一場 ⇒ 採 FN 表（[[feedback_sg_sources_desync_take_newest]]）。
 
 #### S_11_12_1 開盤快照（已併入 S_11_13_1「開盤」欄）
@@ -322,13 +322,13 @@ BIS 把 Megaspeed 相關 6 實體＋阿里巴巴新加坡 Apex 列入 Entity Lis
 
 #### S_11_10_4 今晚時間軸與待辦（已完成）
 
-### S_11_9 11-23 真收盤判定＋VD2A 24-11 交叉（2026-11-24 10:45 GMT+8；細節見 [[24-11-2026-Weekly_trading_plan_detail]] S_18）
+### S_11_9 11-23 真收盤判定＋VD2A 24-11 交叉（2026-11-24 10:45 GMT+8；細節見 [[Weekly_trading_plan_detail]] S_18）
 
-#### S_11_9_6 VD2A 24-11 第二批（細節 [[24-11-2026-Weekly_trading_plan_detail]] S_18_6）
+#### S_11_9_6 VD2A 24-11 第二批（細節 [[Weekly_trading_plan_detail]] S_18_6）
 
 上方階梯（7,300 → 7,350–7,370 → 7,410–7,465 → 7,500 → E2 7,617–7,630）已隨上行劇本封存。仍有效：大摩 Wilson 12M 目標 8,700（12 個月背景）；TSM ADR 溢價由 +18.1% 收斂到 +7.1%。
 
-#### S_11_9_5 OPEX 當天（11-20 場次）流向：FP＋ΔOI 交叉（細節 [[24-11-2026-Weekly_trading_plan_detail]] S_17_7）
+#### S_11_9_5 OPEX 當天（11-20 場次）流向：FP＋ΔOI 交叉（細節 [[Weekly_trading_plan_detail]] S_17_7）
 
 - **SPY**：避險**沒有拆，是往下滾**——平掉 700P／675P，新開 BePS 680/660（11-27）、675/650（12-04）⇒ SPX **6,500–6,800** 是新的保護區。
 - **QQQ**：12-18 680C +47K（買賣方向不可判）。**SMH**：遠月保護開始拆（2027-09 380P −8.9K）。**TSM**：深價內 short put 繼續回補；2027-01 360C／420C 新增（疑似 BuCS，⚪ 未逐腳確認）。
@@ -375,7 +375,7 @@ NVDA 董事會一致決議 Jensen Huang 回任（11-12 辭職）；NVDA 盤前 +
 
 #### S_11_8_5 收盤後待辦（已結）
 
-### S_11_7 OPEX 後重置：本週 roadmap（2026-11-23 10:45 GMT+8；細節見 [[24-11-2026-Weekly_trading_plan_detail]] S_16）
+### S_11_7 OPEX 後重置：本週 roadmap（2026-11-23 10:45 GMT+8；細節見 [[Weekly_trading_plan_detail]] S_16）
 
 **11-20 OPEX**：SPX 收 6,910.39（−3.70%，7 連跌），跌破 KGS／KDS 7,000；VIX 35.89；NVDA 125.53（碰 200W）。
 

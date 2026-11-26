@@ -1,6 +1,6 @@
 # 11-23～11-27 週計畫：細節層（OPEX 後判讀、期權市場變化）
 
-> **主檔**：[[24-11-2026-Weekly_trading_plan]]（roadmap [[24-11-2026-Weekly_trading_plan]] S_11_7、點位總表 [[24-11-2026-Weekly_trading_plan]] S_8_4、日曆 [[24-11-2026-Weekly_trading_plan]] S_9）。本檔章節號沿用拆檔前，不重編；被移除的編號不再使用。引用主檔章節寫 `[[24-11-2026-Weekly_trading_plan]] S_x`。
+> **主檔**：[[Weekly_trading_plan]]（roadmap [[Weekly_trading_plan]] S_11_7、點位總表 [[Weekly_trading_plan]] S_8_4、日曆 [[Weekly_trading_plan]] S_9）。本檔章節號沿用拆檔前，不重編；被移除的編號不再使用。引用主檔章節寫 `[[Weekly_trading_plan]] S_x`。
 > **11-23 清理**：原軋空劇本的推導（Rhino 條件、我方核對、可證偽清單、其他博主軋空點位、開漲觸發／結束點、FN 11-18 增刪）以及 11-19～11-20 的逐輪盤前／盤中／收盤檢查、11-20 博主劇情、OPEX 盤前 VIX 歸因，皆已作廢或過期，已移除；原文見 commit `72638677` 的本檔。
 > **縮寫**：KGS = Key Gamma Strike；HW／PW／CW = Hedge／Put／Call Wall；OPEX = 月選擇權結算日（11 月＝11-20 週五）；RV/IV = 實現／隱含波動；FN = SpotGamma Founder's Note；VD2A = video_digest 整理成文章。
 > **沿革**：`session_log/market_attribution/18-11-2026_Rhino軋空反彈條件與VIXexp窗口.md` → 11-19 移入 ls_strategy 改名 weekly_trading_plan → 11-19 拆成主檔＋本檔 → 11-23 移除作廢的軋空劇本。
@@ -12,12 +12,12 @@
 | 輪 | user | 做了什麼 |
 |---|---|---|
 | 1–14 | 11-18～11-20：軋空劇本推導與逐輪檢查 | 11-23 已移除（見上方清理說明） |
-| 15 | 「根據 SG FN & VD2A（21-11～23-11）update 主檔＋細節檔」（11-23 10:45 GMT+8） | 讀 `founders_digest/20-11-2026_founders_AM.md`／`_PM.md`、`22-11-2026_sg_weekly.md`；`video_digest/` 21-11／22-11／23-11 三批 INDEX＋Rhino／NaNa／寶哥卡；SG `data_table` 11-21／11-22／11-23；yfinance 11-20 真收盤＋ES／NQ 週日夜盤；FRED BAMLH0A0HYM2 → S_16；主檔新增 [[24-11-2026-Weekly_trading_plan]] S_11_7、[[24-11-2026-Weekly_trading_plan]] S_8_4、[[24-11-2026-Weekly_trading_plan]] S_9_4 |
+| 15 | 「根據 SG FN & VD2A（21-11～23-11）update 主檔＋細節檔」（11-23 10:45 GMT+8） | 讀 `founders_digest/20-11-2026_founders_AM.md`／`_PM.md`、`22-11-2026_sg_weekly.md`；`video_digest/` 21-11／22-11／23-11 三批 INDEX＋Rhino／NaNa／寶哥卡；SG `data_table` 11-21／11-22／11-23；yfinance 11-20 真收盤＋ES／NQ 週日夜盤；FRED BAMLH0A0HYM2 → S_16；主檔新增 [[Weekly_trading_plan]] S_11_7、[[Weekly_trading_plan]] S_8_4、[[Weekly_trading_plan]] S_9_4 |
 | 16 | 「把期權市場對 SPY QQQ SMH TSM 的主要變化也加入」（11-23 11:40 GMT+8） | SG `data_table` 11-16／11-21／11-23 三檔（11-13／11-19／11-20 場次）逐欄比對；`flowpatrol` 11-17～11-20 publish（11-16～11-19 場次）；`strike_ladder` 11-13→11-19 ΔOI → S_17 |
 | 17 | 「移除原軋空劇本；過期、失效、作廢的也移除」（11-23） | 主檔、本檔清理 |
-| — | 11-23 盤中（Jensen 回任）＋FN 11-23 AM 交叉 | 只寫主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8／[[24-11-2026-Weekly_trading_plan]] S_11_8_6，本檔未留推導 |
-| 18 | 「update 主檔＋細節檔 by SG FN doc & VD2A」（11-24 10:45 GMT+8） | FN 盤點（無新 FN）；`video_digest/24-11-2026` INDEX＋6 卡＋SAVEANA；yfinance 11-23 真收盤＋^VIX 1m＋ES=F 5m；FRED HY OAS → S_18；主檔新增 [[24-11-2026-Weekly_trading_plan]] S_11_9 |
-| 19 | 「do it」：補 FN 11-23 PM、剩餘 7 支 VD2A、S_17_6 待補（11-24 11:00 GMT+8）；追加「補 S_18_7」 | FN PM 原文摘要 → 本檔 S_18_7；FN 只補抓 PM → 主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_4；`flowpatrol_2026_11_23.log`＋`strike_ladder` 11-19→11-20 ΔOI → 本檔 S_17_7、主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_5；VD2A 4 個 subagent 平行 → 本檔 S_18_6、主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_6 |
+| — | 11-23 盤中（Jensen 回任）＋FN 11-23 AM 交叉 | 只寫主檔 [[Weekly_trading_plan]] S_11_8／[[Weekly_trading_plan]] S_11_8_6，本檔未留推導 |
+| 18 | 「update 主檔＋細節檔 by SG FN doc & VD2A」（11-24 10:45 GMT+8） | FN 盤點（無新 FN）；`video_digest/24-11-2026` INDEX＋6 卡＋SAVEANA；yfinance 11-23 真收盤＋^VIX 1m＋ES=F 5m；FRED HY OAS → S_18；主檔新增 [[Weekly_trading_plan]] S_11_9 |
+| 19 | 「do it」：補 FN 11-23 PM、剩餘 7 支 VD2A、S_17_6 待補（11-24 11:00 GMT+8）；追加「補 S_18_7」 | FN PM 原文摘要 → 本檔 S_18_7；FN 只補抓 PM → 主檔 [[Weekly_trading_plan]] S_11_9_4；`flowpatrol_2026_11_23.log`＋`strike_ladder` 11-19→11-20 ΔOI → 本檔 S_17_7、主檔 [[Weekly_trading_plan]] S_11_9_5；VD2A 4 個 subagent 平行 → 本檔 S_18_6、主檔 [[Weekly_trading_plan]] S_11_9_6 |
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### S_16_1 11-20 OPEX 真收盤
 
-| 標的 | 11-20 收 | 日漲跌 | 對 [[24-11-2026-Weekly_trading_plan]] 的線 |
+| 標的 | 11-20 收 | 日漲跌 | 對 [[Weekly_trading_plan]] 的線 |
 |---|---|---|---|
 | SPX | **6,910.39** | −3.70%（週 −8.61%，7 連跌＝2020-02 以來最長） | **收破 7,000**（11-20 前設定的保護升級條件成立）；距 61.8% 回撤 6,900 僅 +0.15%；距 2025 收盤 6,845.50 僅 +0.95% |
 | VIX | **35.89** | +26%（日高 40.03） | 遠高於 25／30；「OPEX 後 vol 回落」**未發生** |
@@ -227,7 +227,7 @@
 - put 增加：2027-01 320P +4.5K、12-18 310P +3.6K、11-27 350P +2.9K、12-18 360P +2.7K。
 - OPEX 後剩下的 OI：put 400（65K）、**300（56K）**、350、360；call 500、450、560、520。剩餘 P/C OI **0.92**（四檔裡唯一 call 多於 put）。
 
-**讀法**：HW 400 不變，仍是 400 的收復線；KGS 330 是第一道（[[24-11-2026-Weekly_trading_plan]] S_8_4、TV FC_T8）。PW 從 400 一路掉到 300，下方的 put 支撐比 SMH 薄。NE Skew −0.30 是四檔最陡 ⇒ 若要加保護，put 現在最貴，**BePS 優於裸 put**；而且 IV < RV，近月 vol 不算貴得離譜。
+**讀法**：HW 400 不變，仍是 400 的收復線；KGS 330 是第一道（[[Weekly_trading_plan]] S_8_4、TV FC_T8）。PW 從 400 一路掉到 300，下方的 put 支撐比 SMH 薄。NE Skew −0.30 是四檔最陡 ⇒ 若要加保護，put 現在最貴，**BePS 優於裸 put**；而且 IV < RV，近月 vol 不算貴得離譜。
 
 ### S_17_6 四檔合讀與待補
 
@@ -238,8 +238,8 @@
 | SMH | **400** | 300–400、2027 年遠月；BePS 430/330 | −7.4 | 保護拉長天期，近月 vol 還沒追上 |
 | TSM | 330（KGS）／300（PW） | 310–360 put；疑似 BuCS 430/520 | −7.9 | short put 投降式回補，call 量大但方向未定 |
 
-- 和 [[24-11-2026-Weekly_trading_plan]] S_11_7 一致的地方：**SPY 700／SPX 7,000 是本週單一樞紐**，結構面（PW、KGS、剩餘 put OI）三者重疊。
-- 和 [[24-11-2026-Weekly_trading_plan]] S_11_7 有差異的地方：半導體（SMH、TSM）的 IV 仍低於 RV，代表「保護最貴」這句話**對指數成立、對半導體只成立一半**（skew 最陡，但 IV 的絕對水位還沒追上實現波動）。
+- 和 [[Weekly_trading_plan]] S_11_7 一致的地方：**SPY 700／SPX 7,000 是本週單一樞紐**，結構面（PW、KGS、剩餘 put OI）三者重疊。
+- 和 [[Weekly_trading_plan]] S_11_7 有差異的地方：半導體（SMH、TSM）的 IV 仍低於 RV，代表「保護最貴」這句話**對指數成立、對半導體只成立一半**（skew 最陡，但 IV 的絕對水位還沒追上實現波動）。
 - **待補**（✅ 第 19 輪已補，見 S_17_7）：11-23 晚上 FP（11-20 場次）落地後，補 OPEX 當天四檔的 bto／stc，確認 (1) TSM 的 call 量是買還是賣；(2) SPY 700P、QQQ 600P 是新開還是滾倉；(3) strike_ladder 11-20 OI 落地後重算 ΔOI。
 
 **一句話**：OPEX 清掉了四檔 30–40% 的 gamma，下一個重心移到 12-18；SPY 700、SMH 400 都是 PW＝KGS 的單點樞紐，QQQ 的地板下移到 600。避險方式是指數「近月了結、往下滾」，半導體「拉長到 2027 年遠月」；TSM 則出現深價內 short put 的投降式回補。
@@ -302,14 +302,14 @@
 
 | 項目 | 狀態 | 處理 |
 |---|---|---|
-| FN 11-23 AM | 已讀，主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_6 | 沿用 |
-| FN 11-23 PM | 初版時未落地（sgfetch 06:42 時 SG 還沒上架；PM 標題時間 17:27 ET＝台北 06:27）。**第 19 輪 11:00 手動補抓成功**（`download_founders_notes(days_back=3)` → `founders_PM_2026_11_23.json` 3,049KB → `dump_founders_note_to_md`） | 已讀，主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_4 |
+| FN 11-23 AM | 已讀，主檔 [[Weekly_trading_plan]] S_11_8_6 | 沿用 |
+| FN 11-23 PM | 初版時未落地（sgfetch 06:42 時 SG 還沒上架；PM 標題時間 17:27 ET＝台北 06:27）。**第 19 輪 11:00 手動補抓成功**（`download_founders_notes(days_back=3)` → `founders_PM_2026_11_23.json` 3,049KB → `dump_founders_note_to_md`） | 已讀，主檔 [[Weekly_trading_plan]] S_11_9_4 |
 | FN 11-24 AM | 未到發布時間（07:00 ET＝台北 20:00） | — |
 | keyLevels | `2026_1124_keyLevels.json` 與 1123 **逐位元相同** | 無新水位 |
-| data_table 11-24 檔 | `api_trade_date` 2026-11-20、SPX Previous Close 6,910.39 ⇒ **仍是 11-20 場次** | [[24-11-2026-Weekly_trading_plan]] S_8_4 水位不變；11-23 場次順延到 11-25 檔 |
+| data_table 11-24 檔 | `api_trade_date` 2026-11-20、SPX Previous Close 6,910.39 ⇒ **仍是 11-20 場次** | [[Weekly_trading_plan]] S_8_4 水位不變；11-23 場次順延到 11-25 檔 |
 | FP | 最新 `flowpatrol_2026_11_23.log`（＝11-20 場次，OPEX 當天） | S_17_6 待補項可用此檔補（本輪未做） |
 
-⇒ 本輪 SG 面**沒有新判斷**；主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9 的變動全部來自真收盤、FRED 與 VD2A。
+⇒ 本輪 SG 面**沒有新判斷**；主檔 [[Weekly_trading_plan]] S_11_9 的變動全部來自真收盤、FRED 與 VD2A。
 
 ### S_18_2 11-23 真收盤與資料核對
 
@@ -327,10 +327,10 @@
 | ANT | 97.17 | 88.91 | 87.64 | 94.24／84.61 |
 | VIX | 28.44 | 35.89 | **26.62** | 35.08／**25.92**（見下） |
 
-- **VIX 日低 15.39 是壞值**：^VIX 1m 共 775 根，15.39 只出現在 09:32 ET 一根，次低是 15:32 UTC 的 25.92 ⇒ 真實日低 25.92。主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8 在盤中已判「不採」；24-11 NaNa 卡把博主「砸穿到 15 附近」標 ✅，只代表博主讀到同一筆 feed，**不代表 VIX 真的到過 15**。這是跨源矛盾，以 1m 序列為準。
+- **VIX 日低 15.39 是壞值**：^VIX 1m 共 775 根，15.39 只出現在 09:32 ET 一根，次低是 15:32 UTC 的 25.92 ⇒ 真實日低 25.92。主檔 [[Weekly_trading_plan]] S_11_8 在盤中已判「不採」；24-11 NaNa 卡把博主「砸穿到 15 附近」標 ✅，只代表博主讀到同一筆 feed，**不代表 VIX 真的到過 15**。這是跨源矛盾，以 1m 序列為準。
 - **ES 基差**：11-23 16:00 ET ES 7,258.25 vs SPX 7,237.17 ⇒ **+21**（11-20 為 +25，接近轉倉，基差在收斂）。夜盤 21:25 ET ES 7,270 ⇒ SPX ≈ 7,249；NQ 26,857。
 - **HY OAS**（FRED）：11-17 343 → 11-18 347 → 11-19 352 → **11-20 376**（單日 +24bp；一週 +53bp 與華爾街方舟卡一致）。11-23 值未發布。
-- **SMH 449.64 日低／469.35 開盤**：開盤即最高、收盤 460.18 ⇒ 主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_5 的「SMH 對 469.35」判定未過。
+- **SMH 449.64 日低／469.35 開盤**：開盤即最高、收盤 460.18 ⇒ 主檔 [[Weekly_trading_plan]] S_11_8_5 的「SMH 對 469.35」判定未過。
 
 ### S_18_3 VD2A 24-11：6 張卡對週計畫的可用部分
 
@@ -339,12 +339,12 @@
 
 | 卡 | 對週計畫有用的實測 | 採用到主檔 |
 |---|---|---|
-| NaNa（公告後） | MA10 **7,369.9**、MA200 **7,350.1**（含 11-23）；MA5 7,197.5；3.5 日 1σ 上沿約 7,485（SG 日 σ 132.5）；ES 週日 18:00 開 7,078（+2.1%）才是反彈起點；NVDA 181–196 放量區＋179.92–185.22 缺口；SOX 20 日線 10,127、年線 10,929；CRWD×ZS 條款 | [[24-11-2026-Weekly_trading_plan]] S_11_9_2：T 強確認改 7,350–7,370；NVDA 階梯；[[24-11-2026-Weekly_trading_plan]] S_9_2 CRWD／ZS 列 |
+| NaNa（公告後） | MA10 **7,369.9**、MA200 **7,350.1**（含 11-23）；MA5 7,197.5；3.5 日 1σ 上沿約 7,485（SG 日 σ 132.5）；ES 週日 18:00 開 7,078（+2.1%）才是反彈起點；NVDA 181–196 放量區＋179.92–185.22 缺口；SOX 20 日線 10,127、年線 10,929；CRWD×ZS 條款 | [[Weekly_trading_plan]] S_11_9_2：T 強確認改 7,350–7,370；NVDA 階梯；[[Weekly_trading_plan]] S_9_2 CRWD／ZS 列 |
 | 小左「反彈窗口」（公告前） | VIX 單週 +16.59 點＝1990 年起第 5 大，前 4 次一週後 4/4 上漲 ✅；SOX 單週 −17.13% 是 2001-09 以來最差（非 2011） | 經 SAVEANA 補跑後採（S_18_4） |
 | 小左「11 天反轉」（公告後） | SOX 6-22→11-19 −35.6% ✅；**利率見頂 vs SOX 見底**：11 段中 10Y 見頂是近似必要、非充分；DGS10 10-05 見頂 5.31%，本段谷暫定 11-20（頂後 44 天） | 背景（已併 memory `project_rate_beta_regime_no_forward_power`） |
-| 寶哥（公告後） | 8-K 細節（Jones 續任主席、新設國安／出口管制委員會、Kress 回任 CFO、獨董調查繼續）；Citi TP 225→240 | 獨董調查列入 NVDA 治理反證（主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_3 反證 4 已涵蓋） |
-| 老簡（公告前） | NVDA 週 −22.92%、週線 7 連黑（與 2008-07 並列）；**SEC 首報 WSJ 11-17、民事、查揭露** | S_16_3 加註（本檔）；主檔日曆 [[24-11-2026-Weekly_trading_plan]] S_9_2 12-01 列更正 |
-| 華爾街方舟（公告前） | ^SOX 11-20 −10.73%（1994 起第 5 大）；UBS AI bust SOX 5,500；GS／大摩 2027 SOX 8,700；**HY OAS 11-20 376bp** | HY OAS 進主檔 [[24-11-2026-Weekly_trading_plan]] S_11_7 清單與 [[24-11-2026-Weekly_trading_plan]] S_11_9_1 |
+| 寶哥（公告後） | 8-K 細節（Jones 續任主席、新設國安／出口管制委員會、Kress 回任 CFO、獨董調查繼續）；Citi TP 225→240 | 獨董調查列入 NVDA 治理反證（主檔 [[Weekly_trading_plan]] S_11_8_3 反證 4 已涵蓋） |
+| 老簡（公告前） | NVDA 週 −22.92%、週線 7 連黑（與 2008-07 並列）；**SEC 首報 WSJ 11-17、民事、查揭露** | S_16_3 加註（本檔）；主檔日曆 [[Weekly_trading_plan]] S_9_2 12-01 列更正 |
+| 華爾街方舟（公告前） | ^SOX 11-20 −10.73%（1994 起第 5 大）；UBS AI bust SOX 5,500；GS／大摩 2027 SOX 8,700；**HY OAS 11-20 376bp** | HY OAS 進主檔 [[Weekly_trading_plan]] S_11_7 清單與 [[Weekly_trading_plan]] S_11_9_1 |
 
 ### S_18_4 VIX 暴漲事件研究：為什麼不當本週加多依據
 
@@ -353,7 +353,7 @@
   - **不去叢集**：多出 2020-03-13（一週後 −14.98%）⇒ 5/6、平均 **−0.15%**。即時無法判斷眼前是第一次還是第二次暴漲。
   - **4 週**：≥12 點平均 −0.63%、上漲 2/5（基準 +0.74%、62.2%）⇒ 沒有 edge、偏負。
   - 只有 **52 週**超額穩健（+11.7pp，CI [+5.95, +17.45]）。
-- 對本週：本次（11-20）是進行中事件、沒有前瞻報酬。它支持的是「1 年視角分批」，**不是**「本週／本月會漲」；和 FN 11-23 AM「反彈不太可能撐過本週」、主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_3 靜默期偏防守同向。短線的否證訊號是**第二次 VIX 暴漲或回到 40**（[[24-11-2026-Weekly_trading_plan]] S_8_4 的 VIX_L40 警報）。
+- 對本週：本次（11-20）是進行中事件、沒有前瞻報酬。它支持的是「1 年視角分批」，**不是**「本週／本月會漲」；和 FN 11-23 AM「反彈不太可能撐過本週」、主檔 [[Weekly_trading_plan]] S_11_8_3 靜默期偏防守同向。短線的否證訊號是**第二次 VIX 暴漲或回到 40**（[[Weekly_trading_plan]] S_8_4 的 VIX_L40 警報）。
 
 ### S_18_5 跨源矛盾處理與未完成
 
@@ -362,7 +362,7 @@
 | VIX 日低 15.39（NaNa 卡 ✅）vs 1m 序列單筆異常 | 以 1m 為準，真實日低 25.92（S_18_2） |
 | SEC 調查：Reuters 11-20 會計（FN PM、老簡）vs WSJ 11-17 民事揭露（老簡卡實測） | 首報以 WSJ 11-17 為準；FN PM 引的 Reuters 報導可視為後續報導 |
 | 12-01「聽證會」vs 閉門 transcribed interview | 以閉門訪談為準；日期單一來源 ⚪ |
-| 200d：主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_3 舊值 7,348.6（至 11-20）vs NaNa 卡 7,350.1（含 11-23） | 採新值 7,350.1（多 1 場資料） |
+| 200d：主檔 [[Weekly_trading_plan]] S_11_8_3 舊值 7,348.6（至 11-20）vs NaNa 卡 7,350.1（含 11-23） | 採新值 7,350.1（多 1 場資料） |
 
 - **24-11 未 digest 的逐字稿 7 支**：MonetaryMatters（Gavin Baker）、Odd Lots、Rhino、美投、游庭皓 11-24、群益早安 11-23／11-24。Rhino、美投常帶點位，VD2A 補跑後回寫 S_18_3。
 - ~~**S_17_6 待補項**~~：第 19 輪已補，見 S_17_7。
@@ -375,15 +375,15 @@
 
 | 卡 | 組別 | 對週計畫有用的實測 | 採用 |
 |---|---|---|---|
-| Rhino | 公告後 | NQ 盤前鎖 +7% 漲停 26,878.50（CME 2020-10 起夜盤限幅 7%）；SPX C/O +0.14%、NDX C/O −0.53%；7,200＝11-20 缺口；7,300–7,400＝11-17/18 低點＋MA200/MA10；CTA 7,625 ⚪ ≈ SG SPX HW 7,630／MA50 7,617.6；NVDA 150＝PW；TSM 15x 前瞻 ≈333（FY27 共識 15x＝351） | 主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_6；**觸發 SPX 列更正**（S_16_5、主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_3） |
+| Rhino | 公告後 | NQ 盤前鎖 +7% 漲停 26,878.50（CME 2020-10 起夜盤限幅 7%）；SPX C/O +0.14%、NDX C/O −0.53%；7,200＝11-20 缺口；7,300–7,400＝11-17/18 低點＋MA200/MA10；CTA 7,625 ⚪ ≈ SG SPX HW 7,630／MA50 7,617.6；NVDA 150＝PW；TSM 15x 前瞻 ≈333（FY27 共識 15x＝351） | 主檔 [[Weekly_trading_plan]] S_11_9_6；**觸發 SPX 列更正**（S_16_5、主檔 [[Weekly_trading_plan]] S_11_8_3） |
 | 美投 | 公告後 | SG Weekly 轉述 ✅；大摩 16.4x／19x≈8,000／8,700；2Y 11-23 實為 0bp；NVDA 仍比 11-06 低 11.6%；Brent 換月假象 | 估值錨（背景） |
 | MonetaryMatters（Gavin Baker） | **公告前 11-18 錄** | Polymarket 回任機率 11-16 8.8%；NVDA NTM blend P/E 9.9x（11-18）→ 8.2x（11-20）→ 10.8x（11-23）；NVDA vs SOX 11-11→11-23 −5.0% vs −9.2% | NVDA 背景 |
 | OddLots | 非市場 | 中國青年失業 17.2%（10 月）；人均可支配所得 10 年翻倍 | 不採 |
 | 游庭皓 | 公告後 | ADR TSM +14.08%；出口許可申請 3.4M／核准約 879K（11-19 公布）；QQQ −15% 事件 15 次、1 年中位 +30.9% | 背景 |
 | 群益早安 11-23 | 公告前 | TAIEX −6.23%；上市櫃融資 −637 億；金管會 5 措施；外資 11-20 實為賣超 95.1 億 | 台股側參考 |
-| 群益早安 11-24 | 公告後 | 追繳線 130→120%；融資自 10-12 高點 −33%；TSM ADR 溢價 +18.1% → +7.1% | 主檔 [[24-11-2026-Weekly_trading_plan]] S_11_9_6 傳染暫解 |
+| 群益早安 11-24 | 公告後 | 追繳線 130→120%；融資自 10-12 高點 −33%；TSM ADR 溢價 +18.1% → +7.1% | 主檔 [[Weekly_trading_plan]] S_11_9_6 傳染暫解 |
 
-**更正**：S_16_5 與主檔 [[24-11-2026-Weekly_trading_plan]] S_11_8_3 原寫「data_table 無 SPX 列」「CW 8,100 過期」，皆錯（`header=1` 讀才看得到 `Symbol=SPX`）。as-of 11-20 的 SPX 列：KGS 7,000／KDS 6,000／PW 7,000／**HW 7,630**／**CW 8,100**；P/C OI 1.36、Volume Ratio 1.92；Top Gamma Exp 12-18（欄位值，實際可能早一天）。
+**更正**：S_16_5 與主檔 [[Weekly_trading_plan]] S_11_8_3 原寫「data_table 無 SPX 列」「CW 8,100 過期」，皆錯（`header=1` 讀才看得到 `Symbol=SPX`）。as-of 11-20 的 SPX 列：KGS 7,000／KDS 6,000／PW 7,000／**HW 7,630**／**CW 8,100**；P/C OI 1.36、Volume Ratio 1.92；Top Gamma Exp 12-18（欄位值，實際可能早一天）。
 
 **升級候選（待 user 確認）**：→併 reference 卡一行：^RUT 等指數開盤價可能是陳舊報價，算 C/O 改用 ETF（Rhino 卡）。
 
@@ -392,7 +392,7 @@
 ### S_18_7 FN 11-23 PM 原文摘要（17:27 ET 發布；第 19 輪補）
 
 > 縮寫：HIRO = SG 即時 delta 流向指標；VVIX = VIX 的波動率；0DTE = 當日到期期權；ATM = 價平；RV = 實現波動。
-> 來源：`log_gen_by_roma/founders_digest/23-11-2026_founders_PM.md`（11-24 11:00 手動補抓）。對本計畫的交叉與處理見 [[24-11-2026-Weekly_trading_plan]] S_11_9_4；本節只留原文要點，格式同 S_16_3。
+> 來源：`log_gen_by_roma/founders_digest/23-11-2026_founders_PM.md`（11-24 11:00 手動補抓）。對本計畫的交叉與處理見 [[Weekly_trading_plan]] S_11_9_4；本節只留原文要點，格式同 S_16_3。
 
 - **Sticky banner 改版（11/23 段）**：本週仍偏向反彈；上行目標 **7,500s**（上週是 ≥7,600）；有重大消息才可能到 7,600s（依 GEX 推估）；「用反彈加 12 月底／1 月的下檔保護，我們認為月底前市場會變得很不穩」。
 - **Key levels**：壓力 7,300、7,500；Pivot 7,300（11-20 更新，未變）；**支撐 6,900，6,900 以下沒有關鍵位**（AM 是 7,100／7,000）。
@@ -403,12 +403,12 @@
 - **SG 部位**：上週 webinar／Opening Setup 提的 SPX call fly／call spread、NVDA call fly／call 表現好；例：NVDA 12 月 170C 從 $0.75 漲到 $9.00（約 +1,100%）。
 - **漲幅歸因**：11 月 OPEX 約 $900B 到期 delta、約 75% 在 put；put 到期後 dealer 回補空期貨避險 ⇒ 機械性買盤；**開盤跳空在 Jensen 消息（約 08:55 ET）之前就已發生**。
 - **HIRO**：SPX 淨約 **−$9B**，其中 0DTE 賣 call 約 −$7B、較長天期買 put 約 −$3B ⇒ SG 解讀為「趁 premium 高賣 call，同時在反彈中加下檔避險」。依 [[feedback_hiro_eod_net_not_overnight_signal]]，PM HIRO 是事後歸因，不當方向訊號。
-- ⚠️ 正文沒有更新 GEX 曲線數字；6,000s 每跌 1% 有 $3–4bn 負 gamma 的說法仍出自 AM（[[24-11-2026-Weekly_trading_plan]] S_11_8_6）。結構化水位表在 digest 中被略過，水位一律以 data_table 為準。
+- ⚠️ 正文沒有更新 GEX 曲線數字；6,000s 每跌 1% 有 $3–4bn 負 gamma 的說法仍出自 AM（[[Weekly_trading_plan]] S_11_8_6）。結構化水位表在 digest 中被略過，水位一律以 data_table 為準。
 
 ## S_19 FN 11-25 AM 原文摘要＋PCE 後開盤（第 20 輪，2026-11-25 22:35 GMT+8）
 
 > 縮寫：GEX = gamma exposure；RV／IV = 實現／隱含波動；VXN = Nasdaq-100 波動率指數；ZG = zero gamma；neocloud = CRWV／NBIS 這類 AI 算力租賃商。
-> 來源：`spotgamma_report/auto/founders_note/founders_AM_2026_11_25.json`（標題 07:00 ET、`date` 09:16 ET；台北 22:30 手動 `download_founders_notes(days_back=1)` 抓取，founders_digest md 尚未產生）。對本計畫的交叉與處理見 [[24-11-2026-Weekly_trading_plan]] S_11_12；本節只留原文要點，格式同 S_18_7。
+> 來源：`spotgamma_report/auto/founders_note/founders_AM_2026_11_25.json`（標題 07:00 ET、`date` 09:16 ET；台北 22:30 手動 `download_founders_notes(days_back=1)` 抓取，founders_digest md 尚未產生）。對本計畫的交叉與處理見 [[Weekly_trading_plan]] S_11_12；本節只留原文要點，格式同 S_18_7。
 
 ### S_19_1 原文要點
 
@@ -442,7 +442,7 @@ PCE「符合預期但偏熱」後 ES −2%／NQ −3%，SG 正文改口為危機
 
 ## S_20 FN 11-25 PM 原文摘要＋11-25 真收盤（第 21 輪，2026-11-26 10:45 GMT+8）
 
-> **來源**：`log_gen_by_roma/founders_digest/25-11-2026_founders_PM.md`（標題 17:09 ET；5 張圖已剝除）。主檔對應 [[24-11-2026-Weekly_trading_plan]] S_11_14。
+> **來源**：`log_gen_by_roma/founders_digest/25-11-2026_founders_PM.md`（標題 17:09 ET；5 張圖已剝除）。主檔對應 [[Weekly_trading_plan]] S_11_14。
 
 ### S_20_1 原文要點
 
