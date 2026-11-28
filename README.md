@@ -64,6 +64,7 @@
 | `macro_narrative/` | 大行公開宏觀敘事原文歸檔 |
 | `option期權基礎知識/` | 期權基礎教學 |
 | `Root_Etymology_字根字源/` | 字根字源筆記 |
+| `taiwan_election/` | 台灣選舉得票統計與跨屆趨勢 |
 | `KB/`、`outdoor/` | 其他主題筆記 |
 
 ---
